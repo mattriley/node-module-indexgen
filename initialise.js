@@ -2,7 +2,8 @@ const { init } = require('module-initialiser');
 const src = require('./src');
 
 const config = {
-    defaultPattern: 'src/**/'
+    defaultPattern: 'src/**/',
+    ignore: '**/node_modules/**'
 };
 
 module.exports = ({ io }) => {
