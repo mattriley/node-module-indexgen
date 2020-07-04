@@ -5,6 +5,6 @@ module.exports = {
     getFileData: require('./get-file-data'),
     getModuleData: require('./get-module-data'),
     getScriptData: require('./get-script-data'),
-    listDirs: require('./list-dirs'),
+    listDir: require('./list-dir'),
     writeScripts: require('./write-scripts')
 };
