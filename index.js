@@ -6,5 +6,6 @@ const io = {
 };
 
 const initialise = require('./initialise');
-const { indexgen } = initialise({ io });
-module.exports = { indexgen };
+const { codeGeneration } = initialise({ io });
+const { indexgen, watch } = codeGeneration;
+module.exports = { indexgen, watch };
