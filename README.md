@@ -12,11 +12,15 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 ## Usage
 
-`npx indexgen [TARGET_DIR]`
+`npx indexgen [target dir] [options]`
 
 The target dir defaults to `src` if not provided.
 
-Add the `--watch` option to regenerate on file changes.
+Options:
+
+`--ext=[file extension]`: Extension for index files. Default is `js`.
+
+`--watch`: Regenerate on file changes.
 
 ## Example
 

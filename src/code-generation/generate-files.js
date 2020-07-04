@@ -1,5 +1,5 @@
-module.exports = ({ config, codeGeneration }) => async (targetDir = config.defaults.targetDir) => {
+module.exports = ({ codeGeneration }) => async (targetDir, ext) => {
     const dirDataList = await codeGeneration.listDir(targetDir);
     const scriptDataList = codeGeneration.generateScripts(dirDataList);
-    await codeGeneration.writeScripts(scriptDataList);
+    await codeGeneration.writeScripts(scriptDataList, ext);
 };
