@@ -14,7 +14,7 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 `npx indexgen [GLOB_PATTERN]`
 
-The glob pattern defaults to `**/src/**/` if not provided.
+The glob pattern defaults to `src/**/` if not provided.
 
 ## Example
 
