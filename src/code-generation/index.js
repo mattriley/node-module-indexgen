@@ -2,6 +2,7 @@ module.exports = {
     __modulename: 'codeGeneration',
     generateFiles: require('./generate-files'),
     generateScripts: require('./generate-scripts'),
+    getCommands: require('./get-commands'),
     getFileData: require('./get-file-data'),
     getModuleData: require('./get-module-data'),
     getScriptData: require('./get-script-data'),

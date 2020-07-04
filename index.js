@@ -7,5 +7,5 @@ const io = {
 
 const initialise = require('./initialise');
 const { codeGeneration } = initialise({ io });
-const { indexgen, watch } = codeGeneration;
+const { indexgen, watch } = codeGeneration.getCommands();
 module.exports = { indexgen, watch };

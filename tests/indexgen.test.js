@@ -20,6 +20,6 @@ test('generates index files', t => {
     };
 
     const io = { fs, glob };
-    const { indexgen } = initialise({ io }).codeGeneration;
+    const { indexgen } = initialise({ io }).codeGeneration.getCommands();
     indexgen('src', 'js');
 });
