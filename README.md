@@ -6,7 +6,7 @@ The generated code exports a plain object with an entry for each file and subdir
 
 ## Install
 
-`npm i indexgen`
+`npm i @mattriley/indexgen`
 
 ## Usage
 
