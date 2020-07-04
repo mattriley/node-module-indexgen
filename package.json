@@ -1,0 +1,37 @@
+{
+    "name": "indexgen",
+    "version": "0.1.0",
+    "description": "",
+    "author": "Matt Riley",
+    "license": "ISC",
+    "homepage": "https://github.com/mattriley/node-indexgen",
+    "repository": "github:mattriley/node-indexgen",
+    "main": "index.js",
+    "bin": {
+        "indexgen": "bin/indexgen.js"
+    },
+    "scripts": {
+        "test": "tape 'tests/**/*.test.js' | tap-spec",
+        "coverage": "nyc npm t"
+    },
+    "dependencies": {
+        "glob": "^7.1.6",
+        "lodash": "^4.17.15",
+        "module-initialiser": "^0.1.1"
+    },
+    "devDependencies": {
+        "nyc": "^14.1.1",
+        "tap-spec": "^5.0.0",
+        "tape": "^4.12.0"
+    },
+    "nyc": {
+        "all": true,
+        "include": [
+            "src/**/*.js"
+        ],
+        "reporter": [
+            "lcov",
+            "text"
+        ]
+    }
+}
