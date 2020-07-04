@@ -1,8 +1,8 @@
 const path = require('path');
 
-module.exports = ({ io }) => scripts => {
-    return Promise.all(scripts.map(script => {
-        const filePath = path.join(script.dirPath, 'index.js');
-        return io.fs.promises.writeFile(filePath, script.content);
+module.exports = ({ io }) => listOfScriptData => {
+    return Promise.all(listOfScriptData.map(scriptData => {
+        const filePath = path.join(scriptData.dirPath, 'index.js');
+        return io.fs.promises.writeFile(filePath, scriptData.script);
     }));
 };
