@@ -1,4 +1,4 @@
 module.exports = {
     __modulename: 'util',
-    getFileNameWithoutExt: require('./get-file-name-without-ext')
+    getBasenameWithoutExt: require('./get-basename-without-ext')
 };
