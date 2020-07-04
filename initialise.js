@@ -7,7 +7,8 @@ const config = {
 
 module.exports = ({ io }) => {
     const provider = src.providers.cjs;
-    const codeGeneration = init(src.codeGeneration, { config, io, provider });
+    const util = init(src.util, {});
+    const codeGeneration = init(src.codeGeneration, { config, io, util, provider });
     const indexgen = codeGeneration.generateFiles;
     return { indexgen, codeGeneration };
 };

@@ -1,5 +1,6 @@
 module.exports = {
     __modulename: 'src',
     codeGeneration: require('./code-generation'),
-    providers: require('./providers')
+    providers: require('./providers'),
+    util: require('./util')
 };
