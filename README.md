@@ -12,9 +12,11 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 ## Usage
 
-`npx indexgen [GLOB_PATTERN]`
+`npx indexgen [TARGET_DIR]`
 
-The glob pattern defaults to `src` if not provided.
+The target dir defaults to `src` if not provided.
+
+Add the `--watch` option to regenerate on file changes.
 
 ## Example
 
