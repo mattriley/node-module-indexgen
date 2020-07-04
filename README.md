@@ -61,9 +61,9 @@ module.exports = {
 }
 ```
 
-Requiring `src.js` with `require('./src')` produces:
+`require('./src')` produces:
 
-```js
+```
 {
     __modulename: 'src',
     components: {
