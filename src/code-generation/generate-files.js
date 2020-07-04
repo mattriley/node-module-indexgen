@@ -1,6 +1,4 @@
-const defaultPattern = '**/src/**/';
-
-module.exports = ({ codeGeneration }) => async (pattern = defaultPattern) => {
+module.exports = ({ config, codeGeneration }) => async (pattern = config.defaultPattern) => {
     const scripts = await codeGeneration.generateScripts(pattern);
     await codeGeneration.writeScripts(scripts);
 };
