@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
 const { indexgen } = require('..');
-const pattern = process.argv[2];
-indexgen(pattern);
+const targetDir = process.argv[2];
+indexgen(targetDir);

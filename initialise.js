@@ -2,7 +2,9 @@ const { init } = require('module-initialiser');
 const src = require('./src');
 
 const config = {
-    defaultPattern: 'src/**/',
+    defaults: {
+        targetDir: 'src'
+    },
     ignore: '**/node_modules/**'
 };
 

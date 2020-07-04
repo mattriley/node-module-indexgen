@@ -1,6 +1,6 @@
 # indexgen
 
-Generates `index.js` files for all directories matching a given glob pattern.
+Generates `index.js` files recursively for a given directory.
 
 The generated code exports a plain object with an entry for each file and subdirectory found in the directory.
 
@@ -14,7 +14,7 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 `npx indexgen [GLOB_PATTERN]`
 
-The glob pattern defaults to `src/**/` if not provided.
+The glob pattern defaults to `src` if not provided.
 
 ## Example
 
