@@ -79,4 +79,4 @@ module.exports = {
 
 ## Limitations
 
-Only supports CommonJS with `.js` files at this time.
+Only supports CommonJS with `.js` and `.cjs` files at this time.
