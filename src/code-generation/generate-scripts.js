@@ -1,6 +1,4 @@
-module.exports = ({ codeGeneration }) => async pattern => {
-    const listOfDirData = await codeGeneration.listDirs(pattern);
-    
+module.exports = ({ codeGeneration }) => listOfDirData => {
     return listOfDirData
         .map(codeGeneration.getModuleData)
         .map(codeGeneration.getScriptData);
