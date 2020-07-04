@@ -1,13 +1,6 @@
 const { init } = require('module-initialiser');
+const config = require('./config');
 const src = require('./src');
-
-const config = {
-    defaults: {
-        targetDir: 'src',
-        ext: 'js'
-    },
-    ignore: '**/node_modules/**'
-};
 
 module.exports = ({ io }) => {
     const provider = src.providers.cjs;
