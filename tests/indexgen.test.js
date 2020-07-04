@@ -21,5 +21,5 @@ test('generates index files', t => {
 
     const io = { fs, glob };
     const { indexgen } = initialise({ io }).codeGeneration;
-    indexgen('src');
+    indexgen('src', 'js');
 });
