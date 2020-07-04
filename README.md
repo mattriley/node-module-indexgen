@@ -8,6 +8,8 @@ The generated code exports a plain object with an entry for each file and subdir
 
 `npm i @mattriley/indexgen`
 
+Not to be confused with the unscoped package `indexgen` which is similar but deprecated.
+
 ## Usage
 
 `npx indexgen [GLOB_PATTERN]`

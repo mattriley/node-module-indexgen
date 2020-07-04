@@ -14,12 +14,12 @@ test('generates index files', t => {
         promises: {
             writeFile: (filename, content) => {
                 t.equal(filename, 'foo/index.js');
-                t.equal(content, "module.exports = {\n    __modulename: 'foo',\n    bar: require('./bar')\n};\n");
+                t.equal(content, 'module.exports = {\n    __modulename: \'foo\',\n    bar: require(\'./bar\')\n};\n');
             }
         }
     };
 
-    const io = { fs, glob }
+    const io = { fs, glob };
     const { indexgen } = initialise({ io });
     indexgen('*/');
 });
@@ -41,7 +41,7 @@ test('ensure only directories matched', t => {
         }
     };
 
-    const io = { fs, glob }
+    const io = { fs, glob };
     const { indexgen } = initialise({ io });
     indexgen('*'); // Note missing forward slash.
 });
@@ -62,7 +62,7 @@ test('ignores node_modules', t => {
         }
     };
 
-    const io = { fs, glob }
+    const io = { fs, glob };
     const { indexgen } = initialise({ io });
     indexgen('*');
 });
