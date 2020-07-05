@@ -1,4 +1,4 @@
-const { init } = require('module-initialiser');
+const { init } = require('@mattriley/module-initialiser');
 const config = require('./config');
 const src = require('./src');
 
