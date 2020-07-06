@@ -1,4 +1,4 @@
-# indexgen
+# module-indexgen
 
 Generates `index.js` files recursively for a given directory.
 
@@ -6,7 +6,7 @@ The generated code exports a plain object with an entry for each file and subdir
 
 ## Install
 
-`npm i @mattriley/indexgen`
+`npm i module-indexgen`
 
 Not to be confused with the unscoped package `indexgen` which is similar but deprecated.
 

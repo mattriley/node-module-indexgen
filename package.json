@@ -1,11 +1,11 @@
 {
-    "name": "@mattriley/indexgen",
+    "name": "module-indexgen",
     "version": "0.1.3",
     "description": "Generates index.js files",
     "author": "Matt Riley",
     "license": "ISC",
-    "homepage": "https://github.com/mattriley/node-indexgen",
-    "repository": "github:mattriley/node-indexgen",
+    "homepage": "https://github.com/mattriley/node-module-indexgen",
+    "repository": "github:mattriley/node-module-indexgen",
     "main": "index.js",
     "bin": {
         "indexgen": "bin/indexgen.js"
@@ -15,7 +15,7 @@
         "coverage": "nyc npm t"
     },
     "dependencies": {
-        "@mattriley/module-initialiser": "^0.1.0",
+        "module-composer": "^0.1.3",
         "glob": "^7.1.6",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.5"
