@@ -1,5 +1,5 @@
 const test = require('tape');
-const initialise = require('../initialise');
+const initialise = require('../src/initialise');
 
 test('generates index files', t => {
     t.plan(2);
@@ -12,6 +12,7 @@ test('generates index files', t => {
 
     const fs = {
         promises: {
+            access: () => Promise.reject(),
             writeFile: (filename, content) => {
                 t.equal(filename, 'foo/index.js');
                 t.equal(content, 'module.exports = {\n    __modulename: \'foo\',\n    bar: require(\'./bar\')\n};\n');
