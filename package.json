@@ -12,8 +12,7 @@
     },
     "scripts": {
         "test": "tape 'tests/**/*.test.js' | tap-spec",
-        "coverage": "nyc npm t",
-        "indexgen": "bin/indexgen.js"
+        "coverage": "nyc npm t"
     },
     "dependencies": {
         "glob": "^7.1.6",

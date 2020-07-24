@@ -1,7 +1,7 @@
 module.exports = () => {
 
     return {
-        defaults: { dir: 'src', ext: 'js' },        
+        defaults: { ext: 'js' },        
         ignore: '**/node_modules/**'
     };
 
