@@ -1,5 +1,5 @@
 module.exports = {
     __modulename: 'src',
-    config: require('./config'),
+    lib: require('./lib'),
     initialise: require('./initialise')
 };

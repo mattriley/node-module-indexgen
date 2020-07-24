@@ -1,13 +1,15 @@
 const compose = require('module-composer');
-const config = require('./config');
+const merge = require('lodash.merge');
 const lib = require('./lib');
 
-module.exports = args => {
+module.exports = (args = {}) => {
 
-    const io = args.io || lib.io();
+    const config = merge(lib.config(), args.config);
+    const io = merge(lib.io(), args.io);
     const provider = lib.providers.cjs;
     const util = compose(lib.util, {});
     const codeGeneration = compose(lib.codeGeneration, { config, io, util, provider });
+    
     return { codeGeneration };
 
 };
