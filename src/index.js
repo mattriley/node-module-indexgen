@@ -1,5 +1,7 @@
 module.exports = {
-    lib: require('./lib'),
-    initialise: require('./initialise'),
-    providers: require('./providers')
+    codeGeneration: require('./code-generation'),
+    config: require('./config'),
+    io: require('./io'),
+    providers: require('./providers'),
+    util: require('./util')
 };

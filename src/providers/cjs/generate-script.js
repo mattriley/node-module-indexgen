@@ -1,4 +1,4 @@
-module.exports = moduleData => {
+module.exports = () => moduleData => {
     const { modulename, files } = moduleData;
     const assignments = Object.entries(files).map(([key, path]) => [key, `require('${path}')`]);
     // const entries = [['__modulename', `'${modulename}'`], ...assignments];

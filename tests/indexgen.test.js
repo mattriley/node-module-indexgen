@@ -1,5 +1,5 @@
 const test = require('tape');
-const initialise = require('../src/initialise');
+const boot = require('../boot');
 
 test('generates index files', t => {
     t.plan(2);
@@ -21,6 +21,6 @@ test('generates index files', t => {
     };
 
     const io = { fs, glob };
-    const { indexgen } = initialise({ io }).codeGeneration.getCommands();
+    const { indexgen } = boot({ io }).codeGeneration.getCommands();
     indexgen('src', 'js');
 });
