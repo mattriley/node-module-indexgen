@@ -15,7 +15,7 @@ test('generates index files', t => {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
                 t.equal(filename, 'foo/index.js');
-                t.equal(content, 'module.exports = {\n    __modulename: \'foo\',\n    bar: require(\'./bar\')\n};\n');
+                t.equal(content, 'module.exports = {\n    bar: require(\'./bar\')\n};\n');
             }
         }
     };

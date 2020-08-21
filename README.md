@@ -51,7 +51,6 @@ Contents of `proj/src/components/index.js`:
 
 ```js
 module.exports = {
-    __modulename: 'components',
     bar: require('./bar'),
     foo: require('./foo'),    
     fooBar: require('./foo-bar')
@@ -64,7 +63,6 @@ Contents of `proj/src/index.js`:
 
 ```js
 module.exports = {
-    __modulename: 'src',
     components: require('./components')
 }
 ```
@@ -73,9 +71,7 @@ module.exports = {
 
 ```
 {
-    __modulename: 'src',
     components: {
-        __modulename: 'components',
         foo: (exported value for foo.js),
         bar: (exported value for bar.js),
         fooBar: (exported value for foo-bar.js)
