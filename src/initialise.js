@@ -1,14 +1,16 @@
-const compose = require('module-composer');
 const merge = require('lodash.merge');
-const lib = require('./lib');
+const composeLib = require('module-composer')(require('./lib'));
+const providers = require('./providers');
 
-module.exports = (args = {}) => {
+module.exports = (overrides = {}) => {
 
-    const config = merge(lib.config(), args.config);
-    const io = merge(lib.io(), args.io);
-    const provider = lib.providers.cjs;
-    const util = compose(lib.util, {});
-    const codeGeneration = compose(lib.codeGeneration, { config, io, util, provider });
+    const compose = (key, arg) => merge(composeLib(key, arg), overrides[key]);
+
+    const config = compose('config');
+    const io = compose('io');
+    const provider = providers.cjs;
+    const util = compose('util');
+    const codeGeneration = compose('codeGeneration', { config, io, util, provider });
     
     return { codeGeneration };
 

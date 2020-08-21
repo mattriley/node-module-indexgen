@@ -19,7 +19,7 @@
         "lodash.camelcase": "^4.3.0",
         "lodash.merge": "^4.6.2",
         "minimist": "^1.2.5",
-        "module-composer": "^0.1.3"
+        "module-composer": "^0.2.1"
     },
     "devDependencies": {
         "eslint": "^7.4.0",
