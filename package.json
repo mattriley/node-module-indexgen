@@ -22,7 +22,6 @@
         "module-composer": "^0.2.1"
     },
     "devDependencies": {
-        "eslint": "^7.4.0",
         "nyc": "^15.1.0",
         "tap-spec": "^5.0.0",
         "tape": "^5.3.2"
