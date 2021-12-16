@@ -12,7 +12,7 @@
     },
     "scripts": {
         "test": "tape 'tests/**/*.test.js' | tap-spec",
-        "coverage": "nyc npm t"
+        "cov": "nyc npm t"
     },
     "dependencies": {
         "glob": "^7.1.6",
@@ -23,7 +23,7 @@
     },
     "devDependencies": {
         "eslint": "^7.4.0",
-        "nyc": "^14.1.1",
+        "nyc": "^15.1.0",
         "tap-spec": "^5.0.0",
         "tape": "^5.3.2"
     },
