@@ -15,12 +15,13 @@ test('generates index files', t => {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
                 t.equal(filename, 'foo/index.js');
-                t.equal(content, 'module.exports = {\n    bar: require(\'./bar\')\n};\n');
+                t.equal(content, 'export bar from \'./bar\';\nexport default { bar };\n');
             }
         }
     };
 
+    const config = { type: 'esm' };
     const io = { fs, glob };
-    const { indexgen } = boot({ overrides: { io } }).codeGeneration.getCommands();
+    const { indexgen } = boot({ config, overrides: { io } }).codeGeneration.getCommands();
     indexgen('src', 'js');
 });

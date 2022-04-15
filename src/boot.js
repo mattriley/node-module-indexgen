@@ -1,6 +1,6 @@
 const modules = require('./modules');
 const composer = require('module-composer');
-const defaultConfig = require('./config');
+const defaultConfig = require('./config.json');
 
 module.exports = ({ config = defaultConfig, overrides = {} }) => {
 

@@ -20,7 +20,8 @@ test('generates index files', t => {
         }
     };
 
+    const config = { type: 'cjs' };
     const io = { fs, glob };
-    const { indexgen } = boot({ overrides: { io } }).codeGeneration.getCommands();
+    const { indexgen } = boot({ config, overrides: { io } }).codeGeneration.getCommands();
     indexgen('src', 'js');
 });

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const minimist = require('minimist');
-const { indexgen, watch } = require('..');
+const configure = require('..');
 const args = minimist(process.argv.slice(2));
 const paths = args._.length ? args._.filter(dir => Boolean(dir)) : ['./src'];
 
@@ -11,6 +11,7 @@ const parts = [
 ];
 
 console.log(parts.join(' '));
-const { ext } = args;
+const { ext, type } = args;
+const { indexgen, watch } = configure({ ext, type });
 paths.forEach(dir => indexgen(dir, ext));
 if (args.watch) paths.forEach(dir => watch(dir, ext));

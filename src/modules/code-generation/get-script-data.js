@@ -1,6 +1,6 @@
-module.exports = ({ providers }) => moduleData => {
+module.exports = ({ config, providers }) => moduleData => {
     return {
         dirPath: moduleData.dirPath,
-        script: providers.cjs.generateScript(moduleData)
+        script: providers[config.type].generateScript(moduleData)
     };
 };

@@ -1,4 +1,9 @@
 const boot = require('./src/boot');
-const { codeGeneration } = boot();
-const { indexgen, watch } = codeGeneration.getCommands();
-module.exports = { indexgen, watch };
+const defaultConfig = require('./src/config.json');
+
+module.exports = (config = {}) => {
+
+    const { codeGeneration } = boot({ config: { ...defaultConfig, ...config } });
+    return codeGeneration.getCommands();
+
+};
