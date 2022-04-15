@@ -20,6 +20,8 @@ Options:
 
 `--ext=[file extension]`: Extension for index files. Default is `js`.
 
+`--type=[module system type]`: `cjs` or `esm`. Default is `cjs`.
+
 `--watch`: Regenerate on file changes.
 
 ## Example
@@ -78,7 +80,3 @@ module.exports = {
     }
 }
 ```
-
-## Limitations
-
-Only supports CommonJS with `.js` and `.cjs` files at this time.
