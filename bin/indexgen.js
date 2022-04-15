@@ -11,7 +11,7 @@ const parts = [
 ];
 
 console.log(parts.join(' '));
-const { ext, type } = args;
+const { ext, type = 'esm' } = args;
 const { indexgen, watch } = configure({ ext, type });
 paths.forEach(dir => indexgen(dir, ext));
 if (args.watch) paths.forEach(dir => watch(dir, ext));
