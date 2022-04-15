@@ -2,7 +2,7 @@ const { promisify } = require('util');
 const fs = require('fs');
 const glob = require('glob');
 
-module.exports = () => {
+module.exports = () => () => {
 
     return {
         fs,

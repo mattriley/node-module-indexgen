@@ -1,0 +1,6 @@
+{
+    "defaults": {
+        "ext": "js"
+    },
+    "ignore": "**/node_modules/**"
+}
