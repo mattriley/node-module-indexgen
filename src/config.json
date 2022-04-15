@@ -1,7 +1,5 @@
 {
-    "defaults": {
-        "ext": "js"
-    },
+    "ext": "js",
     "type": "cjs",
     "ignore": "**/node_modules/**"
 }
