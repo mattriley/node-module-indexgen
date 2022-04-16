@@ -1,6 +1,6 @@
 {
     "name": "module-indexgen",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "description": "Generates index.js files",
     "author": "Matt Riley",
     "license": "ISC",
@@ -19,7 +19,7 @@
         "lodash.camelcase": "^4.3.0",
         "lodash.merge": "^4.6.2",
         "minimist": "^1.2.5",
-        "module-composer": "^0.8.0"
+        "module-composer": "^0.10.0"
     },
     "devDependencies": {
         "nyc": "^15.1.0",
