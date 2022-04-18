@@ -1,0 +1,15 @@
+#!/bin/bash
+
+. ./task-vars
+
+function task() {
+    echo "$1 started"
+    "tasks/$1" "${@:2}"
+    EXIT_CODE=$?
+    echo
+    echo "exit code $EXIT_CODE"
+}
+
+time task $@
+echo
+exit $EXIT_CODE

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+npx tape "$TESTS/**/*.test.js" | npx tap-spec

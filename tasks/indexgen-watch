@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./bin/indexgen.js $INDEXGEN_PATHS --type cjs --watch 
