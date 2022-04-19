@@ -1,10 +1,10 @@
 const merge = require('lodash.merge');
-const boot = require('./boot');
+const compose = require('./compose');
 const defaultConfig = require('./config.json');
 
 module.exports = (config = {}) => {
 
-    const { codeGeneration } = boot({
+    const { codeGeneration } = compose({
         config: merge({}, defaultConfig, config)
     });
 

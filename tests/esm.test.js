@@ -1,5 +1,5 @@
 const test = require('tape');
-const boot = require('../src/boot');
+const compose = require('../src/compose');
 
 test('generates index files', t => {
     t.plan(2);
@@ -22,6 +22,6 @@ test('generates index files', t => {
 
     const config = { type: 'esm' };
     const io = { fs, glob };
-    const { indexgen } = boot({ config, overrides: { io } }).codeGeneration.getCommands();
+    const { indexgen } = compose({ config, overrides: { io } }).codeGeneration.getCommands();
     indexgen('src', 'js');
 });
