@@ -7,7 +7,7 @@ test('generates index files', t => {
     const glob = (pattern, options) => {
         if (pattern === 'src/**/') return ['foo'];
         if (pattern === '*/' && options.cwd === 'foo') return [];
-        if (pattern === '*.{js,cjs}' && options.cwd === 'foo') return ['bar.js', 'index.js'];
+        if (pattern === '*.{js,json}' && options.cwd === 'foo') return ['bar.js', 'data.json', 'index.js'];
     };
 
     const fs = {
@@ -15,7 +15,7 @@ test('generates index files', t => {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
                 t.equal(filename, 'foo/index.js');
-                t.equal(content, 'module.exports = {\n    bar: require(\'./bar\')\n};\n');
+                t.equal(content, 'module.exports = {\n    bar: require(\'./bar\'),\n    data: require(\'./data.json\')\n};\n');
             }
         }
     };
