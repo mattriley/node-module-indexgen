@@ -3,7 +3,7 @@
 const minimist = require('minimist');
 const configure = require('..');
 const args = minimist(process.argv.slice(2));
-const paths = args._.length ? args._.filter(dir => Boolean(dir)) : ['./src'];
+const paths = args._.length ? args._.filter(dir => Boolean(dir)) : ['./src/**'];
 
 const parts = [
     args.watch ? 'Watching' : 'Generating',

@@ -5,7 +5,7 @@ test('generates index files', t => {
     t.plan(2);
 
     const glob = (pattern, options) => {
-        if (pattern === 'src/**/') return ['foo'];
+        if (pattern === 'src/**') return ['foo'];
         if (pattern === '*/' && options.cwd === 'foo') return [];
         if (pattern === '*.{js,json}' && options.cwd === 'foo') return ['bar.js', 'data.json', 'index.js'];
     };
@@ -23,5 +23,5 @@ test('generates index files', t => {
     const config = { type: 'esm' };
     const io = { fs, glob };
     const { indexgen } = compose({ config, overrides: { io } }).codeGeneration.getCommands();
-    indexgen('src', 'js');
+    indexgen('src/**', 'js');
 });
