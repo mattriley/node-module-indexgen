@@ -4,13 +4,8 @@
     "description": "Generates index.js files",
     "author": "Matt Riley",
     "license": "ISC",
-    "homepage": "https://github.com/mattriley/node-module-indexgen",
     "repository": "github:mattriley/node-module-indexgen",
-    "main": "src/app",
-    "files": [
-        "src/**/*",
-        "bin/**/*"
-    ],
+    "main": "src/app.js",
     "bin": {
         "indexgen": "bin/indexgen.js"
     },
@@ -31,7 +26,15 @@
         "tap-spec": "^5.0.0",
         "tape": "^5.5.3"
     },
+    "homepage": "https://github.com/mattriley/node-module-indexgen",
+    "files": [
+        "src/**/*",
+        "bin/**/*"
+    ],
     "publishConfig": {
         "access": "public"
+    },
+    "nurt": {
+        "nodeVersion": 14
     }
 }

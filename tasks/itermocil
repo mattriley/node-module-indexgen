@@ -1,8 +1,6 @@
 #!/bin/bash
 
-./tasks/itermocil-install
-
-cat > "iTermocil.yml" <<EOF
+cat > "itermocil.yml" <<EOF
 windows:
   - name: $PROJECT_NAME
     root: $(pwd)
@@ -19,6 +17,10 @@ windows:
         - nvm use
         - clear
         - ./task indexgen-watch        
+      - commands:
+        - nvm use
+        - clear
+        - ./task start
 EOF
 
 itermocil

@@ -1,5 +1,9 @@
+build_output
+package_output
 node_modules
 coverage
-iTermocil.yml
-package-lock.json
+nyc_output
+itermocil.yml
+.vscode
+.parcel-cache
 .DS_Store

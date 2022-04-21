@@ -1,12 +1,7 @@
 #!/bin/bash
 
-set -e
+set -ex
 
-STAGED_FILES=$(git diff --name-only --staged | tr -d '[:space:]')
-STAGED_DOCS=$(echo $STAGED_FILES | grep .md$ | tr -d '[:space:]')
-
-if [ "$STAGED_FILES" = "$STAGED_DOCS" ]; then
-    echo "Stages files are all docs. Skipping test."
-else
-    ./tasks/cov-check
-fi
+# ./tasks/check-relative-imports
+# ./tasks/lint
+# ./tasks/cov-check
