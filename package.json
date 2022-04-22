@@ -1,6 +1,6 @@
 {
     "name": "module-indexgen",
-    "version": "0.8.3",
+    "version": "0.8.4",
     "description": "Generates index.js files",
     "author": "Matt Riley",
     "license": "ISC",
