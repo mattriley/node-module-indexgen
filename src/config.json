@@ -1,5 +1,6 @@
 {
     "ext": "js",
+    "trimExt": true,
     "type": "cjs",
     "ignore": "**/node_modules/**"
 }

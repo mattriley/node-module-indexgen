@@ -5,7 +5,7 @@ const defaultConfig = require('./config.json');
 module.exports = ({ config = {}, overrides = {} }) => {
 
     const { codeGeneration } = compose({
-        config: merge({ trimExt: true }, defaultConfig, config),
+        config: merge({}, defaultConfig, config),
         overrides
     });
 
