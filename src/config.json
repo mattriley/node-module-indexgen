@@ -1,6 +1,6 @@
 {
     "ext": "js",
-    "trimExt": true,
+    "fullySpecified": false,
     "type": "cjs",
     "ignore": "**/node_modules/**"
 }
