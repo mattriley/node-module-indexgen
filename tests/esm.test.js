@@ -11,6 +11,7 @@ test('generates index files', t => {
     };
 
     const fs = {
+        lstatSync: () => ({ isDirectory: () => false }),
         promises: {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
