@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const minimist = require('minimist');
-const configure = require('../app');
+const configure = require('../src/app');
 const args = minimist(process.argv.slice(2));
 const paths = args._.length ? args._.filter(dir => Boolean(dir)) : ['./src/**'];
 
