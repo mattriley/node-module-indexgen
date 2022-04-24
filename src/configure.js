@@ -1,9 +1,11 @@
 const compose = require('./compose');
 const defaultConfig = require('./default-config.json');
 
-module.exports = config => {
+module.exports = userConfig => {
 
-    const { codeGeneration } = compose({ ...defaultConfig, ...config });
-    return codeGeneration.getCommands();
+    const config = { ...defaultConfig, ...userConfig };
+    const { codeGeneration } = compose({ config });
+    const { indexgen, watch } = codeGeneration;
+    return { indexgen, watch };
 
 };
