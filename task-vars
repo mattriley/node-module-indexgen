@@ -1,8 +1,1 @@
 #!/bin/bash
-
-export PROJECT_NAME="module-indexgen"
-export SRC="src"
-export MODULES="$SRC/modules"
-export TESTS="tests"
-export TEST_WATCH_PATTERN="{$SRC,$TESTS}/**/*.js"
-export INDEXGEN_PATHS="$MODULES"
