@@ -11,6 +11,6 @@ const parts = [
 ];
 
 console.log(parts.join(' '));
-const { indexgen, watch } = configure({ config: args });
+const { indexgen, watch } = configure(args);
 paths.forEach(dir => indexgen(dir));
 if (args.watch) paths.forEach(dir => watch(dir));
