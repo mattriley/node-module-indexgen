@@ -1,8 +1,7 @@
 const modules = require('./modules');
 const composer = require('module-composer');
-const defaultConfig = require('./config.json');
 
-module.exports = ({ config = defaultConfig, overrides = {} }) => {
+module.exports = ({ config, overrides }) => {
 
     const compose = composer(modules, { overrides });
     const { io } = compose('io', {}, io => io.setup());

@@ -1,14 +1,9 @@
-const merge = require('lodash.merge');
 const compose = require('./compose');
-const defaultConfig = require('./config.json');
+const defaultConfig = require('./default-config.json');
 
-module.exports = ({ config = {}, overrides = {} }) => {
+module.exports = config => {
 
-    const { codeGeneration } = compose({
-        config: { ...defaultConfig, ...config },
-        overrides
-    });
-
+    const { codeGeneration } = compose({ ...defaultConfig, ...config });
     return codeGeneration.getCommands();
 
 };

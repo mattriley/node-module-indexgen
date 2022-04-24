@@ -1,11 +1,11 @@
 {
     "name": "module-indexgen",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "Generates index.js files",
     "author": "Matt Riley",
     "license": "ISC",
     "repository": "github:mattriley/node-module-indexgen",
-    "main": "src/app.js",
+    "main": "src/configure.js",
     "bin": {
         "indexgen": "bin/indexgen.js"
     },
