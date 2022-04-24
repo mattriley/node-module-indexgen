@@ -5,9 +5,10 @@ test('generates index files', t => {
     t.plan(2);
 
     const glob = (pattern, options) => {
-        if (pattern === 'src/**') return ['foo'];
+        if (pattern === 'modules/**') return ['foo'];
         if (pattern === '*/' && options.cwd === 'foo') return [];
         if (pattern === '*.{js,json}' && options.cwd === 'foo') return ['bar.js', 'data.json', 'index.js'];
+        return [];
     };
 
     const fs = {
@@ -15,6 +16,7 @@ test('generates index files', t => {
         promises: {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
+                if (filename === 'modules/index.js') return;
                 t.equal(filename, 'foo/index.js');
                 t.equal(content, 'module.exports = {\n    bar: require(\'./bar\'),\n    data: require(\'./data.json\')\n};\n');
             }
@@ -25,5 +27,5 @@ test('generates index files', t => {
     const io = { fs, glob };
     const { codeGeneration } = compose({ config, overrides: { io } });
     const { indexgen } = codeGeneration.getCommands();
-    indexgen('src/**', 'js');
+    indexgen('modules', 'js');
 });
