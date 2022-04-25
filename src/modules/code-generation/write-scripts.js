@@ -1,23 +1,26 @@
 const path = require('path');
 
-module.exports = ({ io, config }) => scriptDataList => {
-    return Promise.all(scriptDataList.map(async scriptData => {
+module.exports = ({ futil, config }) => scriptDataList => {
+
+    const mapper = async scriptData => {
         const filePath = path.join(scriptData.dirPath, config.filename);
+        const [readError, currentValue] = await futil.readFile(filePath);
+        if (readError && readError.code !== 'ENOENT') console.error(readError);
 
-        try {
-            const exists = await io.fs.promises.access(filePath, io.fs.F_OK).then(() => true).catch(() => false);
+        const unchanged = currentValue === scriptData.script;
+        if (unchanged) return;
 
-            if (exists) {
-                const currentScript = await io.fs.promises.readFile(filePath, 'utf-8');
-                if (currentScript === scriptData.script) return;
-            }
+        const [writeError] = await futil.writeFile(filePath, scriptData.script);
 
-            await io.fs.promises.writeFile(filePath, scriptData.script);
-            console.log(`${exists ? 'Regenerated' : '  Generated'} ${filePath}`);
-        } catch (err) {
+        if (writeError) {
             console.log(`      Error ${filePath}`);
-            console.error(err);
+            console.error(writeError);
+        } else {
+            const assumeExists = !readError;
+            const action = assumeExists ? 'Regenerated' : '  Generated';
+            console.log(`${action} ${filePath}`);
         }
+    };
 
-    }));
+    return Promise.all(scriptDataList.map(mapper));
 };

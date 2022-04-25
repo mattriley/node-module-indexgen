@@ -3,6 +3,7 @@ const glob = require('fast-glob');
 
 module.exports = () => () => {
 
-    return { fs, glob };
+    const fsp = fs.promises;
+    return { fs, fsp, glob };
 
 };
