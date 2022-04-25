@@ -2,7 +2,7 @@ const path = require('path');
 
 const IN_A_SEC = 1000;
 
-module.exports = ({ codeGeneration, io, config }) => (targetDir) => {
+module.exports = ({ codeGeneration, io, config }) => targetDir => {
 
     let timeoutId = null;
 

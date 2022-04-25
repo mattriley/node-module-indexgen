@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = ({ io, config }) => (scriptDataList) => {
+module.exports = ({ io, config }) => scriptDataList => {
     return Promise.all(scriptDataList.map(async scriptData => {
         const filePath = path.join(scriptData.dirPath, config.filename);
 
