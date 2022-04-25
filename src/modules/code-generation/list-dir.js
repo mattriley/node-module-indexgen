@@ -4,8 +4,8 @@ module.exports = ({ config, io }) => async targetDir => {
     return Promise.all([targetDir, ...dirPaths].map(async dirPath => {
         const childDirPaths = await io.glob('*', { cwd: dirPath, onlyDirectories: true, markDirectories: true });
         const childFilePaths = await io.glob(config.only, { cwd: dirPath, onlyFiles: true, globstar: false });
-        const filePaths = childDirPaths.concat(childFilePaths);
-        return { dirPath, filePaths };
+        const childPaths = childDirPaths.concat(childFilePaths);
+        return { dirPath, childPaths };
     }));
 
 };

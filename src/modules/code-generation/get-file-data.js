@@ -6,13 +6,13 @@ const firstIsUpper = str => str[0] === str[0].toUpperCase();
 const upperFirst = str => str.charAt(0).toUpperCase() + str.slice(1);
 const dropLeadingUnderscoresAndDigits = str => str.match(/^(_+)?(\d+)?(.+)/)[3];
 
-module.exports = ({ util, config }) => ({ filePath }) => {
-    const isDir = filePath.endsWith('/');
-    const ext = p.extname(filePath);
-    const basenameWithoutExt = util.getBasenameWithoutExt(filePath);
+module.exports = ({ util, config }) => ({ childPath }) => {
+    const isDir = childPath.endsWith('/');
+    const ext = p.extname(childPath);
+    const basenameWithoutExt = util.getBasenameWithoutExt(childPath);
     const keyCamel = camelCase(dropLeadingUnderscoresAndDigits(basenameWithoutExt));
     const key = firstIsUpper(basenameWithoutExt) ? upperFirst(keyCamel) : keyCamel;
-    const pathWithoutExt = `./${ext === '.json' ? filePath : basenameWithoutExt}`;
-    const path = config.fullySpecified ? (isDir ? `./${filePath}${config.filename}` : `./${filePath}`) : pathWithoutExt;
+    const pathWithoutExt = `./${ext === '.json' ? childPath : basenameWithoutExt}`;
+    const path = config.fullySpecified ? (isDir ? `./${childPath}${config.filename}` : `./${childPath}`) : pathWithoutExt;
     return { key, path };
 };

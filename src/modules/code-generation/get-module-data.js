@@ -1,7 +1,7 @@
 module.exports = ({ codeGeneration }) => dirData => {
 
-    const { dirPath, filePaths } = dirData;
-    const fileDataList = filePaths.map(filePath => codeGeneration.getFileData({ filePath, dirPath }));
+    const { dirPath, childPaths } = dirData;
+    const fileDataList = childPaths.map(childPath => codeGeneration.getFileData({ childPath }));
     const files = Object.assign({}, ...fileDataList.map(({ key, path }) => ({ [key]: path })));
     delete files.index;
     return { dirPath, files };
