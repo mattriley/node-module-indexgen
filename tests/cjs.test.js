@@ -1,6 +1,5 @@
 const test = require('tape');
-const compose = require('../src/compose');
-const defaultConfig = require('../src/default-config.json');
+const configure = require('../src/configure');
 
 test('generates index files', t => {
     t.plan(2);
@@ -24,9 +23,8 @@ test('generates index files', t => {
         }
     };
 
-    const config = { ...defaultConfig, type: 'cjs' };
+    const config = { type: 'cjs' };
     const io = { fs, glob };
-    const { codeGeneration } = compose({ config, overrides: { io } });
-    const { indexgen } = codeGeneration;
+    const { indexgen } = configure(config, { io });
     indexgen('modules', 'js');
 });
