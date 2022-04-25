@@ -1,7 +1,6 @@
 #!/bin/bash
 
-[ -f ./task-vars-default ] && . ./task-vars-default
-[ -f ./task-vars ] && . ./task-vars
+. ./task-vars
 
 function task() {
     echo "$1 started"
