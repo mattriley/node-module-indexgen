@@ -2,8 +2,7 @@
 
 const minimist = require('minimist');
 const configure = require('../src/configure');
-const { _: pathList, ...args } = minimist(process.argv.slice(2));
-const paths = pathList.flatMap(p => p.split(','));
+const { _: paths, ...args } = minimist(process.argv.slice(2));
 
 const parts = [
     args.watch ? 'Watching' : 'Generating',
