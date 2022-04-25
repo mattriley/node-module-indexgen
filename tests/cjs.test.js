@@ -26,5 +26,5 @@ test('generates index files', t => {
     const config = { type: 'cjs' };
     const io = { fs, glob };
     const { indexgen } = configure(config, { io });
-    indexgen('modules', 'js');
+    indexgen('modules');
 });
