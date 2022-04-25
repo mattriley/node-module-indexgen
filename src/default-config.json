@@ -2,5 +2,6 @@
     "filename": "index.js",
     "fullySpecified": false,
     "type": "cjs",
+    "only": "*.{js,json}",
     "ignore": "**/node_modules/**"
 }
