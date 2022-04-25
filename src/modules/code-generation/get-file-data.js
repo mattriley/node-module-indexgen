@@ -13,6 +13,6 @@ module.exports = ({ util, config, io }) => ({ filePath, dirPath }) => {
     const keyCamel = camelCase(dropLeadingUnderscoresAndDigits(basenameWithoutExt));
     const key = firstIsUpper(basenameWithoutExt) ? upperFirst(keyCamel) : keyCamel;
     const pathWithoutExt = `./${ext === '.json' ? filePath : basenameWithoutExt}`;
-    const path = config.fullySpecified ? (isDir ? `./${filePath}/index.js` : `./${filePath}`) : pathWithoutExt;
+    const path = config.fullySpecified ? (isDir ? `./${filePath}/${config.filename}` : `./${filePath}`) : pathWithoutExt;
     return { key, path };
 };

@@ -19,7 +19,7 @@ module.exports = ({ codeGeneration, io, config }) => (targetDir) => {
 
     try {
         io.fs.watch(targetDir, { recursive: true }, (eventType, filename) => {
-            if (path.basename(filename) === `index.${config.ext}`) return;
+            if (path.basename(filename) === config.filename) return;
             generateFiles(IN_A_SEC);
         });
     } catch (err) {

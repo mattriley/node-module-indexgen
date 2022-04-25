@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = ({ io, config }) => (scriptDataList) => {
     return Promise.all(scriptDataList.map(async scriptData => {
-        const filePath = path.join(scriptData.dirPath, `index.${config.ext}`);
+        const filePath = path.join(scriptData.dirPath, config.filename);
 
         try {
             const exists = await io.fs.promises.access(filePath, io.fs.F_OK).then(() => true).catch(() => false);

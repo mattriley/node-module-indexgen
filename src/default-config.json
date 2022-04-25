@@ -1,5 +1,5 @@
 {
-    "ext": "js",
+    "filename": "index.js",
     "fullySpecified": false,
     "type": "cjs",
     "ignore": "**/node_modules/**"

@@ -12,13 +12,9 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 ## Usage
 
-`npx indexgen [target dir glob] [options]`
-
-The target dir defaults to `src/**` if not provided.
+`npx indexgen [target dir] [options]`
 
 Options:
-
-`--ext=[file extension]`: Extension for index files. Default is `js`.
 
 `--type=[module system type]`: `cjs` or `esm`. Default is `cjs`.
 
