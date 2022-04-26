@@ -15,7 +15,8 @@ module.exports = ({ config, io }) => async targetDir => {
         const childFilePaths = await io.glob(config.only, {
             cwd: dirPath,
             onlyFiles: true,
-            globstar: false
+            globstar: false,
+            ignore: config.filename
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
