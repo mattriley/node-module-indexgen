@@ -1,7 +1,7 @@
-module.exports = ({ codeGeneration }) => async targetDir => {
+module.exports = ({ services }) => async targetDir => {
 
-    const dirDataList = await codeGeneration.listDirAsync(targetDir);
-    const scriptDataList = dirDataList.map(codeGeneration.getScriptData);
-    await codeGeneration.writeScriptsAsync(scriptDataList);
+    const dirDataList = await services.listDirAsync(targetDir);
+    const scriptDataList = dirDataList.map(services.getScriptData);
+    await services.writeScriptsAsync(scriptDataList);
 
 };

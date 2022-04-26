@@ -8,7 +8,7 @@ module.exports = ({ config, overrides }) => {
     const { providers } = compose('providers');
     const { util } = compose('util');
     const { futil } = compose('futil', { io });
-    const { codeGeneration } = compose('codeGeneration', { config, io, futil, util, providers });
-    return compose('commands', { codeGeneration, io, config });
+    const { services } = compose('services', { config, io, futil, util, providers });
+    return compose('commands', { services, io, config });
 
 };
