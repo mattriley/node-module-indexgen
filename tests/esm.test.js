@@ -7,7 +7,7 @@ test('generates index files', t => {
     const glob = (pattern, options) => {
         if (pattern === 'modules/**') return ['foo'];
         if (pattern === '*/' && options.cwd === 'foo') return [];
-        if (pattern === '*.{js,json}' && options.cwd === 'foo') return ['bar.js', 'data.json', 'index.js'];
+        if (pattern === '*.{js,json}' && options.cwd === 'foo') return ['bar.js', 'data.json'];
         return [];
     };
 
