@@ -15,8 +15,6 @@ module.exports = ({ commands, io, config }) => targetDir => {
         }, delay);
     };
 
-    // TODO: consider removing recursive since now using globs
-
     try {
         io.fs.watch(targetDir, { recursive: true }, (eventType, filename) => {
             if (path.basename(filename) === config.filename) return;
