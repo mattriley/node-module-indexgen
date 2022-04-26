@@ -1,8 +1,7 @@
 module.exports = () => ({ files }) => {
 
-    const sortedKeys = Object.keys(files).sort();
-    const imports = sortedKeys.map(key => `import ${key} from '${files[key]}';`);
-    const lines = sortedKeys.map(key => `    ${key}`).join(',\n');
+    const imports = files.map(({ key, importPath }) => `import ${key} from '${importPath}';`);
+    const lines = files.map(({ key }) => `    ${key}`).join(',\n');
     return `${imports.join('\n')}\n\nexport default {\n${lines}\n};\n`;
 
 };
