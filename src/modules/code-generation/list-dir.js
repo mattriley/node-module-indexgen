@@ -22,6 +22,7 @@ module.exports = ({ config, io }) => async targetDir => {
         return { dirPath, childPaths };
     };
 
-    return Promise.all([targetDir, ...dirPaths].map(mapper));
+    const targetDirs = [targetDir, ...dirPaths];
+    return Promise.all(targetDirs.map(mapper));
 
 };
