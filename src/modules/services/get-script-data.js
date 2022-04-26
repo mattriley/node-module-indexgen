@@ -9,7 +9,6 @@ module.exports = ({ services, providers, config }) => dirData => {
         return 0;
     });
 
-    //const files = Object.fromEntries(sortedChildDataList.map(({ key, importPath }) => [key, importPath]));
     const script = providers[config.type]({ files });
     return { dirPath, script };
 
