@@ -1,6 +1,4 @@
 module.exports = {
-    generateFiles: require('./generate-files'),
-    generateScripts: require('./generate-scripts'),
     getFileData: require('./get-file-data'),
     getModuleData: require('./get-module-data'),
     getScriptData: require('./get-script-data'),

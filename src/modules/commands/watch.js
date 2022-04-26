@@ -2,7 +2,7 @@ const path = require('path');
 
 const IN_A_SEC = 1000;
 
-module.exports = ({ codeGeneration, io, config }) => targetDir => {
+module.exports = ({ commands, io, config }) => targetDir => {
 
     let timeoutId = null;
 
@@ -11,7 +11,7 @@ module.exports = ({ codeGeneration, io, config }) => targetDir => {
         timeoutId = setTimeout(() => {
             clearTimeout(timeoutId);
             timeoutId = null;
-            codeGeneration.generateFiles(targetDir);
+            commands.indexgen(targetDir);
         }, delay);
     };
 
