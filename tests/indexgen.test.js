@@ -29,6 +29,7 @@ const doTest = (t, config, expected) => {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {
                 if (filename === 'modules/index.js') return;
+                console.log(content);
                 t.equal(filename, 'foo/index.js');
                 t.equal(content, expected);
             }

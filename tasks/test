@@ -1,5 +1,5 @@
 #!/bin/bash
 
 find "$TESTS" -name "*.test.js" -print \
-    | xargs ./tasks/test-tape \
-    | npx tap-spec
+    | xargs ./tasks/test-tap \
+    # | npx tap-spec
