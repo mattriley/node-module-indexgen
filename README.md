@@ -1,8 +1,10 @@
 # module-indexgen
 
-Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
+Do a barrel roll! Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
 
 ![Do a barrel roll!](https://media.giphy.com/media/ZQMVKzoTLdNBu/giphy.gif)
+
+[Star Fox 64 / Lylatwars](https://en.wikipedia.org/wiki/Star_Fox_64) released 1997 on Nintendo 64.
 
 ## Install
 
@@ -12,11 +14,13 @@ Not to be confused with the unscoped package `indexgen` which is similar but dep
 
 ## Usage
 
-`npx indexgen [target dir] [options]`
+```
+npx indexgen [target-dir] [options]
+```
 
 Options:
 
-`--type=[module system type]`: `cjs` or `esm`. Default is `cjs`.
+`--type`: `cjs` or `esm`. Default is `cjs`.
 
 `--watch`: Regenerate on file changes.
 
