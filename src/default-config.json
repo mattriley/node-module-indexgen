@@ -3,5 +3,6 @@
     "fullySpecified": false,
     "type": "cjs",
     "only": "*.{js,json}",
-    "ignore": "**/node_modules/**"
+    "ignore": "node_modules",
+    "watchDelayMilliseconds": 1000
 }
