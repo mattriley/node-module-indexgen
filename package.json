@@ -1,6 +1,6 @@
 {
     "name": "module-indexgen",
-    "version": "0.9.6",
+    "version": "0.10.0",
     "description": "Generates index.js files that import each module in a directory and re-exports them as a single module.",
     "author": "Matt Riley",
     "license": "ISC",
