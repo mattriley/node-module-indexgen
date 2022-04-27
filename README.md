@@ -1,8 +1,8 @@
 # module-indexgen
 
-Generates `index.js` files recursively for a given directory.
+Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
 
-The generated code exports a plain object with an entry for each file and subdirectory found in the directory.
+![Do a barrel roll!](https://media.giphy.com/media/ZQMVKzoTLdNBu/giphy.gif)
 
 ## Install
 
