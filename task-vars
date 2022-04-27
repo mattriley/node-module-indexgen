@@ -1,3 +1,8 @@
 #!/bin/bash
 
 . ./task-vars-default
+
+export COV_BRANCHES=60
+export COV_LINES=80
+export COV_FUNCTIONS=80
+export COV_STATEMENTS=80

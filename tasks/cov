@@ -1,7 +1,3 @@
 #!/bin/bash
 
-npx c8 \
-    --all \
-    --include "$SRC" \
-    --reporter=text-summary \
-    ./tasks/test
+./tasks/test --coverage --no-check-coverage --coverage-report=html $@

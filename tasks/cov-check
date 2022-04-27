@@ -2,4 +2,9 @@
   
 . ./task-vars
 
-./tasks/c8-check-coverage
+./tasks/cov \
+    --check-coverage \
+    --branches $COV_BRANCHES \
+    --lines $COV_LINES \
+    --functions $COV_FUNCTIONS \
+    --statements $COV_STATEMENTS \

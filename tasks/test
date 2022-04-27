@@ -1,4 +1,4 @@
 #!/bin/bash
 
 find "$TESTS" -name "*.test.js" -print \
-    | xargs ./tasks/test-tap $@ \
+    | xargs ./tasks/test-tap --no-coverage $@ \
