@@ -12,8 +12,8 @@ module.exports = ({ futil, util, config }) => ({ childPath }) => {
     const key = util.legalJsName(keyRaw) ? keyRaw : (util.startsWithUpper(keyRaw) ? util.upperFirst(keyCamel) : keyCamel);
     const fullySpecified = config.fullySpecified || ext === '.json';
     const pathWithoutExt = fullySpecified ? childPath : basenameWithoutExt;
-    const fullySpecifiedImportPath = isDir ? `./${childPath}${config.filename}` : `./${childPath}`;
-    const importPath = fullySpecified ? fullySpecifiedImportPath : `./${pathWithoutExt}`;
+    const fullySpecifiedImportPath = isDir ? `${childPath}${config.filename}` : `${childPath}`;
+    const importPath = fullySpecified ? `./${fullySpecifiedImportPath}` : `./${pathWithoutExt}`;
     return { key, importPath };
 
 };
