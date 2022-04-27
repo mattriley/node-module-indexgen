@@ -45,7 +45,12 @@ test('cjs', t => {
     doTest(t, config);
 });
 
-test('esm', t => {
-    const config = { type: 'esm' };
+test('cjs fullySpecified', t => {
+    const config = { type: 'cjs', fullySpecified: true };
+    doTest(t, config);
+});
+
+test('esm fullySpecified', t => {
+    const config = { type: 'esm', fullySpecified: true };
     doTest(t, config);
 });
