@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./tasks/cov --coverage-report=html --browser $@
