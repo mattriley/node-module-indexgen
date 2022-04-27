@@ -1,4 +1,4 @@
-const test = require('tape');
+const { test } = require('tap');
 const configure = require('../src/configure');
 
 const glob = (pattern, options) => {
