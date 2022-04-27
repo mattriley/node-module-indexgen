@@ -8,9 +8,11 @@ Do a barrel roll! Generates barrel (index.js) files that rollup exports for each
 
 ## Install
 
-`npm i module-indexgen`
+```
+npm i module-indexgen
+```
 
-Not to be confused with the unscoped package `indexgen` which is similar but deprecated.
+Not to be confused with `indexgen` which is similar but deprecated.
 
 ## Usage
 
