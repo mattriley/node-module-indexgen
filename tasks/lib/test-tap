@@ -2,5 +2,4 @@
   
 . ./task-vars
 
-find "$TESTS" -name "*.test.js" -print \
-| xargs npx tap --no-coverage $@ \
+npx tap "$TESTS/**/*.test.js" --no-coverage $@
