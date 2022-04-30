@@ -29,6 +29,9 @@
         "arrow-parens": [
             "error",
             "as-needed"
+        ],
+        "sort-vars": [
+            "off"
         ]
     }
 }
