@@ -2,7 +2,7 @@
   
 . ./task-vars
 
-./tasks/test-tap \
+./task test-tap \
 --coverage \
 --no-check-coverage \
 --coverage-report=html \

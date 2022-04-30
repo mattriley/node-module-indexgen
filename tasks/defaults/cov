@@ -2,4 +2,5 @@
   
 . ./task-vars
 
-./task/lib/eslint $@
+./task cov-c8
+./task cov-open
