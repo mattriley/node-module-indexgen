@@ -3,7 +3,8 @@
 . ./task-vars
 
 ./task test-tap \
---coverage \
+--no-browser \
 --no-check-coverage \
+--coverage \
 --coverage-report=html \
 $@
