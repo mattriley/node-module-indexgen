@@ -10,6 +10,6 @@ const parts = [
 ];
 
 console.log(parts.join(' '));
-const { indexgen, watch } = compose(args);
-paths.forEach(dir => indexgen(dir));
-if (args.watch) paths.forEach(dir => watch(dir));
+const { commands } = compose(args);
+paths.forEach(dir => commands.indexgen(dir));
+if (args.watch) paths.forEach(dir => commands.watch(dir));
