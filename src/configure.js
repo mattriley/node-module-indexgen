@@ -1,9 +1,10 @@
 const compose = require('./compose');
 const defaultConfig = require('./default-config.json');
 
-module.exports = (userConfig, overrides = {}) => {
+module.exports = (...configs) => {
 
-    const config = { ...defaultConfig, ...userConfig };
-    return compose({ config, overrides }).commands;
+    const config = Object.assign({}, defaultConfig, ...configs);
+    const modules = compose(config);
+    return { config, ...modules };
 
 };

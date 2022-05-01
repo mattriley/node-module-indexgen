@@ -1,9 +1,11 @@
 const modules = require('./modules');
 const composer = require('module-composer');
 
-module.exports = ({ config, overrides }) => {
+module.exports = config => {
 
+    const { overrides } = config;
     const compose = composer(modules, { overrides });
+
     const { io } = compose('io', {}, io => io.setup());
     const { providers } = compose('providers');
     const { util } = compose('util');
