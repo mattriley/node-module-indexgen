@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const minimist = require('minimist');
-const configure = require('../src/configure');
+const compose = require('../src/compose');
 const { _: paths, ...args } = minimist(process.argv.slice(2));
 
 const parts = [
@@ -10,6 +10,6 @@ const parts = [
 ];
 
 console.log(parts.join(' '));
-const { indexgen, watch } = configure(args);
+const { indexgen, watch } = compose(args);
 paths.forEach(dir => indexgen(dir));
 if (args.watch) paths.forEach(dir => watch(dir));
