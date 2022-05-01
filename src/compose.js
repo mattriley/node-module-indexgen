@@ -1,11 +1,10 @@
-const modules = require('./modules');
 const composer = require('module-composer');
+const modules = require('./modules');
+const defaultConfig = require('./default-config.json');
 
-module.exports = config => {
+module.exports = (...configs) => {
 
-    const { overrides } = config;
-    const compose = composer(modules, { overrides });
-
+    const { compose, config } = composer(modules, defaultConfig, ...configs);
     const { io } = compose('io', {}, io => io.setup());
     const { providers } = compose('providers');
     const { util } = compose('util');

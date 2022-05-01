@@ -1,5 +1,5 @@
 const { test } = require('tap');
-const configure = require('../src/configure');
+const compose = require('../src/compose');
 
 const glob = (pattern, options) => {
     if (pattern === 'modules/**') return ['foo'];
@@ -35,8 +35,8 @@ const doTest = (t, config) => {
         }
     };
 
-    const overrides = { io: { fs, glob } };
-    const { indexgen } = configure({ ...config, overrides }).commands;
+    const finalConfig = { ...config, moduleComposer: { overrides: { io: { fs, glob } } } };
+    const { indexgen } = compose(finalConfig).commands;
     indexgen('modules');
 };
 
