@@ -9,7 +9,8 @@ module.exports = ({ futil, util, config }) => pathname => {
     const keyRaw = trimLeadingIllegalCharacters(basenameWithoutExt);
     const keyCamel = camelCase(keyRaw);
     const keyTransformed = util.startsWithUpper(keyRaw) ? util.upperFirst(keyCamel) : keyCamel;
-    const key = util.legalJsName(keyRaw) ? keyRaw : keyTransformed;
+    const keyRawOrTransformed = util.legalJsName(keyRaw) ? keyRaw : keyTransformed;
+    const key = config.transformKeys ? keyRawOrTransformed : keyRaw;
     const fullySpecified = config.fullySpecified || ext === '.json';
     const pathWithoutExt = fullySpecified ? pathname : basenameWithoutExt;
     const fullySpecifiedImportPath = isDir ? pathname + config.filename : pathname;

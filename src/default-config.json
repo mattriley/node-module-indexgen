@@ -4,5 +4,6 @@
     "type": "cjs",
     "only": "*.{js,json}",
     "ignore": "node_modules",
-    "watchDelayMilliseconds": 1000
+    "watchDelayMilliseconds": 1000,
+    "transformKeys": true
 }
