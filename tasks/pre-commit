@@ -1,0 +1,7 @@
+#!/bin/bash
+  
+. ./task-vars
+
+set -ex
+./task lint
+./task cov-check
