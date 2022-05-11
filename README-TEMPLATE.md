@@ -90,15 +90,4 @@ module.exports = {
 
 ## Architecture
 
-```mermaid
-graph TD;
-    commands-->services;
-    commands-->io;
-    commands-->config;
-    futil-->io;
-    services-->config;
-    services-->io;
-    services-->futil;
-    services-->util;
-    services-->providers;
-```
+<%- moduleGraph() %>
