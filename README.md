@@ -100,5 +100,5 @@ graph TD;
     services-->io;
     services-->futil;
     services-->util;
-    services-->providers;
+    services-->strategies;
 ```

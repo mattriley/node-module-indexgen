@@ -1,4 +1,4 @@
-module.exports = ({ services, providers, config }) => dirData => {
+module.exports = ({ services, strategies, config }) => dirData => {
 
     const { dirPath, childPaths } = dirData;
     const childDataList = childPaths.map(childPath => services.getFileData(childPath));
@@ -9,7 +9,7 @@ module.exports = ({ services, providers, config }) => dirData => {
         return 0;
     });
 
-    const script = providers[config.type]({ files });
+    const script = strategies[config.type]({ files });
     return { dirPath, script };
 
 };
