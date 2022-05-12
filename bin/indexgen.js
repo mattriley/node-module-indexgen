@@ -2,7 +2,9 @@
 
 const minimist = require('minimist');
 const compose = require('../src/compose');
-const { _: paths, ...args } = minimist(process.argv.slice(2));
+const process = require('process');
+const { _, ...args } = minimist(process.argv.slice(2));
+const paths = _.filter(p => p.length);
 
 const parts = [
     args.watch ? 'Watching' : 'Generating',
