@@ -22,12 +22,12 @@ Not to be confused with `indexgen` which is similar but deprecated.
 ## Usage
 
 ```
-npx indexgen [target-dir] [options]
+npx indexgen <targetDir> [<targetDir>...] [options]
 ```
 
 Options:
 
-`--type`: `cjs` or `esm`. Default is `cjs`.
+`--type`: `cjs` or `esm`. Default is determined by `type` in `package.json`.
 
 `--watch`: Regenerate on file changes.
 
