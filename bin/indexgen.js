@@ -2,7 +2,7 @@
 
 const minimist = require('minimist');
 const process = require('process');
-const package = require('./package.json');
+const package = require(process.cwd() + '/package.json');
 const compose = require('../src/compose');
 
 const { _, ...args } = minimist(process.argv.slice(2));
