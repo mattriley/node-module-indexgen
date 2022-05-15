@@ -1,4 +1,3 @@
 #!/bin/bash
 
-./task tap-cov
-./task cov-open
+npx task tap-cov

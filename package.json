@@ -21,16 +21,17 @@
         "fast-glob": "^3.2.11",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.6",
-        "module-composer": "^0.15.0"
+        "module-composer": "^0.15.1"
     },
     "devDependencies": {
         "c8": "^7.11.2",
         "chokidar-cli": "^3.0.0",
         "doctoc": "^2.2.0",
-        "ejs": "^3.1.7",
-        "eslint": "^8.14.0",
-        "husky": "^7.0.4",
-        "tap": "^16.1.0"
+        "ejs": "^3.1.8",
+        "eslint": "^8.15.0",
+        "husky": "^8.0.1",
+        "tap": "^16.2.0",
+        "task-library": "^0.0.16"
     },
     "publishConfig": {
         "access": "public"
