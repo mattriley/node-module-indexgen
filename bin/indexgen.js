@@ -8,7 +8,7 @@ const compose = require('../src/compose');
 const { _, ...args } = minimist(process.argv.slice(2));
 const type = package.type === 'module' ? 'esm' : 'cjs';
 const paths = _.filter(p => p.length);
-const config = { paths, type, ...args };
+const configs = [{ paths, type, ...args }];
 
 const parts = [
     args.watch ? 'Watching' : 'Generating',

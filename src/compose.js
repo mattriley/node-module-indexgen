@@ -2,9 +2,9 @@ const composer = require('module-composer');
 const modules = require('./modules');
 const defaultConfig = require('./default-config.json');
 
-module.exports = (...configs) => {
+module.exports = ({ configs }) => {
 
-    const { compose, config } = composer(modules, defaultConfig, ...configs);
+    const { compose, config } = composer(modules, defaultConfig, configs);
     const { io } = compose('io', {}, io => io.setup());
     const { strategies } = compose('strategies');
     const { util } = compose('util');

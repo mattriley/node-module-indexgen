@@ -35,8 +35,8 @@ const doTest = (t, config) => {
         }
     };
 
-    const finalConfig = { ...config, moduleComposer: { overrides: { io: { fs, glob } } } };
-    const { indexgen } = compose(finalConfig).commands;
+    const configs = [{ ...config, moduleComposer: { overrides: { io: { fs, glob } } } }];
+    const { indexgen } = compose({ configs }).commands;
     indexgen('modules');
 };
 
