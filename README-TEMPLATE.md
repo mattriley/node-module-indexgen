@@ -1,6 +1,6 @@
 # module-indexgen
 
-Do a barrel roll! Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
+Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
 
 ![Do a barrel roll!](https://media.giphy.com/media/ZQMVKzoTLdNBu/giphy.gif)
 
@@ -10,11 +10,12 @@ Do a barrel roll! Generates barrel (index.js) files that rollup exports for each
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Install
 
 ```
-npm i module-indexgen
+npm install module-indexgen
 ```
 
 Not to be confused with `indexgen` which is similar but deprecated.
