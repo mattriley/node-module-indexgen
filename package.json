@@ -1,6 +1,6 @@
 {
     "name": "module-indexgen",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "description": "Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.",
     "author": "Matt Riley",
     "license": "ISC",
