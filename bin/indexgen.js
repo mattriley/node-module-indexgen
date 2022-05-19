@@ -18,6 +18,6 @@ const parts = [
 if (args.showConfig) console.log(JSON.stringify(config, null, 2))
 console.log(parts.join(' '));
 
-const { commands } = compose(config);
+const { commands } = compose({ configs });
 paths.forEach(dir => commands.indexgen(dir));
 if (args.watch) paths.forEach(dir => commands.watch(dir));
