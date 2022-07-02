@@ -1,14 +1,14 @@
 {
     "name": "module-indexgen",
-    "version": "0.14.1",
+    "version": "0.14.3",
     "description": "Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.",
     "author": "Matt Riley",
     "license": "ISC",
-    "repository": "github:mattriley/node-module-indexgen",
     "homepage": "https://github.com/mattriley/node-module-indexgen",
+    "repository": "github:mattriley/node-module-indexgen",
     "main": "src/compose.js",
     "bin": {
-        "indexgen": "bin/indexgen.js"
+        "indexgen": "./bin/indexgen.js"
     },
     "files": [
         "src/**/*",
@@ -18,17 +18,17 @@
         "fast-glob": "^3.2.11",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.6",
-        "module-composer": "^0.16.0"
+        "module-composer": "^0.51.0"
     },
     "devDependencies": {
         "c8": "^7.11.3",
         "chokidar-cli": "^3.0.0",
         "doctoc": "^2.2.0",
         "ejs": "^3.1.8",
-        "eslint": "^8.15.0",
+        "eslint": "^8.19.0",
         "husky": "^8.0.1",
-        "tap": "^16.2.0",
-        "task-library": "^0.1.4"
+        "tap": "^16.3.0",
+        "task-library": "^0.3.10"
     },
     "publishConfig": {
         "access": "public"

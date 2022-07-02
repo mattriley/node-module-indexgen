@@ -1,4 +1,6 @@
-# module-indexgen
+# Module Index Generator
+
+<%- lib.renderMetrics() %>
 
 Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
 
@@ -91,4 +93,4 @@ module.exports = {
 
 ## Architecture
 
-<%- moduleGraph() %>
+<%- await lib.compose(c => lib.renderCode(c.mermaid(), 'mermaid')) %>

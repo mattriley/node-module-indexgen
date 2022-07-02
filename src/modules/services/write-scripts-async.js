@@ -9,7 +9,6 @@ module.exports = ({ futil, config }) => scriptDataList => {
 
         const unchanged = currentValue === scriptData.script;
         if (unchanged) return;
-
         const [writeError] = await futil.writeFile(filePath, scriptData.script);
 
         if (writeError) {
