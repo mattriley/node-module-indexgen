@@ -3,19 +3,16 @@
 <p align="right">
     <code>88.51% cov</code>&nbsp;
     <code>202 sloc</code>&nbsp;
-    <code>25 files</code></p>
+    <code>25 files</code>&nbsp;
+    <code>4 deps</code>&nbsp;
+    <code>8 dev deps</code></p>
 
 Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
-
-![Do a barrel roll!](https://media.giphy.com/media/ZQMVKzoTLdNBu/giphy.gif)
-
-[Star Fox 64 / Lylatwars](https://en.wikipedia.org/wiki/Star_Fox_64) released 1997 on Nintendo 64.
 
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 - [Install](#install)
 - [Usage](#usage)
@@ -26,6 +23,7 @@ Generates barrel (index.js) files that rollup exports for each module in a direc
 
 ## Install
 
+###### <p align="right"><a href="https://www.npmjs.com/package/module-indexgen">https://www.npmjs.com/package/module-indexgen</a></p>
 ```
 npm install module-indexgen
 ```
@@ -103,7 +101,7 @@ module.exports = {
 
 ## Architecture
 
-###### <p align="right"><em>Can't see the diagram?</em> <a id="link-1" href="https://github.com/mattriley/node-module-indexgen#user-content-link-1">View it on GitHub</a></p>
+###### <p align="right"><em>Can't see the diagram?</em> <a id="link-1" href="undefined#user-content-link-1">View it on GitHub</a></p>
 ```mermaid
 graph TD;
     commands-->services;

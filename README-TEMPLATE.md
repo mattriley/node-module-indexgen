@@ -1,24 +1,8 @@
-# Module Index Generator
-
-<%- lib.renderMetrics() %>
-
-Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
-
-![Do a barrel roll!](https://media.giphy.com/media/ZQMVKzoTLdNBu/giphy.gif)
-
-[Star Fox 64 / Lylatwars](https://en.wikipedia.org/wiki/Star_Fox_64) released 1997 on Nintendo 64.
-
-## Table of Contents
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<%- lib.renderOpening() %>
 
 ## Install
 
-```
-npm install module-indexgen
-```
+<%- await lib.renderCode('npm install module-indexgen', '', 'https://www.npmjs.com/package/module-indexgen') %>
 
 Not to be confused with `indexgen` which is similar but deprecated.
 
