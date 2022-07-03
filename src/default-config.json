@@ -2,7 +2,7 @@
     "filename": "index.js",
     "fullySpecified": false,
     "type": "cjs",
-    "only": "*.{js,json}",
+    "only": "*.{cjs,mjs,js,json}",
     "ignore": "node_modules",
     "watchDelayMilliseconds": 1000,
     "transformKeys": true
