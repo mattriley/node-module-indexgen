@@ -1,12 +1,19 @@
 {
     "name": "module-indexgen",
-    "version": "0.15.0",
+    "version": "0.15.1",
     "description": "Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.",
-    "author": "Matt Riley",
     "license": "ISC",
     "homepage": "https://github.com/mattriley/node-module-indexgen",
     "repository": "github:mattriley/node-module-indexgen",
-    "main": "src/compose.js",
+    "author": {
+        "name": "Matt Riley",
+        "email": "m@ttriley.dev",
+        "url": "https://github.com/mattriley"
+    },
+    "bugs": {
+        "url": "https://github.com/mattriley/node-module-indexgen/issues",
+        "email": "m@ttriley.dev"
+    },
     "bin": {
         "indexgen": "./bin/indexgen.js"
     },
@@ -14,11 +21,17 @@
         "src/**/*",
         "bin/**/*"
     ],
+    "main": "src/compose.js",
+    "scripts": {
+        "test": "npx task test",
+        "start": "npx task start",
+        "deploy": "npx task deploy"
+    },
     "dependencies": {
         "fast-glob": "^3.2.11",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.6",
-        "module-composer": "^0.52.0"
+        "module-composer": "^0.55.0"
     },
     "devDependencies": {
         "c8": "^7.11.3",
@@ -28,7 +41,7 @@
         "eslint": "^8.19.0",
         "husky": "^8.0.1",
         "tap": "^16.3.0",
-        "task-library": "^0.3.31"
+        "task-library": "^0.6.4"
     },
     "publishConfig": {
         "access": "public"
