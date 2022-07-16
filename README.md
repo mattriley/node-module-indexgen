@@ -1,4 +1,4 @@
-# module-indexgen
+# Module Index Generator
 
 
 <p align="right">
