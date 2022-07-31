@@ -2,6 +2,7 @@
 
 export DISPLAY_NAME="Module Index Generator"
 export ITERMOCIL_TASKS="edit | test-watch"
+export TEST_RUNNER="tap"
 
 export COV_BRANCHES=60
 export COV_LINES=80

@@ -23,9 +23,12 @@
     ],
     "main": "src/compose.js",
     "scripts": {
-        "test": "npx task test",
+        "cov": "npx task cov",
+        "deploy": "npx task deploy",
+        "lint": "npx task lint",
+        "pre": "npx task pre",
         "start": "npx task start",
-        "deploy": "npx task deploy"
+        "test": "npx task test"
     },
     "dependencies": {
         "fast-glob": "^3.2.11",
@@ -34,14 +37,14 @@
         "module-composer": "^0.56.0"
     },
     "devDependencies": {
-        "c8": "^7.11.3",
+        "c8": "^7.12.0",
         "chokidar-cli": "^3.0.0",
         "doctoc": "^2.2.0",
         "ejs": "^3.1.8",
-        "eslint": "^8.19.0",
+        "eslint": "^8.20.0",
         "husky": "^8.0.1",
         "tap": "^16.3.0",
-        "task-library": "^0.6.6"
+        "task-library": "^0.41.0"
     },
     "publishConfig": {
         "access": "public"
