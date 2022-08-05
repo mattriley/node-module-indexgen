@@ -1,15 +1,10 @@
 # Module Index Generator
 
-
-<p align="right">
-    <code>88.51% cov</code>&nbsp;
-    <code>202 sloc</code>&nbsp;
-    <code>25 files</code>&nbsp;
-    <code>4 deps</code>&nbsp;
-    <code>8 dev deps</code>
-</p>
+<p align="right"><code>88.51% cov</code>&nbsp;<code>202 sloc</code>&nbsp;<code>25 files</code>&nbsp;<code>4 deps</code>&nbsp;<code>8 dev deps</code></p>
 
 Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
+
+<br />
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -105,13 +100,17 @@ module.exports = {
 ###### <p align="right"><em>Can't see the diagram?</em> <a id="link-1" href="https://github.com/mattriley/node-module-indexgen#user-content-link-1">View it on GitHub</a></p>
 ```mermaid
 graph TD;
-    commands-->services;
+    commands-->effects;
     commands-->io;
     commands-->config;
+    effects-->config;
+    effects-->io;
+    effects-->futil;
+    effects-->util;
+    effects-->strategies;
     futil-->io;
-    services-->config;
-    services-->io;
-    services-->futil;
-    services-->util;
-    services-->strategies;
 ```
+<p align="center">
+  <em>This diagram was generated with <a href="https://github.com/mattriley/node-module-composer">Module Composer</a></em>
+</p>
+<br>

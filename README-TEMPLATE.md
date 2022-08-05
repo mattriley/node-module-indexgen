@@ -77,4 +77,4 @@ module.exports = {
 
 ## Architecture
 
-<%- await lib.compose(c => lib.renderCode(c.mermaid(), 'mermaid')) %>
+<%- await lib.renderModuleDiagram() %>

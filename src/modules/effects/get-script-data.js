@@ -1,7 +1,7 @@
-module.exports = ({ services, strategies, config }) => dirData => {
+module.exports = ({ effects, strategies, config }) => dirData => {
 
     const { dirPath, childPaths } = dirData;
-    const childDataList = childPaths.map(childPath => services.getFileData(childPath));
+    const childDataList = childPaths.map(childPath => effects.getFileData(childPath));
 
     const files = childDataList.sort((a, b) => {
         if (a.key < b.key) return -1;
