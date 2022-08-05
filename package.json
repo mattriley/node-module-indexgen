@@ -34,17 +34,17 @@
         "fast-glob": "^3.2.11",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.6",
-        "module-composer": "^0.56.0"
+        "module-composer": "^0.59.0"
     },
     "devDependencies": {
         "c8": "^7.12.0",
         "chokidar-cli": "^3.0.0",
         "doctoc": "^2.2.0",
         "ejs": "^3.1.8",
-        "eslint": "^8.20.0",
+        "eslint": "^8.21.0",
         "husky": "^8.0.1",
         "tap": "^16.3.0",
-        "task-library": "^0.41.0"
+        "task-library": "^0.53.0"
     },
     "publishConfig": {
         "access": "public"
