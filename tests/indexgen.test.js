@@ -1,5 +1,6 @@
-const { test } = require('tap');
+const tap = require('tap');
 const compose = require('../src/compose');
+const { test } = tap;
 
 const glob = (pattern, options) => {
     if (pattern === 'modules/**') return ['foo'];
