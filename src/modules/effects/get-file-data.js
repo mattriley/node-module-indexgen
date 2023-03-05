@@ -1,7 +1,9 @@
 const camelCase = require('lodash.camelcase');
 const trimLeadingIllegalCharacters = str => str.replace(/^[^$_a-z]/i, '');
 
-module.exports = ({ futil, util, config }) => pathname => {
+module.exports = ({ futil, util, config }) => (pathname, configOverride) => {
+
+    const configFinal = { ...config, ...configOverride };
 
     const isDir = pathname.endsWith('/');
     const ext = futil.extname(pathname);
@@ -13,10 +15,10 @@ module.exports = ({ futil, util, config }) => pathname => {
     const keyCamel = camelCase(keyRaw);
     const keyTransformed = util.startsWithUpper(keyRaw) ? util.upperFirst(keyCamel) : keyCamel;
     const keyRawOrTransformed = util.legalJsName(keyRaw) ? keyRaw : keyTransformed;
-    const key = leadingSymbols + (config.transformKeys ? keyRawOrTransformed : keyRaw);
-    const fullySpecified = config.fullySpecified || ext === '.json';
+    const key = leadingSymbols + (configFinal.transformKeys ? keyRawOrTransformed : keyRaw);
+    const fullySpecified = configFinal.fullySpecified || ext === '.json';
     const pathWithoutExt = fullySpecified ? pathname : basenameWithoutExt;
-    const fullySpecifiedImportPath = isDir ? pathname + config.filename : pathname;
+    const fullySpecifiedImportPath = isDir ? pathname + configFinal.filename : pathname;
     const importPath = fullySpecified ? fullySpecifiedImportPath : pathWithoutExt;
     return { key, importPath: `./${importPath}` };
 
