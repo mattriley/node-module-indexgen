@@ -20,7 +20,7 @@ module.exports = ({ config, io }) => async targetDir => {
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
-        return { dirPath, childPaths };
+        return { targetDir, dirPath, childPaths };
     };
 
     const targetDirs = [targetDir, ...dirPaths];

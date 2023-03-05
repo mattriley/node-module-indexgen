@@ -1,6 +1,6 @@
 # Module Indexgen
 
-<p align="right"><code>88.51% cov</code>&nbsp;<code>207 sloc</code>&nbsp;<code>25 files</code>&nbsp;<code>4 deps</code>&nbsp;<code>14 dev deps</code></p>
+<p align="right"><code>88.51% cov</code>&nbsp;<code>206 sloc</code>&nbsp;<code>25 files</code>&nbsp;<code>4 deps</code>&nbsp;<code>14 dev deps</code></p>
 
 Generates barrel (index.js) files that rollup exports for each module in a directory and re-exports them as a single module.
 

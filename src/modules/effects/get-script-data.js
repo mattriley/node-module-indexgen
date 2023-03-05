@@ -1,11 +1,7 @@
-module.exports = ({ effects, io, strategies, config }) => dirData => {
+module.exports = ({ effects, strategies, config }) => dirData => {
 
     const { dirPath, childPaths } = dirData;
-
-    // TODO: Refactor.
-    const configOverridePath = `${dirPath}/indexgen.config.json`;
-    const configOverride = io.fs.existsSync(configOverridePath) ? JSON.parse(io.fs.readFileSync(configOverridePath, 'utf-8')) : {};
-
+    const configOverride = config.overrides?.[dirData.targetDir] ?? {};
     const childDataList = childPaths.map(childPath => effects.getFileData(childPath, configOverride));
 
     const files = childDataList.sort((a, b) => {
