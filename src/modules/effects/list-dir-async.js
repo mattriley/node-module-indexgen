@@ -16,7 +16,7 @@ module.exports = ({ config, io }) => async targetDir => {
             cwd: dirPath,
             onlyFiles: true,
             globstar: false,
-            ignore: config.filename
+            ignore: [config.filename, 'indexgen.config.json']
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
