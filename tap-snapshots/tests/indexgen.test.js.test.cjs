@@ -9,8 +9,8 @@ exports[`tests/indexgen.test.js TAP cjs > output 1`] = `
 module.exports = {
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
-    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower'),
     IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper'),
+    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
     JsonFile: require('./JsonFile.json'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper'),
@@ -26,8 +26,8 @@ exports[`tests/indexgen.test.js TAP cjs fullySpecified > output 1`] = `
 module.exports = {
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper.js'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower.js'),
-    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower.js'),
     IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper.js'),
+    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower.js'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper.js'),
     JsonFile: require('./JsonFile.json'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper.js'),
