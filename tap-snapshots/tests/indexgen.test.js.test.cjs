@@ -11,6 +11,7 @@ module.exports = {
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
     IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper'),
     IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower'),
+    IllegalJsNameStartingWithNumberAffectedBySort: require('./2-illegal-js-name-starting-with-number-affected-by-sort'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
     JsonFile: require('./JsonFile.json'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper'),
@@ -28,6 +29,7 @@ module.exports = {
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower.js'),
     IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper.js'),
     IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower.js'),
+    IllegalJsNameStartingWithNumberAffectedBySort: require('./2-illegal-js-name-starting-with-number-affected-by-sort'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper.js'),
     JsonFile: require('./JsonFile.json'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper.js'),
@@ -42,8 +44,9 @@ module.exports = {
 exports[`tests/indexgen.test.js TAP esm > output 1`] = `
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower';
-import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower';
 import IllegalJsNameStartingWithNumberAndUpper from './1-Illegal-js-name-starting-with-number-and-upper';
+import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower';
+import IllegalJsNameStartingWithNumberAffectedBySort from './2-illegal-js-name-starting-with-number-affected-by-sort';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper';
 import JsonFile from './JsonFile.json';
 import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper';
@@ -55,8 +58,9 @@ import legalJsNameStartingWithLower from './legalJsNameStartingWithLower';
 export default {
     $LegalJsNameStartingWithDollarAndUpper,
     $legalJsNameStartingWithDollarAndLower,
-    IllegalJsNameStartingWithNumberAndLower,
     IllegalJsNameStartingWithNumberAndUpper,
+    IllegalJsNameStartingWithNumberAndLower,
+    IllegalJsNameStartingWithNumberAffectedBySort,
     IllegalJsNameStartingWithUpper,
     JsonFile,
     LegalJsNameStartingWithUpper,
@@ -71,8 +75,9 @@ export default {
 exports[`tests/indexgen.test.js TAP esm fullySpecified > output 1`] = `
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower.js';
-import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower.js';
 import IllegalJsNameStartingWithNumberAndUpper from './1-Illegal-js-name-starting-with-number-and-upper.js';
+import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower.js';
+import IllegalJsNameStartingWithNumberAffectedBySort from './2-illegal-js-name-starting-with-number-affected-by-sort';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper.js';
 import JsonFile from './JsonFile.json';
 import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper.js';
@@ -84,8 +89,9 @@ import legalJsNameStartingWithLower from './legalJsNameStartingWithLower.js';
 export default {
     $LegalJsNameStartingWithDollarAndUpper,
     $legalJsNameStartingWithDollarAndLower,
-    IllegalJsNameStartingWithNumberAndLower,
     IllegalJsNameStartingWithNumberAndUpper,
+    IllegalJsNameStartingWithNumberAndLower,
+    IllegalJsNameStartingWithNumberAffectedBySort,
     IllegalJsNameStartingWithUpper,
     JsonFile,
     LegalJsNameStartingWithUpper,

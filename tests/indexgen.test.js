@@ -14,6 +14,7 @@ const glob = (pattern, options) => {
         'LegalJsNameStartingWithUpper.js',
         'illegal-js-name-starting-with-lower.js',
         'Illegal-js-name-starting-with-upper.js',
+        '2-illegal-js-name-starting-with-number-affected-by-sort',
         '1-illegal-js-name-starting-with-number-and-lower.js',
         '1-Illegal-js-name-starting-with-number-and-upper.js',
         'JsonFile.json'
