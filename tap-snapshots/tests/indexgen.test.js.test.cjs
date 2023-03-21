@@ -7,98 +7,104 @@
 'use strict'
 exports[`tests/indexgen.test.js TAP cjs > output 1`] = `
 module.exports = {
-    $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
+    _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
+    _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
-    IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper'),
-    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower'),
-    IllegalJsNameStartingWithNumberAffectedBySort: require('./2-illegal-js-name-starting-with-number-affected-by-sort'),
+    $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
+    illegalJsNameStartingWithNumber1ThenLower: require('./1-illegal-js-name-starting-with-number-1-then-lower'),
+    IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper'),
+    illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
+    illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
+    illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
     JsonFile: require('./JsonFile.json'),
-    LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper'),
-    _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper'),
-    _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
-    illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower'),
-    legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower')
+    legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower'),
+    LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper')
 };
 
 `
 
 exports[`tests/indexgen.test.js TAP cjs fullySpecified > output 1`] = `
 module.exports = {
-    $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper.js'),
+    _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower.js'),
+    _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper.js'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower.js'),
-    IllegalJsNameStartingWithNumberAndUpper: require('./1-Illegal-js-name-starting-with-number-and-upper.js'),
-    IllegalJsNameStartingWithNumberAndLower: require('./1-illegal-js-name-starting-with-number-and-lower.js'),
-    IllegalJsNameStartingWithNumberAffectedBySort: require('./2-illegal-js-name-starting-with-number-affected-by-sort'),
+    $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper.js'),
+    illegalJsNameStartingWithNumber1ThenLower: require('./1-illegal-js-name-starting-with-number-1-then-lower.js'),
+    IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper.js'),
+    illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
+    illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
+    illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower.js'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper.js'),
     JsonFile: require('./JsonFile.json'),
-    LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper.js'),
-    _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper.js'),
-    _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower.js'),
-    illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower.js'),
-    legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower.js')
+    legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower.js'),
+    LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper.js')
 };
 
 `
 
 exports[`tests/indexgen.test.js TAP esm > output 1`] = `
-import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
+import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower';
+import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower';
-import IllegalJsNameStartingWithNumberAndUpper from './1-Illegal-js-name-starting-with-number-and-upper';
-import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower';
-import IllegalJsNameStartingWithNumberAffectedBySort from './2-illegal-js-name-starting-with-number-affected-by-sort';
+import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
+import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-starting-with-number-1-then-lower';
+import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper';
+import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
+import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
+import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper';
 import JsonFile from './JsonFile.json';
-import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper';
-import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper';
-import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower';
-import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower';
 import legalJsNameStartingWithLower from './legalJsNameStartingWithLower';
+import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper';
 
 export default {
-    $LegalJsNameStartingWithDollarAndUpper,
+    _legalJsNameStartingWithUnderscoreAndLower,
+    _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
-    IllegalJsNameStartingWithNumberAndUpper,
-    IllegalJsNameStartingWithNumberAndLower,
-    IllegalJsNameStartingWithNumberAffectedBySort,
+    $LegalJsNameStartingWithDollarAndUpper,
+    illegalJsNameStartingWithNumber1ThenLower,
+    IllegalJsNameStartingWithNumber1ThenUpper,
+    illegalJsNameStartingWithSingleDigitNumber2,
+    illegalJsNameStartingWithDoubleDigitNumber10,
+    illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
     JsonFile,
-    LegalJsNameStartingWithUpper,
-    _LegalJsNameStartingWithUnderscoreAndUpper,
-    _legalJsNameStartingWithUnderscoreAndLower,
-    illegalJsNameStartingWithLower,
-    legalJsNameStartingWithLower
+    legalJsNameStartingWithLower,
+    LegalJsNameStartingWithUpper
 };
 
 `
 
 exports[`tests/indexgen.test.js TAP esm fullySpecified > output 1`] = `
-import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
+import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower.js';
+import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower.js';
-import IllegalJsNameStartingWithNumberAndUpper from './1-Illegal-js-name-starting-with-number-and-upper.js';
-import IllegalJsNameStartingWithNumberAndLower from './1-illegal-js-name-starting-with-number-and-lower.js';
-import IllegalJsNameStartingWithNumberAffectedBySort from './2-illegal-js-name-starting-with-number-affected-by-sort';
+import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
+import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-starting-with-number-1-then-lower.js';
+import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper.js';
+import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
+import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
+import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower.js';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper.js';
 import JsonFile from './JsonFile.json';
-import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper.js';
-import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
-import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower.js';
-import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower.js';
 import legalJsNameStartingWithLower from './legalJsNameStartingWithLower.js';
+import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper.js';
 
 export default {
-    $LegalJsNameStartingWithDollarAndUpper,
+    _legalJsNameStartingWithUnderscoreAndLower,
+    _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
-    IllegalJsNameStartingWithNumberAndUpper,
-    IllegalJsNameStartingWithNumberAndLower,
-    IllegalJsNameStartingWithNumberAffectedBySort,
+    $LegalJsNameStartingWithDollarAndUpper,
+    illegalJsNameStartingWithNumber1ThenLower,
+    IllegalJsNameStartingWithNumber1ThenUpper,
+    illegalJsNameStartingWithSingleDigitNumber2,
+    illegalJsNameStartingWithDoubleDigitNumber10,
+    illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
     JsonFile,
-    LegalJsNameStartingWithUpper,
-    _LegalJsNameStartingWithUnderscoreAndUpper,
-    _legalJsNameStartingWithUnderscoreAndLower,
-    illegalJsNameStartingWithLower,
-    legalJsNameStartingWithLower
+    legalJsNameStartingWithLower,
+    LegalJsNameStartingWithUpper
 };
 
 `

@@ -1,5 +1,5 @@
 const camelCase = require('lodash.camelcase');
-const trimLeadingIllegalCharacters = str => str.replace(/^[^$_a-z]/i, '');
+const trimLeadingIllegalCharacters = str => str.replace(/^[^$_a-z]+/i, '');
 
 module.exports = ({ futil, util, config }) => (pathname, configOverride) => {
 

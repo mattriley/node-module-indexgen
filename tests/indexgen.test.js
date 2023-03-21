@@ -14,9 +14,10 @@ const glob = (pattern, options) => {
         'LegalJsNameStartingWithUpper.js',
         'illegal-js-name-starting-with-lower.js',
         'Illegal-js-name-starting-with-upper.js',
-        '2-illegal-js-name-starting-with-number-affected-by-sort',
-        '1-illegal-js-name-starting-with-number-and-lower.js',
-        '1-Illegal-js-name-starting-with-number-and-upper.js',
+        '10-illegal-js-name-starting-with-double-digit-number-10',
+        '2-illegal-js-name-starting-with-single-digit-number-2',
+        '1-illegal-js-name-starting-with-number-1-then-lower.js',
+        '1-Illegal-js-name-starting-with-number-1-then-upper.js',
         'JsonFile.json'
     ];
     return [];

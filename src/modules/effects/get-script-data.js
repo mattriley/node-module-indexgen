@@ -15,9 +15,9 @@ module.exports = ({ effects, strategies, config }) => dirData => {
 
     // sort by path name
     const filesByPath = Object.fromEntries(childDataList.map(f => [f.importPath, f]));
-    const sortedPaths = Object.keys(filesByPath).sort();
+    const collator = new Intl.Collator([], { numeric: true });
+    const sortedPaths = Object.keys(filesByPath).sort((a, b) => collator.compare(a, b));
     const files = sortedPaths.map(path => filesByPath[path]);
-
     const script = strategies[config.type]({ files });
     return { dirPath, script };
 
