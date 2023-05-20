@@ -12,7 +12,7 @@ module.exports = ({ util, config }) => (pathname, configOverride) => {
 
     const [, leadingSymbols = '', keyRaw] = keyRaw1.match(/(^[$_]+)?(.+)/);
 
-    const keyRaw2 = keyRaw.split(',').reverse().join(' ');
+    const keyRaw2 = config.commaReverse ? keyRaw.split(',').reverse().join(' ') : keyRaw;
     const keyCamel = camelCase(keyRaw2);
     const keyTransformed = util.startsWithUpper(keyRaw) ? util.upperFirst(keyCamel) : keyCamel;
     const keyRawOrTransformed = util.legalJsName(keyRaw) ? keyRaw : keyTransformed;
