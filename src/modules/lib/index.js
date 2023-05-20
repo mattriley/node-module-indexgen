@@ -1,5 +1,6 @@
 module.exports = {
-    getFileData: require('./get-file-data'),
     getExportKey: require('./get-export-key'),
+    getFileData: require('./get-file-data'),
+    getImportPath: require('./get-import-path'),
     getScriptData: require('./get-script-data')
 };
