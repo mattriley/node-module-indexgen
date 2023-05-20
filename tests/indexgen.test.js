@@ -1,3 +1,5 @@
+// NOTE: To regenerate snapshop: t test --snapshot
+
 const tap = require('tap');
 const compose = require('../src/compose');
 const { test } = tap;
@@ -18,7 +20,8 @@ const glob = (pattern, options) => {
         '2-illegal-js-name-starting-with-single-digit-number-2',
         '1-illegal-js-name-starting-with-number-1-then-lower.js',
         '1-Illegal-js-name-starting-with-number-1-then-upper.js',
-        'JsonFile.json'
+        'JsonFile.json',
+        'bar, foo'
     ];
     return [];
 };

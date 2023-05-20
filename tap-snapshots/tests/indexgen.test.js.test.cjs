@@ -15,6 +15,7 @@ module.exports = {
     IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper'),
     illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
     illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
+    fooBar: require('./bar, foo'),
     illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
     JsonFile: require('./JsonFile.json'),
@@ -34,6 +35,7 @@ module.exports = {
     IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper.js'),
     illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
     illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
+    fooBar: require('./bar, foo'),
     illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower.js'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper.js'),
     JsonFile: require('./JsonFile.json'),
@@ -52,6 +54,7 @@ import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-start
 import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper';
 import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
 import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
+import fooBar from './bar, foo';
 import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper';
 import JsonFile from './JsonFile.json';
@@ -67,6 +70,7 @@ export default {
     IllegalJsNameStartingWithNumber1ThenUpper,
     illegalJsNameStartingWithSingleDigitNumber2,
     illegalJsNameStartingWithDoubleDigitNumber10,
+    fooBar,
     illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
     JsonFile,
@@ -85,6 +89,7 @@ import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-start
 import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper.js';
 import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
 import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
+import fooBar from './bar, foo';
 import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower.js';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper.js';
 import JsonFile from './JsonFile.json';
@@ -100,6 +105,7 @@ export default {
     IllegalJsNameStartingWithNumber1ThenUpper,
     illegalJsNameStartingWithSingleDigitNumber2,
     illegalJsNameStartingWithDoubleDigitNumber10,
+    fooBar,
     illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
     JsonFile,
