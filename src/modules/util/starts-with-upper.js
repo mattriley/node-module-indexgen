@@ -1,3 +1,1 @@
-module.exports = () => str => {
-    return str[0] === str[0].toUpperCase();
-};
+module.exports = () => str => str[0] === str[0].toUpperCase();

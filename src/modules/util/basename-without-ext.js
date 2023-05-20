@@ -1,5 +1,3 @@
 const path = require('path');
 
-module.exports = () => filePath => {
-    return path.basename(filePath, path.extname(filePath));
-};
+module.exports = () => filePath => path.basename(filePath, require('path').extname(filePath));
