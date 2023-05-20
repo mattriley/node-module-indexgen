@@ -1,7 +1,7 @@
-module.exports = ({ effects, lib }) => async targetDir => {
+module.exports = ({ fsx, lib }) => async targetDir => {
 
-    const dirDataList = await effects.listDirAsync(targetDir);
+    const dirDataList = await fsx.listDirAsync(targetDir);
     const scriptDataList = dirDataList.map(lib.getScriptData);
-    await effects.writeScriptsAsync(scriptDataList);
+    await fsx.writeScriptsAsync(scriptDataList);
 
 };

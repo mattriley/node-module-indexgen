@@ -9,8 +9,8 @@ module.exports = ({ overrides, configs }) => {
     const { util } = compose('util');
     const { strategies } = compose('strategies', { util });
     const { lib } = compose('lib', { strategies, util, config });
-    const { effects } = compose('effects', { lib, config, io, util, strategies });
-    compose('commands', { effects, lib, io, config });
+    const { fsx } = compose('fsx', { lib, config, io, util, strategies });
+    compose('commands', { fsx, lib, io, config });
     return compose.end();
 
 };

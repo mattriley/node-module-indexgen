@@ -1,15 +1,15 @@
 const path = require('path');
 
-module.exports = ({ effects, config }) => scriptDataList => {
+module.exports = ({ fsx, config }) => scriptDataList => {
 
     const mapper = async scriptData => {
         const filePath = path.join(scriptData.dirPath, config.filename);
-        const [readError, currentValue] = await effects.readFile(filePath);
+        const [readError, currentValue] = await fsx.readFile(filePath);
         if (readError && readError.code !== 'ENOENT') console.error(readError);
 
         const unchanged = currentValue === scriptData.script;
         if (unchanged) return;
-        const [writeError] = await effects.writeFile(filePath, scriptData.script);
+        const [writeError] = await fsx.writeFile(filePath, scriptData.script);
 
         if (writeError) {
             console.log(`      Error ${filePath}`);

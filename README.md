@@ -100,15 +100,15 @@ module.exports = {
 ###### <p align="right"><em>Can't see the diagram?</em> <a id="link-1" href="https://github.com/mattriley/node-module-indexgen#user-content-link-1">View it on GitHub</a></p>
 ```mermaid
 graph TD;
-    commands-->effects;
+    commands-->fsx;
     commands-->lib;
     commands-->io;
     commands-->config;
-    effects-->lib;
-    effects-->config;
-    effects-->io;
-    effects-->util;
-    effects-->strategies;
+    fsx-->lib;
+    fsx-->config;
+    fsx-->io;
+    fsx-->util;
+    fsx-->strategies;
     lib-->strategies;
     lib-->util;
     lib-->config;
