@@ -1,8 +1,8 @@
-module.exports = ({ effects, strategies, config }) => dirData => {
+module.exports = ({ lib, strategies, config }) => dirData => {
 
     const { dirPath, childPaths } = dirData;
     const configOverride = config.overrides?.[dirData.targetDir] ?? {};
-    const childDataList = childPaths.map(childPath => effects.getFileData(childPath, configOverride));
+    const childDataList = childPaths.map(childPath => lib.getFileData(childPath, configOverride));
 
     // TODO: option to sort by key or path name
 
