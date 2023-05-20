@@ -1,13 +1,13 @@
 const camelCase = require('lodash.camelcase');
 const trimLeadingIllegalCharacters = str => str.replace(/^[^$_a-z]+/i, '');
 
-module.exports = ({ futil, util, config }) => (pathname, configOverride) => {
+module.exports = ({ util, config }) => (pathname, configOverride) => {
 
     const configFinal = { ...config, ...configOverride };
 
     const isDir = pathname.endsWith('/');
-    const ext = futil.extname(pathname);
-    const basenameWithoutExt = futil.basenameWithoutExt(pathname);
+    const ext = util.extname(pathname);
+    const basenameWithoutExt = util.basenameWithoutExt(pathname);
     const keyRaw1 = trimLeadingIllegalCharacters(basenameWithoutExt);
 
     const [, leadingSymbols = '', keyRaw] = keyRaw1.match(/(^[$_]+)?(.+)/);
