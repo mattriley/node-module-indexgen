@@ -34,9 +34,21 @@ npx indexgen <targetDir> [<targetDir>...] [options]
 
 Options:
 
-`--type`: `cjs` or `esm`. Default is determined by `type` in `package.json`.
-
 `--watch`: Regenerate on file changes.
+
+`--watchDelayMilliseconds`: Delay before reacting to file changes. Default is `1000`.
+
+`--type`: `cjs` or `esm`. Default is determined by `type` in `package.json`, otherwise `cjs`.
+
+`--fullySpecified`: Maintain fully specified import paths as required by `esm`. Default is `false`.
+
+`--only`: Glob pattern to limit included files. Default is `'*.{cjs,mjs,js,json,jsx}'`.
+
+`--ignore`: Paths to ignore. Default is `node_modules`.
+
+`--transformKeys`: Applies camel case (and others) to generated keys. Default is `true`.
+
+`--commaReverse`: Reverses generated keys by comma, e.g. `bar, foo` becomes `fooBar`. Default is `true`.
 
 ## Example
 
