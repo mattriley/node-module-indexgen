@@ -1,8 +1,7 @@
-module.exports = ({ lib, config }) => (pathname, configOverride) => {
+module.exports = ({ lib }) => (pathname, config) => {
 
-    const configFinal = { ...config, ...configOverride };
-    const key = lib.getExportKey(pathname, configFinal);
-    const importPath = lib.getImportPath(pathname, configFinal);
+    const key = lib.getExportKey(pathname, config);
+    const importPath = lib.getImportPath(pathname, config);
     return { key, importPath };
 
 };

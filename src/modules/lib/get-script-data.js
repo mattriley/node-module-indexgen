@@ -2,7 +2,9 @@ module.exports = ({ lib, strategies, config }) => dirData => {
 
     const { dirPath, childPaths } = dirData;
     const configOverride = config.overrides?.[dirData.targetDir] ?? {};
-    const childDataList = childPaths.map(childPath => lib.getFileData(childPath, configOverride));
+
+    const configFinal = { ...config, ...configOverride };
+    const childDataList = childPaths.map(childPath => lib.getFileData(childPath, configFinal));
 
     // TODO: option to sort by key or path name
 
