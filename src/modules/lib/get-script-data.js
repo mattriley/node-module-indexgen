@@ -4,7 +4,12 @@ module.exports = ({ lib, strategies, config }) => dirData => {
     const configOverride = config.overrides?.[dirData.targetDir] ?? {};
 
     const configFinal = { ...config, ...configOverride };
-    const childDataList = childPaths.map(childPath => lib.getFileData(childPath, configFinal));
+
+    const childDataList = childPaths.map(childPath => {
+        const exportKey = lib.getExportKey(childPath, configFinal);
+        const importPath = lib.getImportPath(childPath, configFinal);
+        return { exportKey, importPath };
+    });
 
     // TODO: option to sort by key or path name
 
