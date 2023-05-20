@@ -101,6 +101,7 @@ module.exports = {
 ```mermaid
 graph TD;
     commands-->effects;
+    commands-->lib;
     commands-->io;
     commands-->config;
     effects-->lib;
@@ -110,6 +111,7 @@ graph TD;
     effects-->util;
     effects-->strategies;
     futil-->io;
+    lib-->strategies;
     lib-->futil;
     lib-->util;
     lib-->config;
