@@ -27,30 +27,30 @@
         "deploy": "npx task deploy",
         "lint": "npx task lint",
         "pre": "npx task pre",
-        "setup": "nvm use && npm i && npx task setup",
+        "setup": "npm i && npx task setup",
         "start": "npx task start",
         "test": "npx task test"
     },
     "dependencies": {
         "fast-glob": "^3.2.12",
         "lodash.camelcase": "^4.3.0",
-        "minimist": "^1.2.7",
-        "module-composer": "^0.92.0"
+        "minimist": "^1.2.8",
+        "module-composer": "^0.109.0"
     },
     "devDependencies": {
-        "c8": "^7.12.0",
+        "c8": "^7.13.0",
         "chokidar-cli": "^3.0.0",
-        "cloc": "^2.10.0",
+        "cloc": "^2.11.0",
         "doctoc": "^2.2.1",
-        "ejs": "^3.1.8",
-        "eslint": "^8.29.0",
-        "eslint-plugin-import": "^2.26.0",
+        "ejs": "^3.1.9",
+        "eslint": "^8.41.0",
+        "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-tap": "^1.2.1",
-        "husky": "^8.0.2",
-        "module-indexgen": "^0.21.0",
-        "npm-check-updates": "^16.4.3",
-        "tap": "^16.3.2",
-        "task-library": "^0.194.0",
+        "husky": "^8.0.3",
+        "module-indexgen": "^0.27.0",
+        "npm-check-updates": "^16.10.12",
+        "tap": "^16.3.4",
+        "task-library": "^0.215.0",
         "testing": "file:./testing"
     },
     "publishConfig": {
