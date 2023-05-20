@@ -6,7 +6,8 @@ module.exports = ({ util }) => (pathname, config) => {
     const fullySpecified = config.fullySpecified || ext === '.json';
     const pathWithoutExt = fullySpecified ? pathname : basenameWithoutExt;
     const fullySpecifiedImportPath = isDir ? pathname + config.filename : pathname;
-    const importPath = fullySpecified ? fullySpecifiedImportPath : pathWithoutExt;
-    return `./${importPath}`;
+    const pathUnqualified = fullySpecified ? fullySpecifiedImportPath : pathWithoutExt;
+    const pathQualified = `./${pathUnqualified}`;
+    return pathQualified;
 
 };

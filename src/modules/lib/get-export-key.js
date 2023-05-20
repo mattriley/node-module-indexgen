@@ -10,7 +10,7 @@ module.exports = ({ util }) => (pathname, config) => {
     const keyCamel = camelCase(keyMaybeReversed);
     const keyMaybeUpperFirst = util.startsWithUpper(keyAlpha) ? util.upperFirst(keyCamel) : keyCamel;
     const keyAlphaOrTransformed = util.legalJsName(keyAlpha) ? keyAlpha : keyMaybeUpperFirst;
-    const key = leadingSymbols + (config.transformKeys ? keyAlphaOrTransformed : keyAlpha);
-    return key;
+    const exportKey = leadingSymbols + (config.transformKeys ? keyAlphaOrTransformed : keyAlpha);
+    return exportKey;
 
 };
