@@ -1,6 +1,7 @@
-const composer = require('module-composer');
-const modules = require('./modules');
 const defaultConfig = require('./default-config.js');
+const modules = require('./modules');
+const composer = require('module-composer');
+require('module-composer/extensions/access-modifiers');
 
 module.exports = ({ overrides, configs }) => {
 
