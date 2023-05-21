@@ -6,5 +6,6 @@ module.exports = {
     ignore: 'node_modules',
     watchDelayMilliseconds: 1000,
     transformKeys: true,
-    commaReverse: true
+    reverseDelimiter: ',',
+    sortSeparator: '--'
 };

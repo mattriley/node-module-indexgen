@@ -11,11 +11,11 @@ module.exports = {
     _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
-    illegalJsNameStartingWithNumber1ThenLower: require('./1-illegal-js-name-starting-with-number-1-then-lower'),
-    IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper'),
-    illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
-    illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
-    fooBar: require('./bar, foo'),
+    illegalJsNameStartingWithLowerWithSortString1: require('./1--illegal-js-name-starting-with-lower-with-sort-string-1'),
+    IllegalJsNameStartingWithUpperWithSortString1: require('./1--Illegal-js-name-starting-with-upper-with-sort-string-1'),
+    illegalJsNameWithSortString2: require('./2--illegal-js-name-with-sort-string-2'),
+    illegalJsNameWithSortString10: require('./10--illegal-js-name-with-sort-string-10'),
+    fooBar: require('./bar,foo'),
     illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
     JsonFile: require('./JsonFile.json'),
@@ -31,11 +31,11 @@ module.exports = {
     _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper.js'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower.js'),
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper.js'),
-    illegalJsNameStartingWithNumber1ThenLower: require('./1-illegal-js-name-starting-with-number-1-then-lower.js'),
-    IllegalJsNameStartingWithNumber1ThenUpper: require('./1-Illegal-js-name-starting-with-number-1-then-upper.js'),
-    illegalJsNameStartingWithSingleDigitNumber2: require('./2-illegal-js-name-starting-with-single-digit-number-2'),
-    illegalJsNameStartingWithDoubleDigitNumber10: require('./10-illegal-js-name-starting-with-double-digit-number-10'),
-    fooBar: require('./bar, foo'),
+    illegalJsNameStartingWithLowerWithSortString1: require('./1--illegal-js-name-starting-with-lower-with-sort-string-1.js'),
+    IllegalJsNameStartingWithUpperWithSortString1: require('./1--Illegal-js-name-starting-with-upper-with-sort-string-1.js'),
+    illegalJsNameWithSortString2: require('./2--illegal-js-name-with-sort-string-2'),
+    illegalJsNameWithSortString10: require('./10--illegal-js-name-with-sort-string-10'),
+    fooBar: require('./bar,foo'),
     illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower.js'),
     IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper.js'),
     JsonFile: require('./JsonFile.json'),
@@ -50,11 +50,11 @@ import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWi
 import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower';
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
-import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-starting-with-number-1-then-lower';
-import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper';
-import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
-import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
-import fooBar from './bar, foo';
+import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1';
+import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1';
+import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
+import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
+import fooBar from './bar,foo';
 import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper';
 import JsonFile from './JsonFile.json';
@@ -66,10 +66,10 @@ export default {
     _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
     $LegalJsNameStartingWithDollarAndUpper,
-    illegalJsNameStartingWithNumber1ThenLower,
-    IllegalJsNameStartingWithNumber1ThenUpper,
-    illegalJsNameStartingWithSingleDigitNumber2,
-    illegalJsNameStartingWithDoubleDigitNumber10,
+    illegalJsNameStartingWithLowerWithSortString1,
+    IllegalJsNameStartingWithUpperWithSortString1,
+    illegalJsNameWithSortString2,
+    illegalJsNameWithSortString10,
     fooBar,
     illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
@@ -85,11 +85,11 @@ import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWi
 import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
 import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower.js';
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
-import illegalJsNameStartingWithNumber1ThenLower from './1-illegal-js-name-starting-with-number-1-then-lower.js';
-import IllegalJsNameStartingWithNumber1ThenUpper from './1-Illegal-js-name-starting-with-number-1-then-upper.js';
-import illegalJsNameStartingWithSingleDigitNumber2 from './2-illegal-js-name-starting-with-single-digit-number-2';
-import illegalJsNameStartingWithDoubleDigitNumber10 from './10-illegal-js-name-starting-with-double-digit-number-10';
-import fooBar from './bar, foo';
+import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1.js';
+import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1.js';
+import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
+import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
+import fooBar from './bar,foo';
 import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower.js';
 import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper.js';
 import JsonFile from './JsonFile.json';
@@ -101,10 +101,10 @@ export default {
     _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
     $LegalJsNameStartingWithDollarAndUpper,
-    illegalJsNameStartingWithNumber1ThenLower,
-    IllegalJsNameStartingWithNumber1ThenUpper,
-    illegalJsNameStartingWithSingleDigitNumber2,
-    illegalJsNameStartingWithDoubleDigitNumber10,
+    illegalJsNameStartingWithLowerWithSortString1,
+    IllegalJsNameStartingWithUpperWithSortString1,
+    illegalJsNameWithSortString2,
+    illegalJsNameWithSortString10,
     fooBar,
     illegalJsNameStartingWithLower,
     IllegalJsNameStartingWithUpper,
