@@ -13,8 +13,10 @@ module.exports = ({ util }) => (pathname, config) => {
     const none = keyBare;
     const casing = { camel, pascal, auto, none };
 
-    const keyCase = casing[config.case];
-    const keyFinal = util.legalJsName(keyBare) ? keyBare : keyCase;
-    return config.keepLeadingSymbols ? leadingSymbols + keyFinal : keyFinal;
+    const keyCase = casing[config.case] ?? auto;
+
+    if (config.keepLeadingSymbols) return leadingSymbols + keyCase;
+
+    return keyCase;
 
 };
