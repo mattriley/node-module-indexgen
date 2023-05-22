@@ -4,7 +4,7 @@ module.exports = {
     type: 'cjs',
     only: '*.{cjs,mjs,js,json,jsx}',
     ignore: 'node_modules',
-    watchDelayMilliseconds: 1000,
+    watchDelay: 1000,
     reverseDelimiter: ',',
     sortSeparator: '--',
     keepLeadingSymbols: true,

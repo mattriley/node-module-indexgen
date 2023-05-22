@@ -10,7 +10,7 @@ module.exports = ({ commands, io, config }) => targetDir => {
             clearTimeout(timeoutId);
             timeoutId = null;
             commands.indexgen(targetDir);
-        }, config.watchDelayMilliseconds);
+        }, config.watchDelay);
     };
 
     try {

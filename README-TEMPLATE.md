@@ -16,7 +16,7 @@ Options:
 
 `--watch`: Regenerate on file changes.
 
-`--watchDelayMilliseconds`: Delay before reacting to file changes. Default is `1000`.
+`--watchDelay`: Number of milliseconds to delay before reacting to file changes. Default is `1000`.
 
 `--type`: `cjs` or `esm`. Default is determined by `type` in `package.json`, otherwise `cjs`.
 
@@ -26,9 +26,11 @@ Options:
 
 `--ignore`: Paths to ignore. Default is `node_modules`.
 
-`--transformKeys`: Applies camel case (and others) to generated keys. Default is `true`.
+`--case`: Case to apply to generated keys. Options are `camel`, `pascal`, `auto`, `none`. Default is `auto`.
 
-`--commaReverse`: Reverses generated keys by comma, e.g. `bar, foo` becomes `fooBar`. Default is `true`.
+`--sortSeparator`: Ignores the left side for the purpose of ordering, e.g. `1--b.js` and `2--a.js` becomes `b` and `a` in that order. Default is `--`.
+
+`--reverseDelimiter`: Reverses generated keys by comma, e.g. `bar,foo` becomes `fooBar`. Default is `,`.
 
 ## Example
 
