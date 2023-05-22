@@ -7,5 +7,6 @@ module.exports = {
     watchDelayMilliseconds: 1000,
     transformKeys: true,
     reverseDelimiter: ',',
-    sortSeparator: '--'
+    sortSeparator: '--',
+    keepLeadingSymbols: true
 };
