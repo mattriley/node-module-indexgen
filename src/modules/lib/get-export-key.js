@@ -9,9 +9,13 @@ module.exports = ({ util }) => (pathname, config) => {
 
     if (!config.transformKeys) return keyBare;
 
-    const keyCamel = camelCase(keyBare);
-    const keyPascal = util.upperFirst(keyCamel);
-    const keyCase = util.startsWithUpper(keyBare) ? keyPascal : keyCamel;
+    const camel = camelCase(keyBare);
+    const pascal = util.upperFirst(camel);
+    const auto = util.startsWithUpper(keyBare) ? pascal : camel;
+    const none = keyBare;
+    const casing = { camel, pascal, auto, none };
+
+    const keyCase = casing[config.case];
     const keyFinal = util.legalJsName(keyBare) ? keyBare : keyCase;
     return config.keepLeadingSymbols ? leadingSymbols + keyFinal : keyFinal;
 
