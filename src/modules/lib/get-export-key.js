@@ -4,7 +4,7 @@ module.exports = ({ util }) => (pathname, config) => {
 
     const basenameMinusExtension = util.basenameWithoutExt(pathname);
     const [basenameMinusSort] = basenameMinusExtension.split(config.sortSeparator).reverse();
-    const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/(^[$_]+)?(.+)/);
+    const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/([^a-z]+)?(.+)/);
     const keyBare = keyAlpha.split(config.reverseDelimiter).reverse().join('-');
 
     if (!config.transformKeys) return keyBare;
