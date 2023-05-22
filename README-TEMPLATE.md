@@ -22,7 +22,7 @@ Options:
 
 `--fullySpecified`: Maintain fully specified import paths as required by `esm`. Default is `false`.
 
-`--only`: Glob pattern to limit included files. Default is `'*.{cjs,mjs,js,json,jsx}'`.
+`--only`: Glob pattern to limit included files. Default is `*.{cjs,mjs,js,json,jsx}`.
 
 `--ignore`: Paths to ignore. Default is `node_modules`.
 
