@@ -4,14 +4,12 @@ module.exports = ({ util }) => (pathname, config) => {
 
     const basenameMinusExtension = util.basenameWithoutExt(pathname);
     const [basenameMinusSort] = basenameMinusExtension.split(config.sortSeparator).reverse();
-    const keyBare = basenameMinusSort;
     const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/(^[$_]+)?(.+)/);
-    const keyMaybeReversed = keyAlpha.split(config.reverseDelimiter).reverse().join(' ');
-    const keyBeforeCamel = keyMaybeReversed;
-    const keyCamel = camelCase(keyMaybeReversed);
-    const keyMaybeUpperFirst = util.startsWithUpper(keyBeforeCamel) ? util.upperFirst(keyCamel) : keyCamel;
-    const keyAlphaOrTransformed = util.legalJsName(keyBeforeCamel) ? keyAlpha : keyMaybeUpperFirst;
-    const exportKey = config.transformKeys ? leadingSymbols + keyAlphaOrTransformed : keyBare;
-    return exportKey;
+    const keyBare = keyAlpha.split(config.reverseDelimiter).reverse().join('-');
+    const keyCamel = camelCase(keyBare);
+    const keyPascal = util.upperFirst(keyCamel);
+    const keyCase = util.startsWithUpper(keyBare) ? keyPascal : keyCamel;
+    const keyTransformed = util.legalJsName(keyBare) ? keyBare : keyCase;
+    return config.transformKeys ? leadingSymbols + keyTransformed : keyBare;
 
 };
