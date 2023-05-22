@@ -7,11 +7,9 @@ module.exports = ({ util }) => (pathname, config) => {
     const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/([^a-z]+)?(.+)/);
     const keyBare = keyAlpha.split(config.reverseDelimiter).reverse().join('-');
 
-    if (!config.transformKeys) return keyBare;
-
     const camel = camelCase(keyBare);
     const pascal = util.upperFirst(camel);
-    const auto = util.startsWithUpper(keyBare) ? pascal : camel;
+    const auto = util.legalJsName(keyBare) ? keyBare : util.startsWithUpper(keyBare) ? pascal : camel;
     const none = keyBare;
     const casing = { camel, pascal, auto, none };
 

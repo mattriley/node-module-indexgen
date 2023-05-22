@@ -5,7 +5,6 @@ module.exports = {
     only: '*.{cjs,mjs,js,json,jsx}',
     ignore: 'node_modules',
     watchDelayMilliseconds: 1000,
-    transformKeys: true,
     reverseDelimiter: ',',
     sortSeparator: '--',
     keepLeadingSymbols: true,
