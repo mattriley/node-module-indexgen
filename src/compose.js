@@ -3,13 +3,13 @@ const modules = require('./modules');
 const composer = require('module-composer');
 require('module-composer/extensions/access-modifiers');
 
-module.exports = ({ overrides, configs = [] }) => {
+module.exports = ({ overrides, config }) => {
 
     const { configure } = composer(modules, { overrides });
 
-    const { compose, constants } = configure(defaultConfig, ...configs, config => {
+    const { compose, constants } = configure(defaultConfig, config, config => {
         const fullySpecified = config.fullySpecified ?? config.type === 'esm';
-        return { ...config, fullySpecified };
+        return { fullySpecified };
     });
 
     const { io } = compose('io', {}, io => io.setup());

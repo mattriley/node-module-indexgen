@@ -41,9 +41,8 @@ const doTest = (t, config) => {
         }
     };
 
-    const configs = [config];
     const overrides = { io: { fs, glob } };
-    const { modules } = compose({ overrides, configs });
+    const { modules } = compose({ overrides, config });
     modules.commands.indexgen('modules');
 };
 
