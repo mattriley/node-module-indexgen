@@ -117,12 +117,12 @@ graph TD;
     commands-->fsx;
     commands-->lib;
     commands-->io;
-    commands-->config;
-    fsx-->config;
+    commands-->constants;
+    fsx-->constants;
     fsx-->io;
     lib-->strategies;
     lib-->util;
-    lib-->config;
+    lib-->constants;
     strategies-->util;
 ```
 <p align="center">

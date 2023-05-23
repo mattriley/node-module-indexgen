@@ -1,7 +1,7 @@
-module.exports = ({ config, io }) => async targetDir => {
+module.exports = ({ constants, io }) => async targetDir => {
 
     const dirPaths = await io.glob(`${targetDir}/**`, {
-        ignore: config.ignore,
+        ignore: constants.ignore,
         onlyDirectories: true
     });
 
@@ -12,11 +12,11 @@ module.exports = ({ config, io }) => async targetDir => {
             markDirectories: true
         });
 
-        const childFilePaths = await io.glob(config.only, {
+        const childFilePaths = await io.glob(constants.only, {
             cwd: dirPath,
             onlyFiles: true,
             globstar: false,
-            ignore: [config.filename, 'indexgen.config.json']
+            ignore: [constants.filename, 'indexgen.config.json']
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];

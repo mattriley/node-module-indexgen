@@ -1,13 +1,13 @@
-module.exports = ({ lib, strategies, config }) => dirData => {
+module.exports = ({ lib, strategies, constants }) => dirData => {
 
     const { childPaths } = dirData;
-    const configOverride = config.overrides?.[dirData.targetDir] ?? {};
+    const constantsOverride = constants.overrides?.[dirData.targetDir] ?? {};
 
-    const configFinal = { ...config, ...configOverride };
+    const constantsFinal = { ...constants, ...constantsOverride };
 
     const childDataList = childPaths.map(childPath => {
-        const exportKey = lib.getExportKey(childPath, configFinal);
-        const importPath = lib.getImportPath(childPath, configFinal);
+        const exportKey = lib.getExportKey(childPath, constantsFinal);
+        const importPath = lib.getImportPath(childPath, constantsFinal);
         return { exportKey, importPath };
     });
 
@@ -25,7 +25,7 @@ module.exports = ({ lib, strategies, config }) => dirData => {
     const collator = new Intl.Collator([], { numeric: true });
     const sortedPaths = Object.keys(filesByPath).sort((a, b) => collator.compare(a, b));
     const files = sortedPaths.map(path => filesByPath[path]);
-    const script = strategies[config.type]({ files });
+    const script = strategies[constants.type]({ files });
     return script;
 
 };

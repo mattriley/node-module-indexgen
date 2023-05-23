@@ -1,9 +1,9 @@
 const path = require('path');
 
-module.exports = ({ fsx, config }) => scriptDataList => {
+module.exports = ({ fsx, constants }) => scriptDataList => {
 
     const mapper = async scriptData => {
-        const filePath = path.join(scriptData.dirPath, config.filename);
+        const filePath = path.join(scriptData.dirPath, constants.filename);
         const [readError, currentValue] = await fsx.readFile(filePath);
         if (readError && readError.code !== 'ENOENT') console.error(readError);
 
