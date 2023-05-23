@@ -18,9 +18,9 @@ Options:
 
 `--watchDelay`: Number of milliseconds to delay before reacting to file changes. Default is `1000`.
 
-`--type`: `cjs` or `esm`. Default is determined by `type` in `package.json`, otherwise `cjs`.
+`--type`: `cjs` or `esm`. Default is `cjs`.
 
-`--fullySpecified`: Maintain fully specified import paths as required by `esm`. Default is `false`.
+`--fullySpecified`: Maintain fully specified import paths as required by `esm`. Default is `true` for `esm`, otherwise `false`.
 
 `--only`: Glob pattern to limit included files. Default is `*.{cjs,mjs,js,json,jsx}`.
 
