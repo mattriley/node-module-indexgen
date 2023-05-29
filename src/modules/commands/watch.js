@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = ({ commands, io, constants }) => targetDir => {
+module.exports = ({ commands, io, config }) => targetDir => {
 
     let timeoutId = null;
 
@@ -10,12 +10,12 @@ module.exports = ({ commands, io, constants }) => targetDir => {
             clearTimeout(timeoutId);
             timeoutId = null;
             commands.indexgen(targetDir);
-        }, constants.watchDelay);
+        }, config.watchDelay);
     };
 
     try {
         io.fs.watch(targetDir, { recursive: true }, (eventType, filename) => {
-            if (path.basename(filename) === constants.filename) return;
+            if (path.basename(filename) === config.filename) return;
             generateFilesDelayed();
         });
     } catch (err) {

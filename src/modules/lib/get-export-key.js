@@ -1,11 +1,11 @@
 const camelCase = require('lodash.camelcase');
 
-module.exports = ({ util }) => (pathname, constants) => {
+module.exports = ({ util }) => (pathname, config) => {
 
     const basenameMinusExtension = util.basenameWithoutExt(pathname);
-    const [basenameMinusSort] = basenameMinusExtension.split(constants.sortSeparator).reverse();
+    const [basenameMinusSort] = basenameMinusExtension.split(config.sortSeparator).reverse();
     const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/([^a-z]+)?(.+)/);
-    const keyBare = keyAlpha.split(constants.reverseDelimiter).reverse().join('-');
+    const keyBare = keyAlpha.split(config.reverseDelimiter).reverse().join('-');
 
     const camel = camelCase(keyBare);
     const pascal = util.upperFirst(camel);
@@ -13,9 +13,9 @@ module.exports = ({ util }) => (pathname, constants) => {
     const none = keyBare;
     const casing = { camel, pascal, auto, none };
 
-    const keyCase = casing[constants.case] ?? auto;
+    const keyCase = casing[config.case] ?? auto;
 
-    if (constants.keepLeadingSymbols) return leadingSymbols + keyCase;
+    if (config.keepLeadingSymbols) return leadingSymbols + keyCase;
 
     return keyCase;
 

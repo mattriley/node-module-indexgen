@@ -35,10 +35,10 @@
         "fast-glob": "^3.2.12",
         "lodash.camelcase": "^4.3.0",
         "minimist": "^1.2.8",
-        "module-composer": "^0.117.0"
+        "module-composer": "^0.119.0"
     },
     "devDependencies": {
-        "c8": "^7.13.0",
+        "c8": "^7.14.0",
         "chokidar-cli": "^3.0.0",
         "cloc": "^2.11.0",
         "doctoc": "^2.2.1",
@@ -47,10 +47,9 @@
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-tap": "^1.2.1",
         "husky": "^8.0.3",
-        "module-indexgen": "^0.32.0",
         "npm-check-updates": "^16.10.12",
         "tap": "^16.3.4",
-        "task-library": "^0.216.0"
+        "task-library": "^0.219.0"
     },
     "publishConfig": {
         "access": "public"
