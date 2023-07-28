@@ -13,6 +13,7 @@ module.exports = {
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
     illegalJsNameStartingWithLowerWithSortString1: require('./1--illegal-js-name-starting-with-lower-with-sort-string-1'),
     IllegalJsNameStartingWithUpperWithSortString1: require('./1--Illegal-js-name-starting-with-upper-with-sort-string-1'),
+    '1-illegalJsNameWithNumber': require('./1-illegal-js-name-with-number'),
     illegalJsNameWithSortString2: require('./2--illegal-js-name-with-sort-string-2'),
     illegalJsNameWithSortString10: require('./10--illegal-js-name-with-sort-string-10'),
     fooBar: require('./bar,foo'),
@@ -33,6 +34,7 @@ module.exports = {
     $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper.js'),
     illegalJsNameStartingWithLowerWithSortString1: require('./1--illegal-js-name-starting-with-lower-with-sort-string-1.js'),
     IllegalJsNameStartingWithUpperWithSortString1: require('./1--Illegal-js-name-starting-with-upper-with-sort-string-1.js'),
+    '1-illegalJsNameWithNumber': require('./1-illegal-js-name-with-number'),
     illegalJsNameWithSortString2: require('./2--illegal-js-name-with-sort-string-2'),
     illegalJsNameWithSortString10: require('./10--illegal-js-name-with-sort-string-10'),
     fooBar: require('./bar,foo'),
@@ -52,6 +54,7 @@ import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDo
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
 import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1';
 import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1';
+import illegalJsNameWithNumber from './1-illegal-js-name-with-number';
 import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
 import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
 import fooBar from './bar,foo';
@@ -68,6 +71,7 @@ export default {
     $LegalJsNameStartingWithDollarAndUpper,
     illegalJsNameStartingWithLowerWithSortString1,
     IllegalJsNameStartingWithUpperWithSortString1,
+    1-illegalJsNameWithNumber,
     illegalJsNameWithSortString2,
     illegalJsNameWithSortString10,
     fooBar,
@@ -87,6 +91,7 @@ import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDo
 import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
 import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1.js';
 import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1.js';
+import illegalJsNameWithNumber from './1-illegal-js-name-with-number';
 import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
 import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
 import fooBar from './bar,foo';
@@ -103,6 +108,7 @@ export default {
     $LegalJsNameStartingWithDollarAndUpper,
     illegalJsNameStartingWithLowerWithSortString1,
     IllegalJsNameStartingWithUpperWithSortString1,
+    1-illegalJsNameWithNumber,
     illegalJsNameWithSortString2,
     illegalJsNameWithSortString10,
     fooBar,
