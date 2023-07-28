@@ -1,11 +1,12 @@
 module.exports = ({ util }) => ({ files }) => {
 
-    const imports = files.map(f => {
+    const filesModified = files.map(f => {
         const exportKey = util.trimLeadingIllegalJsChars(f.exportKey);
-        return `import ${exportKey} from '${f.importPath}';`;
+        return { ...f, exportKey };
     });
 
-    const lines = files.map(f => `    ${f.exportKey}`).join(',\n');
+    const imports = filesModified.map(f => `import ${f.exportKey} from '${f.importPath}';`);
+    const lines = filesModified.map(f => `    ${f.exportKey}`).join(',\n');
     return `${imports.join('\n')}\n\nexport default {\n${lines}\n};\n`;
 
 };
