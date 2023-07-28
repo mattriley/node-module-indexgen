@@ -1,11 +1,12 @@
 module.exports = ({ config, io }) => async targetDir => {
 
     const dirPaths = await io.glob(`${targetDir}/**`, {
-        ignore: config.ignore,
+        ignore: [config.ignore].flat(),
         onlyDirectories: true
     });
 
     const mapper = async dirPath => {
+
         const childDirPaths = await io.glob('*', {
             cwd: dirPath,
             onlyDirectories: true,
@@ -24,6 +25,7 @@ module.exports = ({ config, io }) => async targetDir => {
     };
 
     const targetDirs = [targetDir, ...dirPaths];
+
     return Promise.all(targetDirs.map(mapper));
 
 };
