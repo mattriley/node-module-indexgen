@@ -16,7 +16,7 @@ const pathConfigs = Object.fromEntries(paths.map(dirPath => {
 }));
 
 const config = { ...args, paths, overrides: pathConfigs };
-const { constants, modules: { commands } } = compose({ config });
+const { constants, commands } = compose({ config });
 console.log(constants);
 paths.forEach(dir => commands.indexgen(dir));
 if (args.watch) paths.forEach(dir => commands.watch(dir));

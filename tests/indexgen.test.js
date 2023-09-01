@@ -43,8 +43,8 @@ const doTest = (t, config) => {
     };
 
     const overrides = { io: { fs, glob } };
-    const { modules } = compose({ overrides, config });
-    modules.commands.indexgen('modules');
+    const { commands } = compose({ overrides, config });
+    commands.indexgen('modules');
 };
 
 test('cjs', t => {
