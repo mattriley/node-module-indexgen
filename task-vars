@@ -3,7 +3,6 @@
 export NODE_VERSION="20.5.0"
 
 export DEV_TASKS="edit | test-watch"
-export TEST_RUNNER="tap"
 
 export COV_BRANCHES=60
 export COV_LINES=80

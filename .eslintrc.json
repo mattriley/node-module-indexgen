@@ -45,18 +45,6 @@
             "off"
         ]
     },
-    "overrides": [
-        {
-            "files": [
-                "./tests/**/*.test.{js,mjs}"
-            ],
-            "plugins": [
-                "tap"
-            ],
-            "extends": [
-                "plugin:tap/recommended"
-            ]
-        }
-    ],
+    "overrides": [],
     "plugins": []
 }
