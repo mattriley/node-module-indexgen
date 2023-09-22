@@ -114,13 +114,13 @@ module.exports = {
 ###### <p align="right"><em>Can't see the diagram?</em> <a id="link-1" href="https://github.com/mattriley/node-module-indexgen#user-content-link-1">View it on GitHub</a></p>
 ```mermaid
 graph TD;
+    strategies-->util;
+    lib-->strategies;
+    lib-->util;
+    fsx-->io;
     commands-->fsx;
     commands-->lib;
     commands-->io;
-    fsx-->io;
-    lib-->strategies;
-    lib-->util;
-    strategies-->util;
 ```
 <p align="center">
   <em>This diagram was generated with <a href="https://github.com/mattriley/node-module-composer">Module Composer</a></em>
