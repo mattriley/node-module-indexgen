@@ -1,6 +1,6 @@
-module.exports = ({ self, strategies, config }) => dirDataList => {
+module.exports = ({ self, renderers, config }) => dirDataList => {
 
-    const renderScript = strategies[config.type];
+    const renderScript = renderers[config.type];
 
     return dirDataList.map(dirData => {
         const dirPath = dirData.dirPath;

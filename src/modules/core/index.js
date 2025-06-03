@@ -1,6 +1,6 @@
 module.exports = {
-    getExportKey: require('./get-export-key'),
-    getImportPath: require('./get-import-path'),
     $getScriptData: require('./$get-script-data'),
+    getExportName: require('./get-export-name'),
+    getImportPath: require('./get-import-path'),
     getScriptFiles: require('./get-script-files')
 };

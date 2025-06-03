@@ -3,6 +3,6 @@ module.exports = {
     core: require('./core'),
     fsx: require('./fsx'),
     io: require('./io'),
-    strategies: require('./strategies'),
+    renderers: require('./renderers'),
     util: require('./util')
 };

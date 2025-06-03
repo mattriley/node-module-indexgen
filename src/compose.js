@@ -12,9 +12,9 @@ module.exports = ({ overrides, config }) => {
 
     const { io } = compose('io');
     const { util } = compose('util');
-    const { strategies } = compose('strategies', { util });
+    const { renderers } = compose('renderers', { util });
     const { fsx } = compose('fsx', { io });
-    const { core } = compose('core', { strategies, util });
+    const { core } = compose('core', { renderers, util });
     return compose('commands', { core, fsx, io });
 
 };

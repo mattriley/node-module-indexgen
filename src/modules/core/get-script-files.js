@@ -6,9 +6,9 @@ module.exports = ({ self, config }) => dirData => {
 
     const childDataList = childPaths.map(childPath => {
         const isFile = dirData.childFiles.includes(childPath);
-        const exportKey = self.getExportKey(childPath, configFinal, { isFile });
+        const exportName = self.getExportName(childPath, configFinal, { isFile });
         const importPath = self.getImportPath(childPath, configFinal);
-        return { exportKey, importPath };
+        return { exportName, importPath };
     });
 
     const sortFiles = childDataList => {
