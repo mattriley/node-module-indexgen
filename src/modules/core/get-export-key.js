@@ -1,9 +1,9 @@
 const camelCase = require('lodash.camelcase');
 const path = require('path');
 
-module.exports = ({ fsx, util }) => (pathname, config, dirData) => {
+module.exports = ({ util }) => (pathname, config, { isFile }) => {
 
-    const basenameMinusExtension = fsx.isFile(path.resolve(dirData.dirPath + '/' + pathname)) ? util.basenameWithoutExt(pathname) : path.basename(pathname);
+    const basenameMinusExtension = isFile ? util.basenameWithoutExt(pathname) : path.basename(pathname);
     const [basenameMinusSort] = basenameMinusExtension.split(config.sortSeparator).reverse();
     const [, leadingSymbols = '', keyAlpha] = basenameMinusSort.match(/([^a-z]+)?(.+)/);
     const keyBare = keyAlpha.split(config.reverseDelimiter).reverse().join('-');

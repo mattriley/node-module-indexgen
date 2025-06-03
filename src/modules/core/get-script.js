@@ -1,4 +1,4 @@
-module.exports = ({ self, strategies, config }) => dirData => {
+module.exports = ({ self, strategies, fsx, config }) => dirData => {
 
     const { childPaths } = dirData;
     const configOverride = config.overrides?.[dirData.targetDir] ?? {};
@@ -6,7 +6,8 @@ module.exports = ({ self, strategies, config }) => dirData => {
     const configFinal = { ...config, ...configOverride };
 
     const childDataList = childPaths.map(childPath => {
-        const exportKey = self.getExportKey(childPath, configFinal, dirData);
+        const isFile = fsx.isFile(`${dirData.dirPath}/${childPath}`);
+        const exportKey = self.getExportKey(childPath, configFinal, { isFile });
         const importPath = self.getImportPath(childPath, configFinal);
         return { exportKey, importPath };
     });
