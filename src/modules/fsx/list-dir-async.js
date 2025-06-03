@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = ({ config, fsx, io }) => async targetDir => {
 
     const dirPaths = await io.glob(`${targetDir}/**`, {
@@ -21,7 +23,7 @@ module.exports = ({ config, fsx, io }) => async targetDir => {
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
-        const childFiles = childPaths.filter(childPath => fsx.isFile(`${dirPath}/${childPath}`));
+        const childFiles = childPaths.filter(childPath => fsx.isFile(path.join(dirPath, childPath)));
 
         return { targetDir, dirPath, childPaths, childFiles };
     };

@@ -1,4 +1,5 @@
 module.exports = ({ io }) => pathname => {
+
     try {
         const stats = io.fs.statSync(pathname);
         return stats.isFile();
@@ -6,4 +7,5 @@ module.exports = ({ io }) => pathname => {
         console.error('Error reading path:', err);
         return false
     }
+
 };
