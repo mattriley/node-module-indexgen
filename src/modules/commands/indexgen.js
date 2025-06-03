@@ -1,9 +1,7 @@
-module.exports = ({ fsx, lib }) => async targetDir => {
+module.exports = ({ core, fsx }) => async targetDir => {
 
     const dirDataList = await fsx.listDirAsync(targetDir);
-
-    const scriptDataList = lib.getScriptData(dirDataList);
-
+    const scriptDataList = core.getScriptData(dirDataList);
     await fsx.writeScriptsAsync(scriptDataList);
 
 };
