@@ -13,8 +13,8 @@ module.exports = ({ overrides, config }) => {
     const { io } = compose('io');
     const { util } = compose('util');
     const { strategies } = compose('strategies', { util });
-    const { lib } = compose('lib', { strategies, util });
     const { fsx } = compose('fsx', { io });
+    const { lib } = compose('lib', { fsx, strategies, util });
     return compose('commands', { fsx, lib, io });
 
 };

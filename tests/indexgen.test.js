@@ -27,7 +27,7 @@ const glob = (pattern, options) => {
 
 const doTest = (config, expected) => {
     const fs = {
-        lstatSync: () => ({ isDirectory: () => false }),
+        statSync: () => ({ isFile: () => true }),
         promises: {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {

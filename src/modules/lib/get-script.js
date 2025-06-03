@@ -6,7 +6,7 @@ module.exports = ({ lib, strategies, config }) => dirData => {
     const configFinal = { ...config, ...configOverride };
 
     const childDataList = childPaths.map(childPath => {
-        const exportKey = lib.getExportKey(childPath, configFinal);
+        const exportKey = lib.getExportKey(childPath, configFinal, dirData);
         const importPath = lib.getImportPath(childPath, configFinal);
         return { exportKey, importPath };
     });
