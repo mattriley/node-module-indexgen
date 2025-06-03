@@ -1,4 +1,4 @@
-module.exports = ({ config, io }) => async targetDir => {
+module.exports = ({ config, fsx, io }) => async targetDir => {
 
     const dirPaths = await io.glob(`${targetDir}/**`, {
         ignore: [config.ignore].flat(),
@@ -21,7 +21,9 @@ module.exports = ({ config, io }) => async targetDir => {
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
-        return { targetDir, dirPath, childPaths };
+        const childFiles = childPaths.filter(childPath => fsx.isFile(`${dirPath}/${childPath}`));
+
+        return { targetDir, dirPath, childPaths, childFiles };
     };
 
     const targetDirs = [targetDir, ...dirPaths];
