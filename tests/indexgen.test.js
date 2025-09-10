@@ -47,6 +47,7 @@ const doTest = (config, expected) => {
 test('cjs', () => {
     const expected = `
 module.exports = {
+    'baz.qux': require('./baz.qux'),
     _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
     _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
@@ -63,7 +64,6 @@ module.exports = {
     legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper')
 };
-
 `;
 
     const config = { type: 'cjs', fullySpecified: false };
@@ -73,6 +73,7 @@ module.exports = {
 test('cjs fullySpecified', () => {
     const expected = `
 module.exports = {
+    'baz.qux': require('./baz.qux.js'),
     _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower.js'),
     _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper.js'),
     $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower.js'),
@@ -89,7 +90,6 @@ module.exports = {
     legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower.js'),
     LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper.js')
 };
-
 `;
 
     const config = { type: 'cjs', fullySpecified: true };
@@ -98,6 +98,7 @@ module.exports = {
 
 test('esm', () => {
     const expected = `
+import { default as baz_qux } from './baz.qux';
 import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower';
 import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper';
 import { default as $legalJsNameStartingWithDollarAndLower } from './$legalJsNameStartingWithDollarAndLower';
@@ -115,13 +116,14 @@ import { default as legalJsNameStartingWithLower } from './legalJsNameStartingWi
 import { default as LegalJsNameStartingWithUpper } from './LegalJsNameStartingWithUpper';
 
 export default {
+    'baz.qux': baz_qux,
     _legalJsNameStartingWithUnderscoreAndLower,
     _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
     $LegalJsNameStartingWithDollarAndUpper,
     illegalJsNameStartingWithLowerWithSortString1,
     IllegalJsNameStartingWithUpperWithSortString1,
-    illegalJsNameWithNumber,
+    '1-illegalJsNameWithNumber': illegalJsNameWithNumber,
     illegalJsNameWithSortString2,
     illegalJsNameWithSortString10,
     fooBar,
@@ -131,14 +133,15 @@ export default {
     legalJsNameStartingWithLower,
     LegalJsNameStartingWithUpper
 };
-
 `;
+
     const config = { type: 'esm', fullySpecified: false };
     doTest(config, expected);
 });
 
 test('esm fullySpecified', () => {
     const expected = `
+import { default as baz_qux } from './baz.qux.js';
 import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower.js';
 import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
 import { default as $legalJsNameStartingWithDollarAndLower } from './$legalJsNameStartingWithDollarAndLower.js';
@@ -156,13 +159,14 @@ import { default as legalJsNameStartingWithLower } from './legalJsNameStartingWi
 import { default as LegalJsNameStartingWithUpper } from './LegalJsNameStartingWithUpper.js';
 
 export default {
+    'baz.qux': baz_qux,
     _legalJsNameStartingWithUnderscoreAndLower,
     _LegalJsNameStartingWithUnderscoreAndUpper,
     $legalJsNameStartingWithDollarAndLower,
     $LegalJsNameStartingWithDollarAndUpper,
     illegalJsNameStartingWithLowerWithSortString1,
     IllegalJsNameStartingWithUpperWithSortString1,
-    illegalJsNameWithNumber,
+    '1-illegalJsNameWithNumber': illegalJsNameWithNumber,
     illegalJsNameWithSortString2,
     illegalJsNameWithSortString10,
     fooBar,
@@ -172,7 +176,6 @@ export default {
     legalJsNameStartingWithLower,
     LegalJsNameStartingWithUpper
 };
-
 `;
 
     const config = { type: 'esm', fullySpecified: true };
