@@ -44,6 +44,10 @@ const doTest = (config, expected) => {
     commands.indexgen('modules');
 };
 
+// --------------------
+// Baseline (preserveDots = true default)
+// --------------------
+
 test('cjs', () => {
     const expected = `
 module.exports = {
@@ -66,7 +70,7 @@ module.exports = {
 };
 `;
 
-    const config = { type: 'cjs', fullySpecified: false };
+    const config = { type: 'cjs', fullySpecified: false, preserveDots: true };
     doTest(config, expected);
 });
 
@@ -92,7 +96,7 @@ module.exports = {
 };
 `;
 
-    const config = { type: 'cjs', fullySpecified: true };
+    const config = { type: 'cjs', fullySpecified: true, preserveDots: true };
     doTest(config, expected);
 });
 
@@ -135,7 +139,7 @@ export default {
 };
 `;
 
-    const config = { type: 'esm', fullySpecified: false };
+    const config = { type: 'esm', fullySpecified: false, preserveDots: true };
     doTest(config, expected);
 });
 
@@ -178,6 +182,79 @@ export default {
 };
 `;
 
-    const config = { type: 'esm', fullySpecified: true };
+    const config = { type: 'esm', fullySpecified: true, preserveDots: true };
+    doTest(config, expected);
+});
+
+// --------------------
+// New behavior: preserveDots = false
+// --------------------
+
+test('cjs (preserveDots=false)', () => {
+    const expected = `
+module.exports = {
+    bazQux: require('./baz.qux'),
+    _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
+    _LegalJsNameStartingWithUnderscoreAndUpper: require('./_LegalJsNameStartingWithUnderscoreAndUpper'),
+    $legalJsNameStartingWithDollarAndLower: require('./$legalJsNameStartingWithDollarAndLower'),
+    $LegalJsNameStartingWithDollarAndUpper: require('./$LegalJsNameStartingWithDollarAndUpper'),
+    illegalJsNameStartingWithLowerWithSortString1: require('./1--illegal-js-name-starting-with-lower-with-sort-string-1'),
+    IllegalJsNameStartingWithUpperWithSortString1: require('./1--Illegal-js-name-starting-with-upper-with-sort-string-1'),
+    '1-illegalJsNameWithNumber': require('./1-illegal-js-name-with-number'),
+    illegalJsNameWithSortString2: require('./2--illegal-js-name-with-sort-string-2'),
+    illegalJsNameWithSortString10: require('./10--illegal-js-name-with-sort-string-10'),
+    fooBar: require('./bar,foo'),
+    illegalJsNameStartingWithLower: require('./illegal-js-name-starting-with-lower'),
+    IllegalJsNameStartingWithUpper: require('./Illegal-js-name-starting-with-upper'),
+    JsonFile: require('./JsonFile.json'),
+    legalJsNameStartingWithLower: require('./legalJsNameStartingWithLower'),
+    LegalJsNameStartingWithUpper: require('./LegalJsNameStartingWithUpper')
+};
+`;
+
+    const config = { type: 'cjs', fullySpecified: false, preserveDots: false, case: 'camel' };
+    doTest(config, expected);
+});
+
+test('esm (preserveDots=false)', () => {
+    const expected = `
+import { default as bazQux } from './baz.qux';
+import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower';
+import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper';
+import { default as $legalJsNameStartingWithDollarAndLower } from './$legalJsNameStartingWithDollarAndLower';
+import { default as $LegalJsNameStartingWithDollarAndUpper } from './$LegalJsNameStartingWithDollarAndUpper';
+import { default as illegalJsNameStartingWithLowerWithSortString1 } from './1--illegal-js-name-starting-with-lower-with-sort-string-1';
+import { default as IllegalJsNameStartingWithUpperWithSortString1 } from './1--Illegal-js-name-starting-with-upper-with-sort-string-1';
+import { default as illegalJsNameWithNumber } from './1-illegal-js-name-with-number';
+import { default as illegalJsNameWithSortString2 } from './2--illegal-js-name-with-sort-string-2';
+import { default as illegalJsNameWithSortString10 } from './10--illegal-js-name-with-sort-string-10';
+import { default as fooBar } from './bar,foo';
+import { default as illegalJsNameStartingWithLower } from './illegal-js-name-starting-with-lower';
+import { default as IllegalJsNameStartingWithUpper } from './Illegal-js-name-starting-with-upper';
+import { default as JsonFile } from './JsonFile.json';
+import { default as legalJsNameStartingWithLower } from './legalJsNameStartingWithLower';
+import { default as LegalJsNameStartingWithUpper } from './LegalJsNameStartingWithUpper';
+
+export default {
+    bazQux,
+    _legalJsNameStartingWithUnderscoreAndLower,
+    _LegalJsNameStartingWithUnderscoreAndUpper,
+    $legalJsNameStartingWithDollarAndLower,
+    $LegalJsNameStartingWithDollarAndUpper,
+    illegalJsNameStartingWithLowerWithSortString1,
+    IllegalJsNameStartingWithUpperWithSortString1,
+    '1-illegalJsNameWithNumber': illegalJsNameWithNumber,
+    illegalJsNameWithSortString2,
+    illegalJsNameWithSortString10,
+    fooBar,
+    illegalJsNameStartingWithLower,
+    IllegalJsNameStartingWithUpper,
+    JsonFile,
+    legalJsNameStartingWithLower,
+    LegalJsNameStartingWithUpper
+};
+`;
+
+    const config = { type: 'esm', fullySpecified: false, preserveDots: false, case: 'camel' };
     doTest(config, expected);
 });
