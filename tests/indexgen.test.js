@@ -20,7 +20,8 @@ const glob = (pattern, options) => {
         '1--illegal-js-name-starting-with-lower-with-sort-string-1.js',
         '1--Illegal-js-name-starting-with-upper-with-sort-string-1.js',
         'JsonFile.json',
-        'bar,foo'
+        'bar,foo',
+        'baz.qux.js'
     ];
     return [];
 };

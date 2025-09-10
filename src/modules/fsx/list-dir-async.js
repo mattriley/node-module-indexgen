@@ -7,23 +7,6 @@ module.exports = ({ config, fsx, io }) => async targetDir => {
         onlyDirectories: true
     });
 
-    // helper: count dots
-    const dotCount = s => {
-        let n = 0;
-        for (let i = 0; i < s.length; i++) {
-            if (s.charCodeAt(i) === 46) { n++; } // '.' = 46
-        }
-        return n;
-    };
-
-    // comparator: most dots first, then alphabetical
-    const byDotsDescThenAlpha = (a, b) => {
-        const da = dotCount(a);
-        const db = dotCount(b);
-        if (da !== db) { return db - da; }
-        return a < b ? -1 : a > b ? 1 : 0;
-    };
-
     const mapper = async dirPath => {
 
         const childDirPaths = await io.glob('*', {
@@ -39,21 +22,14 @@ module.exports = ({ config, fsx, io }) => async targetDir => {
             ignore: [config.filename, 'indexgen.config.json']
         });
 
-        // Files: filter + sort
-        const childFiles = [...childFilePaths]
-            .filter(p => fsx.isFile(path.join(dirPath, p)))
-            .sort(byDotsDescThenAlpha);
+        const childPaths = [...childDirPaths, ...childFilePaths];
+        const childFiles = childPaths.filter(childPath => fsx.isFile(path.join(dirPath, childPath)));
 
-        // Dirs: sort with same comparator
-        const childDirs = [...childDirPaths].sort(byDotsDescThenAlpha);
-
-        // Files first, then dirs
-        const childPaths = [...childFiles, ...childDirs];
-
-        return { targetDir, dirPath, childPaths, childFiles, childDirs };
+        return { targetDir, dirPath, childPaths, childFiles };
     };
 
     const targetDirs = [targetDir, ...dirPaths];
 
     return Promise.all(targetDirs.map(mapper));
+
 };
