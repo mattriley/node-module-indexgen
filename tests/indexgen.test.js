@@ -97,21 +97,21 @@ module.exports = {
 
 test('esm', () => {
     const expected = `
-import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower';
-import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper';
-import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower';
-import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper';
-import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1';
-import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1';
-import illegalJsNameWithNumber from './1-illegal-js-name-with-number';
-import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
-import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
-import fooBar from './bar,foo';
-import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower';
-import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper';
-import JsonFile from './JsonFile.json';
-import legalJsNameStartingWithLower from './legalJsNameStartingWithLower';
-import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper';
+import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower';
+import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper';
+import { default as $legalJsNameStartingWithDollarAndLower } from './$legalJsNameStartingWithDollarAndLower';
+import { default as $LegalJsNameStartingWithDollarAndUpper } from './$LegalJsNameStartingWithDollarAndUpper';
+import { default as illegalJsNameStartingWithLowerWithSortString1 } from './1--illegal-js-name-starting-with-lower-with-sort-string-1';
+import { default as IllegalJsNameStartingWithUpperWithSortString1 } from './1--Illegal-js-name-starting-with-upper-with-sort-string-1';
+import { default as illegalJsNameWithNumber } from './1-illegal-js-name-with-number';
+import { default as illegalJsNameWithSortString2 } from './2--illegal-js-name-with-sort-string-2';
+import { default as illegalJsNameWithSortString10 } from './10--illegal-js-name-with-sort-string-10';
+import { default as fooBar } from './bar,foo';
+import { default as illegalJsNameStartingWithLower } from './illegal-js-name-starting-with-lower';
+import { default as IllegalJsNameStartingWithUpper } from './Illegal-js-name-starting-with-upper';
+import { default as JsonFile } from './JsonFile.json';
+import { default as legalJsNameStartingWithLower } from './legalJsNameStartingWithLower';
+import { default as LegalJsNameStartingWithUpper } from './LegalJsNameStartingWithUpper';
 
 export default {
     _legalJsNameStartingWithUnderscoreAndLower,
@@ -138,21 +138,21 @@ export default {
 
 test('esm fullySpecified', () => {
     const expected = `
-import _legalJsNameStartingWithUnderscoreAndLower from './_legalJsNameStartingWithUnderscoreAndLower.js';
-import _LegalJsNameStartingWithUnderscoreAndUpper from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
-import $legalJsNameStartingWithDollarAndLower from './$legalJsNameStartingWithDollarAndLower.js';
-import $LegalJsNameStartingWithDollarAndUpper from './$LegalJsNameStartingWithDollarAndUpper.js';
-import illegalJsNameStartingWithLowerWithSortString1 from './1--illegal-js-name-starting-with-lower-with-sort-string-1.js';
-import IllegalJsNameStartingWithUpperWithSortString1 from './1--Illegal-js-name-starting-with-upper-with-sort-string-1.js';
-import illegalJsNameWithNumber from './1-illegal-js-name-with-number';
-import illegalJsNameWithSortString2 from './2--illegal-js-name-with-sort-string-2';
-import illegalJsNameWithSortString10 from './10--illegal-js-name-with-sort-string-10';
-import fooBar from './bar,foo';
-import illegalJsNameStartingWithLower from './illegal-js-name-starting-with-lower.js';
-import IllegalJsNameStartingWithUpper from './Illegal-js-name-starting-with-upper.js';
-import JsonFile from './JsonFile.json';
-import legalJsNameStartingWithLower from './legalJsNameStartingWithLower.js';
-import LegalJsNameStartingWithUpper from './LegalJsNameStartingWithUpper.js';
+import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower.js';
+import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
+import { default as $legalJsNameStartingWithDollarAndLower } from './$legalJsNameStartingWithDollarAndLower.js';
+import { default as $LegalJsNameStartingWithDollarAndUpper } from './$LegalJsNameStartingWithDollarAndUpper.js';
+import { default as illegalJsNameStartingWithLowerWithSortString1 } from './1--illegal-js-name-starting-with-lower-with-sort-string-1.js';
+import { default as IllegalJsNameStartingWithUpperWithSortString1 } from './1--Illegal-js-name-starting-with-upper-with-sort-string-1.js';
+import { default as illegalJsNameWithNumber } from './1-illegal-js-name-with-number';
+import { default as illegalJsNameWithSortString2 } from './2--illegal-js-name-with-sort-string-2';
+import { default as illegalJsNameWithSortString10 } from './10--illegal-js-name-with-sort-string-10';
+import { default as fooBar } from './bar,foo';
+import { default as illegalJsNameStartingWithLower } from './illegal-js-name-starting-with-lower.js';
+import { default as IllegalJsNameStartingWithUpper } from './Illegal-js-name-starting-with-upper.js';
+import { default as JsonFile } from './JsonFile.json';
+import { default as legalJsNameStartingWithLower } from './legalJsNameStartingWithLower.js';
+import { default as LegalJsNameStartingWithUpper } from './LegalJsNameStartingWithUpper.js';
 
 export default {
     _legalJsNameStartingWithUnderscoreAndLower,
