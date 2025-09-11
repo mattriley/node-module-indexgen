@@ -8,5 +8,6 @@ module.exports = {
     reverseDelimiter: ',',
     sortSeparator: '--',
     keepLeadingSymbols: true,
-    case: 'auto'
+    case: 'auto',
+    preserveDots: true
 };
