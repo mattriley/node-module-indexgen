@@ -7,7 +7,13 @@ module.exports = ({ overrides, config }) => {
     const { configure } = composer(modules, { overrides });
 
     const { compose } = configure(defaultConfig, config, config => {
-        return { fullySpecified: config.fullySpecified ?? config.type === 'esm' };
+        const fullySpecified = config.fullySpecified ?? config.type === 'esm';
+
+        const overrides = Object.entries(config.overrides ?? {}).map(([dirpath, configOverride]) => {
+            return [dirpath, { fullySpecified, ...config, ...configOverride }];
+        });
+
+        return { fullySpecified, overrides };
     });
 
     const { io } = compose('io');

@@ -1,7 +1,6 @@
 module.exports = ({ self, config }) => dirData => {
 
-    const configOverride = config.overrides?.[dirData.targetDir] ?? {};
-    const configFinal = { ...config, ...configOverride };
+    const configFinal = config.overrides[dirData.targetDir] ?? config;
 
     const childDataList = dirData.sortedChildPaths.map(childPath => {
         const isFile = dirData.childFiles.includes(childPath);
