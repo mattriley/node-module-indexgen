@@ -17,17 +17,12 @@ module.exports = ({ defaults }) => (pathname, config) => {
     if (fullySpecified && isDir) {
         return `./${pathname}${config.filename}`;
     }
-
     if (fullySpecified) {
         return `./${pathname}`;
     }
 
-    if (isDir) {
-        const normalized = basenameWithoutExt.endsWith('/')
-            ? basenameWithoutExt.slice(0, -1)
-            : basenameWithoutExt;
-        return `./${normalized}`;
-    }
+    const needsStrip = isDir && basenameWithoutExt.endsWith('/');
+    const normalizedBase = needsStrip ? basenameWithoutExt.slice(0, -1) : basenameWithoutExt;
 
-    return `./${basenameWithoutExt}`;
+    return `./${normalizedBase}`;
 };
