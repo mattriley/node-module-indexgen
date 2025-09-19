@@ -16,7 +16,7 @@ module.exports = ({ util }) => (pathname, config) => {
         .reverse();
 
     // 3) Capture any leading non-[a-z] symbols separately so we can optionally re-attach
-    const match = basenameMinusSort.match(/^([^a-z]+)?(.+)$/);
+    const match = basenameMinusSort.match(/^([^a-zA-Z]+)?(.+)$/);
     const leadingSymbols = match?.[1] ?? '';
     const keyAlpha = match?.[2] ?? basenameMinusSort;
 
@@ -49,7 +49,7 @@ module.exports = ({ util }) => (pathname, config) => {
 
     const none = keyBare;
     const casing = { camel, pascal, auto, none };
-    const keyCase = casing[config.case] ?? auto;
+    const keyCase = auto;
 
     // 8) Optionally re-attach original leading symbols
     return config.keepLeadingSymbols ? (leadingSymbols + keyCase) : keyCase;
