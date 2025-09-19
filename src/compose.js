@@ -7,9 +7,7 @@ module.exports = ({ overrides, config } = {}) => {
 
     const { configure } = composer(modules, { overrides });
 
-    const { compose } = configure(defaultConfig, config, config => {
-        return normConfig(config);
-    });
+    const { compose } = configure(defaultConfig, config, normConfig);
 
     const { io } = compose('io');
     const { util } = compose('util');
