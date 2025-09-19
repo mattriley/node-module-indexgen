@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = ({ defaults }) => (pathname, config) => {
+
     config = { ...defaults, ...config };
 
     const parsed = path.parse(pathname);
@@ -25,4 +26,5 @@ module.exports = ({ defaults }) => (pathname, config) => {
     const normalisedBase = needsStrip ? basenameWithoutExt.slice(0, -1) : basenameWithoutExt;
 
     return `./${normalisedBase}`;
+
 };

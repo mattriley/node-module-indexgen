@@ -52,4 +52,5 @@ module.exports = ({ util, defaults }) => (pathname, config) => {
 
     // 7) Optionally re-attach original leading symbols
     return keepLeadingSymbols ? (leading + keyAuto) : keyAuto;
+
 };
