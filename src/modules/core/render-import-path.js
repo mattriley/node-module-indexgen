@@ -22,7 +22,7 @@ module.exports = ({ defaults }) => (pathname, config) => {
     }
 
     const needsStrip = isDir && basenameWithoutExt.endsWith('/');
-    const normalizedBase = needsStrip ? basenameWithoutExt.slice(0, -1) : basenameWithoutExt;
+    const normalisedBase = needsStrip ? basenameWithoutExt.slice(0, -1) : basenameWithoutExt;
 
-    return `./${normalizedBase}`;
+    return `./${normalisedBase}`;
 };
