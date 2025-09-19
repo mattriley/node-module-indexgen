@@ -1,6 +1,4 @@
-const path = require('path');
-
-module.exports = ({ config, fsx, io }) => async targetDir => {
+module.exports = ({ config, io }) => async targetDir => {
 
     const dirPaths = await io.glob(`${targetDir}/**`, {
         ignore: [config.ignore].flat(),
