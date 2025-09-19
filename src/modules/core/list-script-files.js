@@ -1,13 +1,9 @@
-module.exports = ({ self, config }) => dirData => {
+module.exports = ({ self }) => dirData => {
 
-    const configFinal = config.overrides[dirData.targetDir] ?? config;
-
-    const childDataList = dirData.sortedChildPaths.map(childPath => {
-        const exportName = self.renderExportName(childPath, configFinal);
-        const importPath = self.renderImportPath(childPath, configFinal);
+    return dirData.sortedChildPaths.map(childPath => {
+        const exportName = self.renderExportName(childPath, dirData.config);
+        const importPath = self.renderImportPath(childPath, dirData.config);
         return { exportName, importPath };
     });
-
-    return childDataList;
 
 };
