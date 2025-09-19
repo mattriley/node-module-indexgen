@@ -15,7 +15,9 @@ module.exports = ({ config, fsx, io }) => async targetDir => {
             markDirectories: true
         });
 
-        const childFilePaths = await io.glob(config.only, {
+        const pattern = `*{${config.applicableExtensions.join(',')}}`;
+
+        const childFilePaths = await io.glob(pattern, {
             cwd: dirPath,
             onlyFiles: true,
             globstar: false,
