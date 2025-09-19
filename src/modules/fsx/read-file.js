@@ -1,10 +1,5 @@
-module.exports = ({ io }) => async filePath => {
+module.exports = ({ io, util }) => {
 
-    try {
-        const content = await io.fsp.readFile(filePath, 'utf-8');
-        return [null, content];
-    } catch (err) {
-        return [err];
-    }
+    return util.to(filePath => io.fsp.readFile(filePath, 'utf-8'));
 
 };

@@ -21,7 +21,7 @@ module.exports = ({ overrides, config } = {}) => {
     const { io } = compose('io');
     const { util } = compose('util');
     const { renderers } = compose('renderers', { util });
-    const { fsx } = compose('fsx', { io });
+    const { fsx } = compose('fsx', { io, util });
     const { core } = compose('core', { renderers, util });
     return compose('commands', { core, fsx, io });
 

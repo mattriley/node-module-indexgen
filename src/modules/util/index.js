@@ -3,5 +3,6 @@ module.exports = {
     legalJsName: require('./legal-js-name'),
     startsWithUpper: require('./starts-with-upper'),
     trimLeadingIllegalJsChars: require('./trim-leading-illegal-js-chars'),
-    upperFirst: require('./upper-first')
+    upperFirst: require('./upper-first'),
+    to: require('./to')
 };
