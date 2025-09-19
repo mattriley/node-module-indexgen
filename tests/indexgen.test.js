@@ -28,7 +28,6 @@ const glob = (pattern, options) => {
 
 const doTest = (config, expected) => {
     const fs = {
-        statSync: () => ({ isFile: () => true }),
         promises: {
             access: () => Promise.reject(),
             writeFile: (filename, content) => {

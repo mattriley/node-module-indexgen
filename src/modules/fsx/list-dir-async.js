@@ -25,9 +25,8 @@ module.exports = ({ config, fsx, io }) => async targetDir => {
         });
 
         const childPaths = [...childDirPaths, ...childFilePaths];
-        const childFiles = childPaths.filter(childPath => fsx.isFile(path.join(dirPath, childPath)));
 
-        return { targetDir, dirPath, childPaths, childFiles };
+        return { targetDir, dirPath, childPaths };
     };
 
     const targetDirs = [targetDir, ...dirPaths];
