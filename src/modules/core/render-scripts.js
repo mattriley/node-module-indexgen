@@ -12,9 +12,8 @@ module.exports = ({ self, renderers, config }) => dirDataList => {
             return { exportName, importPath };
         });
 
-        const script = renderScript({ files });
-        const dirPath = dirData.dirPath;
-        return { dirPath, script };
+        dirData.script = renderScript({ files });
+        return dirData;
     });
 
 };
