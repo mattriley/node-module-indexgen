@@ -22,12 +22,11 @@ module.exports = ({ defaults }) => (pathname, config) => {
         return `./${pathname}`;
     }
 
-    if (isDir && basenameWithoutExt.endsWith('/')) {
-        return `./${basenameWithoutExt.slice(0, -1)}`;
-    }
-
     if (isDir) {
-        return `./${basenameWithoutExt}`;
+        const normalized = basenameWithoutExt.endsWith('/')
+            ? basenameWithoutExt.slice(0, -1)
+            : basenameWithoutExt;
+        return `./${normalized}`;
     }
 
     return `./${basenameWithoutExt}`;
