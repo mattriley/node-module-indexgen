@@ -1,5 +1,3 @@
-'use strict';
-
 const { describe } = require('node:test');
 
 module.exports = ({ test, assert }) => compose => {
