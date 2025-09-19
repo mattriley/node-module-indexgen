@@ -4,7 +4,7 @@ const { describe, beforeEach } = require('node:test');
 
 module.exports = ({ test, assert }) => compose => {
     const buildSubject = ({ config }) => {
-        const fn = compose({ config }).core.getExportName;
+        const fn = compose({ config }).core.renderExportName;
         return pathname => fn(pathname, config);
     };
 

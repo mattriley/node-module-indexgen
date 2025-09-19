@@ -3,7 +3,7 @@ module.exports = ({ self, config }) => dirData => {
     const configFinal = config.overrides[dirData.targetDir] ?? config;
 
     const childDataList = dirData.sortedChildPaths.map(childPath => {
-        const exportName = self.getExportName(childPath, configFinal);
+        const exportName = self.renderExportName(childPath, configFinal);
         const importPath = self.getImportPath(childPath, configFinal);
         return { exportName, importPath };
     });

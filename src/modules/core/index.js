@@ -1,6 +1,6 @@
 module.exports = {
     renderScripts: require('./render-scripts'),
-    getExportName: require('./get-export-name'),
+    renderExportName: require('./render-export-name'),
     getImportPath: require('./get-import-path'),
     getScriptFiles: require('./get-script-files'),
     sortPaths: require('./sort-paths')
