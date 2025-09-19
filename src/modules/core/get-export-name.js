@@ -37,19 +37,14 @@ module.exports = ({ util }) => (pathname, config) => {
         : camelCase(keyBare);
     const pascal = util.upperFirst(camel);
 
-    // 7) AUTO mode
-    let auto;
+    let keyCase;
     if (config.preserveDots) {
-        auto = util.legalJsName(keyBare)
+        keyCase = util.legalJsName(keyBare)
             ? keyBare
             : (util.startsWithUpper(keyBare) ? pascal : camel);
     } else {
-        auto = util.startsWithUpper(keyBare) ? pascal : camel;
+        keyCase = util.startsWithUpper(keyBare) ? pascal : camel;
     }
-
-    const none = keyBare;
-    const casing = { camel, pascal, auto, none };
-    const keyCase = auto;
 
     // 8) Optionally re-attach original leading symbols
     return config.keepLeadingSymbols ? (leadingSymbols + keyCase) : keyCase;

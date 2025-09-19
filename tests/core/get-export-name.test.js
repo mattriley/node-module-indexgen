@@ -17,7 +17,6 @@ module.exports = ({ test, assert }) => compose => {
                 sortSeparator: '__',
                 reverseDelimiter: ',',
                 preserveDots: true,
-                case: 'auto',
                 keepLeadingSymbols: false
             };
         });
