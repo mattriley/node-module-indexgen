@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = ({ defaults }) => (pathname, config) => {
-
     config = { ...defaults, ...config };
 
     const parsed = path.parse(pathname);
@@ -15,21 +14,21 @@ module.exports = ({ defaults }) => (pathname, config) => {
     const isDir = pathname.endsWith('/');
     const fullySpecified = config.fullySpecified || cleanExt === 'json';
 
-    let pathUnqualified;
-
-    if (fullySpecified) {
-        // keep slash for dirs, append filename
-        pathUnqualified = isDir
-            ? pathname + config.filename
-            : pathname;
-    } else {
-        // strip extension if applicable
-        pathUnqualified = basenameWithoutExt;
-        // also strip trailing slash for dirs
-        if (isDir && pathUnqualified.endsWith('/')) {
-            pathUnqualified = pathUnqualified.slice(0, -1);
-        }
+    if (fullySpecified && isDir) {
+        return `./${pathname}${config.filename}`;
     }
 
-    return `./${pathUnqualified}`;
+    if (fullySpecified) {
+        return `./${pathname}`;
+    }
+
+    if (isDir && basenameWithoutExt.endsWith('/')) {
+        return `./${basenameWithoutExt.slice(0, -1)}`;
+    }
+
+    if (isDir) {
+        return `./${basenameWithoutExt}`;
+    }
+
+    return `./${basenameWithoutExt}`;
 };
