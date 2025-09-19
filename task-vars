@@ -2,7 +2,7 @@
 
 # export NODE_VERSION="20.5.0"
 export NODE_VERSION="22.16.0"
-
+export TEST_RUNNER="module-testrunner"
 export DEV_TASKS="edit | test-watch"
 
 export COV_BRANCHES=60
