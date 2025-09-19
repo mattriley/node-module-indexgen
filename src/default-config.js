@@ -1,4 +1,7 @@
+const applicableExtensions = ['cjs', 'mjs', 'js', 'json', 'jsx'];
+
 module.exports = {
+    applicableExtensions,
     filename: 'index.js',
     fullySpecified: undefined,
     type: 'cjs',
