@@ -1,39 +1,45 @@
 const path = require('path');
 
-module.exports = ({ io, fsx, config }) => (scriptDataList) => {
+module.exports = ({ io, util, config }) => {
 
-    const { console } = io;
+    const readFile = util.to(filePath => io.fsp.readFile(filePath, 'utf-8'));
+    const writeFile = util.to((filePath, content) => io.fsp.writeFile(filePath, content));
 
-    const toStr = v => (v == null ? v : String(v));
+    return (scriptDataList) => {
 
-    const writeOne = async ({ dirPath, script }) => {
-        const filePath = path.join(dirPath, config.filename);
+        const { console } = io;
 
-        const [readErr, current] = await fsx.readFile(filePath);
+        const toStr = v => (v == null ? v : String(v));
 
-        // If read failed for a reason other than "not found", log it but continue
-        if (readErr && readErr.code !== 'ENOENT') {
-            console.error(readErr);
-        }
+        const writeOne = async ({ dirPath, script }) => {
+            const filePath = path.join(dirPath, config.filename);
 
-        const existed = !readErr;
-        const currentText = existed ? toStr(current) : null;
+            const [readErr, current] = await readFile(filePath);
 
-        // No change — skip write & logging
-        if (existed && currentText === script) {
-            return;
-        }
+            // If read failed for a reason other than "not found", log it but continue
+            if (readErr && readErr.code !== 'ENOENT') {
+                console.error(readErr);
+            }
 
-        const [writeErr] = await fsx.writeFile(filePath, script);
-        if (writeErr) {
-            console.log(`      Error ${filePath}`);
-            console.error(writeErr);
-            return;
-        }
+            const existed = !readErr;
+            const currentText = existed ? toStr(current) : null;
 
-        // Success
-        console.log(`${existed ? 'Regenerated' : '  Generated'} ${filePath}`);
+            // No change — skip write & logging
+            if (existed && currentText === script) {
+                return;
+            }
+
+            const [writeErr] = await writeFile(filePath, script);
+            if (writeErr) {
+                console.log(`      Error ${filePath}`);
+                console.error(writeErr);
+                return;
+            }
+
+            // Success
+            console.log(`${existed ? 'Regenerated' : '  Generated'} ${filePath}`);
+        };
+
+        return Promise.all(scriptDataList.map(writeOne));
     };
-
-    return Promise.all(scriptDataList.map(writeOne));
 };
