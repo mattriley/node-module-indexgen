@@ -1,91 +1,66 @@
-const { describe, beforeEach } = require('node:test');
+const { describe } = require('node:test');
 
 module.exports = ({ test, assert }) => compose => {
 
-    const renderImportPath = ({ config }) => {
-        const fn = compose({ config }).core.renderImportPath
-        return pathname => fn(pathname, config);
-    };
+    const { renderImportPath } = compose().core;
 
     describe('render-import-path', () => {
-        let baseConfig;
-
-        beforeEach(() => {
-            baseConfig = {
-                applicableExtensions: ['js', 'ts', 'json'],
-                fullySpecified: false,
-                filename: 'index.js',   // used when fullySpecified && isDir
-            };
-        });
 
         test('known extension (.js) is stripped when not fullySpecified', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-            assert.equal(getPath('src/foo/bar.js'), './src/foo/bar');
-            assert.equal(getPath('foo.js'), './foo');
+            assert.equal(renderImportPath('src/foo/bar.js'), './src/foo/bar');
+            assert.equal(renderImportPath('foo.js'), './foo');
         });
 
         test('unknown extension (.md) is NOT stripped', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-            assert.equal(getPath('docs/readme.md'), './docs/readme.md');
+            assert.equal(renderImportPath('docs/readme.md'), './docs/readme.md');
         });
 
         test('json files are always fully-specified (extension kept)', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-            assert.equal(getPath('data/config.json'), './data/config.json');
+            assert.equal(renderImportPath('data/config.json'), './data/config.json');
         });
 
         test('config.fullySpecified=true keeps file extensions and appends filename for dirs', () => {
-            const cfg = { ...baseConfig, fullySpecified: true, filename: 'index.js' };
-            const getPath = renderImportPath({ config: cfg });
+            const cfg = { fullySpecified: true, filename: 'index.js' };
 
             // Files: keep as-is (keep extension)
-            assert.equal(getPath('src/util/helpers.ts'), './src/util/helpers.ts');
+            assert.equal(renderImportPath('src/util/helpers.ts', cfg), './src/util/helpers.ts');
 
             // Dirs: append filename to the trailing slash
-            assert.equal(getPath('src/components/'), './src/components/index.js');
-            assert.equal(getPath('components/'), './components/index.js');
+            assert.equal(renderImportPath('src/components/', cfg), './src/components/index.js');
+            assert.equal(renderImportPath('components/', cfg), './components/index.js');
         });
 
         test('dirs when not fullySpecified: remove trailing slash (no filename appended)', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-            assert.equal(getPath('lib/'), './lib');
-            assert.equal(getPath('nested/path/'), './nested/path');
+            assert.equal(renderImportPath('lib/'), './lib');
+            assert.equal(renderImportPath('nested/path/'), './nested/path');
         });
 
         test('nested paths: known ext strips, unknown ext keeps', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-
-            assert.equal(getPath('a/b/c/d.ts'), './a/b/c/d');         // known ext
-            assert.equal(getPath('a/b/c/d.custom'), './a/b/c/d.custom'); // unknown ext
+            assert.equal(renderImportPath('a/b/c/d.ts'), './a/b/c/d');         // known ext
+            assert.equal(renderImportPath('a/b/c/d.custom'), './a/b/c/d.custom'); // unknown ext
         });
 
         test('leading "./" is always prefixed', () => {
-            const getPath = renderImportPath({ config: baseConfig });
-
             // identity-ish checks across cases
-            assert.equal(getPath('x/y/z.js'), './x/y/z');
-            assert.equal(getPath('x/y/z.json'), './x/y/z.json');
-            assert.equal(getPath('x/y/'), './x/y');
+            assert.equal(renderImportPath('x/y/z.js'), './x/y/z');
+            assert.equal(renderImportPath('x/y/z.json'), './x/y/z.json');
+            assert.equal(renderImportPath('x/y/'), './x/y');
         });
 
         test('filename is respected when fullySpecified + dir; different filename', () => {
-            const cfg = { ...baseConfig, fullySpecified: true, filename: 'module.cjs' };
-            const getPath = renderImportPath({ config: cfg });
-            assert.equal(getPath('pkg/'), './pkg/module.cjs');
+            const cfg = { fullySpecified: true, filename: 'module.cjs' };
+            assert.equal(renderImportPath('pkg/', cfg), './pkg/module.cjs');
         });
 
         test('known extension but fullySpecified=true keeps extension', () => {
-            const cfg = { ...baseConfig, fullySpecified: true };
-            const getPath = renderImportPath({ config: cfg });
-            assert.equal(getPath('main.js'), './main.js');
+            const cfg = { fullySpecified: true };
+            assert.equal(renderImportPath('main.js', cfg), './main.js');
         });
 
         test('unknown extension with fullySpecified=true also kept (files), dirs still get filename', () => {
-            const cfg = { ...baseConfig, fullySpecified: true, filename: 'index.js' };
-            const getPath = renderImportPath({ config: cfg });
-
-            assert.equal(getPath('readme.txt'), './readme.txt');       // file: keep ext
-            assert.equal(getPath('pkg/feature/'), './pkg/feature/index.js'); // dir: append filename
+            const cfg = { fullySpecified: true, filename: 'index.js' };
+            assert.equal(renderImportPath('readme.txt', cfg), './readme.txt');       // file: keep ext
+            assert.equal(renderImportPath('pkg/feature/', cfg), './pkg/feature/index.js'); // dir: append filename
         });
     });
 };

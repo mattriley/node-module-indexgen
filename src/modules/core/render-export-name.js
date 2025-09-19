@@ -1,7 +1,10 @@
 const camelCase = require('lodash.camelcase');
 const path = require('path');
 
-module.exports = ({ util, defaults }) => (pathname, config = defaults) => {
+module.exports = ({ util, defaults }) => (pathname, config) => {
+
+    config = { ...defaults, ...config };
+
     const {
         applicableExtensions = [],
         sortSeparator,
