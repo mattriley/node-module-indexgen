@@ -1,14 +1,16 @@
 const camelCase = require('lodash.camelcase');
 const path = require('path');
 
-module.exports = ({ config, util }) => (pathname, config) => {
-    const EXT_SET = new Set(config.applicableExtensions.map(e => e.toLowerCase()));
+module.exports = ({ util }) => (pathname, config) => {
+    // build case-insensitive extension set
+    const extSet = new Set(
+        config.applicableExtensions.map(ext => String(ext).toLowerCase())
+    );
 
-    // 1) Base name (strip extension only if the ext is in EXT_SET; ignore "isFile")
-    //    ext includes the dot (e.g., ".js"); we lowercase for matching.
+    // 1) Base name (strip extension only if the ext is in extSet)
     const { name, ext } = path.parse(pathname);
-    const cleanExt = (ext || '').slice(1).toLowerCase();
-    const basenameMinusExtension = EXT_SET.has(cleanExt)
+    const cleanExt = ext ? ext.slice(1).toLowerCase() : '';
+    const basenameMinusExtension = extSet.has(cleanExt)
         ? name
         : path.basename(pathname);
 
@@ -54,9 +56,5 @@ module.exports = ({ config, util }) => (pathname, config) => {
     const keyCase = casing[config.case] ?? auto;
 
     // 8) Optionally re-attach original leading symbols
-    if (config.keepLeadingSymbols) {
-        return leadingSymbols + keyCase;
-    }
-
-    return keyCase;
+    return config.keepLeadingSymbols ? (leadingSymbols + keyCase) : keyCase;
 };
