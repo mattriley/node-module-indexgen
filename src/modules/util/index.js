@@ -4,5 +4,5 @@ module.exports = {
     startsWithUpper: require('./starts-with-upper'),
     trimLeadingIllegalJsChars: require('./trim-leading-illegal-js-chars'),
     upperFirst: require('./upper-first'),
-    to: require('./to')
+    awaitTo: require('./await-to')
 };

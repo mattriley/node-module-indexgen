@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = ({ io, util, config }) => {
 
-    const readFile = util.to(filePath => io.fsp.readFile(filePath, 'utf-8'));
-    const writeFile = util.to((filePath, content) => io.fsp.writeFile(filePath, content));
+    const readFile = util.awaitTo(filePath => io.fsp.readFile(filePath, 'utf-8'));
+    const writeFile = util.awaitTo((filePath, content) => io.fsp.writeFile(filePath, content));
 
     return (scriptDataList) => {
 
