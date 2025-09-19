@@ -1,13 +1,12 @@
-const normConfig = require('./norm-config.js');
-const defaultConfig = require('./default-config.js');
+const normalise = require('./normalise.js');
+const defaults = require('./defaults.js');
 const modules = require('./modules');
 const composer = require('module-composer');
 
 module.exports = ({ overrides, config } = {}) => {
 
     const { configure } = composer(modules, { overrides });
-
-    const { compose } = configure(defaultConfig, config, normConfig);
+    const { compose } = configure(defaults, config, normalise);
 
     const { io } = compose('io');
     const { util } = compose('util');
