@@ -1,5 +1,5 @@
 module.exports = {
-    applicableExtensions: ['.cjs', '.mjs', '.js', '.json', '.jsx'],
+    applicableExtensions: ['cjs', 'mjs', 'js', 'json', 'jsx'],
     filename: 'index.js',
     fullySpecified: undefined,
     type: 'cjs',

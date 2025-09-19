@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = ({ config }) => {
 
     const EXT_SET = new Set(config.applicableExtensions);
@@ -7,17 +9,16 @@ module.exports = ({ config }) => {
         const collator = new Intl.Collator([], { numeric: true });
         const DOT_RE = /\./g;
 
-        const baseForDotCount = path => {
-            // Strip a known extension only if the dot is after the last slash
-            const slash = path.lastIndexOf('/');
-            const dot = path.lastIndexOf('.');
-            if (dot > slash) {
-                const ext = path.slice(dot);
-                if (EXT_SET.has(ext)) {
-                    path = path.slice(0, dot);
-                }
+        const baseForDotCount = filePath => {
+            const { dir, name, ext } = path.parse(filePath);
+            // ext includes the dot, e.g. ".js"
+            const cleanExt = ext.slice(1).toLowerCase();
+
+            if (EXT_SET.has(cleanExt)) {
+                // reconstruct path without the extension
+                return dir ? path.join(dir, name) : name;
             }
-            return path;
+            return filePath;
         };
 
         const dotCounts = Object.fromEntries(

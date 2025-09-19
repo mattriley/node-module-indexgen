@@ -5,7 +5,7 @@ const compose = require('../src/compose');
 const glob = (pattern, options) => {
     if (pattern === 'modules/**') return ['foo'];
     if (pattern === '*/' && options.cwd === 'foo') return [];
-    if (pattern !== '*{.cjs,.mjs,.js,.json,.jsx}' && options.cwd === 'foo') return [
+    if (pattern !== '*.{cjs,mjs,js,json,jsx}' && options.cwd === 'foo') return [
         '_legalJsNameStartingWithUnderscoreAndLower.js',
         '_LegalJsNameStartingWithUnderscoreAndUpper.js',
         '$legalJsNameStartingWithDollarAndLower.js',
