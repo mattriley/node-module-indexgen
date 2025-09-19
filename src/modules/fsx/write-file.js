@@ -1,10 +1,5 @@
-module.exports = ({ io }) => async (filePath, content) => {
+module.exports = ({ io, util }) => {
 
-    try {
-        await io.fsp.writeFile(filePath, content);
-        return [null];
-    } catch (err) {
-        return [err];
-    }
+    return util.to((filePath, content) => io.fsp.writeFile(filePath, content));
 
 };
