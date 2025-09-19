@@ -3,5 +3,5 @@ module.exports = {
     getExportName: require('./get-export-name'),
     getImportPath: require('./get-import-path'),
     getScriptFiles: require('./get-script-files'),
-    sortFiles: require('./sort-files')
+    sortPaths: require('./sort-paths')
 };

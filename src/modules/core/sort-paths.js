@@ -1,4 +1,4 @@
-module.exports = () => childPaths => {
+module.exports = () => paths => {
 
     const collator = new Intl.Collator([], { numeric: true });
     const DOT_RE = /\./g;
@@ -20,7 +20,7 @@ module.exports = () => childPaths => {
     };
 
     const dotCounts = Object.fromEntries(
-        childPaths.map(p => {
+        paths.map(p => {
             const base = baseForDotCount(p);
             const matches = base.match(DOT_RE);
             const count = matches ? matches.length : 0;
@@ -28,7 +28,7 @@ module.exports = () => childPaths => {
         })
     );
 
-    const sortedPaths = childPaths.sort((a, b) => {
+    const sortedPaths = paths.sort((a, b) => {
         const da = dotCounts[a];
         const db = dotCounts[b];
         if (db !== da) {
