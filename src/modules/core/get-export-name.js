@@ -2,15 +2,11 @@ const camelCase = require('lodash.camelcase');
 const path = require('path');
 
 module.exports = ({ util }) => (pathname, config) => {
-    // normalize extensions once per call
-    const lowerExts = config.applicableExtensions.map(ext =>
-        String(ext).toLowerCase()
-    );
 
     // 1) Base name (strip extension only if the ext is in lowerExts)
     const { name, ext } = path.parse(pathname);
     const cleanExt = ext ? ext.slice(1).toLowerCase() : '';
-    const basenameMinusExtension = lowerExts.includes(cleanExt)
+    const basenameMinusExtension = config.applicableExtensions.includes(cleanExt)
         ? name
         : path.basename(pathname);
 

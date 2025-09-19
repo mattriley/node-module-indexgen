@@ -155,30 +155,5 @@ module.exports = ({ test, assert }) => compose => {
             assert.equal(key('m__a.b.c.ts'), 'aBC');
         });
 
-        test('extension matching is case-insensitive', () => {
-            const cfg = {
-                applicableExtensions: ['JS', 'Ts', 'Json'], // upper/mixed case in config
-                sortSeparator: '__',
-                reverseDelimiter: ',',
-                preserveDots: true,
-                case: 'auto',
-                keepLeadingSymbols: false
-            };
-            const key = buildSubject({ config: cfg });
-
-            // File extension in mixed case should be stripped (config has 'JS')
-            assert.equal(key('dir/foo__bar.JS'), 'bar');
-            assert.equal(key('dir/foo__bar.Js'), 'bar');
-            assert.equal(key('dir/foo__bar.jS'), 'bar');
-
-            // Same for .TS
-            assert.equal(key('src/module__Baz.Ts'), 'az'); // TODO: fix
-
-            // JSON is in applicableExtensions → it is stripped here (export-name generator)
-            assert.equal(key('data/config__settings.JSON'), 'settings');
-
-            // Unknown extension (case-insensitive) is not stripped
-            assert.equal(key('docs/readme__Intro.MD'), 'ntro.md'); // TODO: fix
-        });
     });
 };

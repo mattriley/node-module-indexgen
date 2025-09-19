@@ -1,12 +1,10 @@
 const path = require('path');
 
-module.exports = ({ util }) => (pathname, config) => {
-    // normalize extensions for case-insensitive matching
-    const lowerExts = config.applicableExtensions.map(e => e.toLowerCase());
+module.exports = () => (pathname, config) => {
 
     const parsed = path.parse(pathname);
     const cleanExt = parsed.ext ? parsed.ext.slice(1).toLowerCase() : '';
-    const hasKnownExt = lowerExts.includes(cleanExt);
+    const hasKnownExt = config.applicableExtensions.includes(cleanExt);
 
     const basenameWithoutExt = hasKnownExt
         ? path.format({ ...parsed, base: undefined, ext: '' })

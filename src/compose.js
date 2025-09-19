@@ -2,18 +2,25 @@ const defaultConfig = require('./default-config.js');
 const modules = require('./modules');
 const composer = require('module-composer');
 
+const normConfig = config => {
+    const fullySpecified = config.fullySpecified ?? config.type === 'esm';
+    const applicableExtensions = config.applicableExtensions.map(ext => String(ext).toLowerCase());
+    return { ...config, fullySpecified, applicableExtensions };
+}
+
 module.exports = ({ overrides, config }) => {
 
     const { configure } = composer(modules, { overrides });
 
     const { compose } = configure(defaultConfig, config, config => {
-        const fullySpecified = config.fullySpecified ?? config.type === 'esm';
+        config = normConfig(config);
 
         const overrides = Object.entries(config.overrides ?? {}).map(([dirpath, configOverride]) => {
-            return [dirpath, { fullySpecified, ...config, ...configOverride }];
+            configOverride = normConfig({ ...config, ...configOverride });
+            return [dirpath, configOverride];
         });
 
-        return { fullySpecified, overrides };
+        return { ...config, overrides };
     });
 
     const { io } = compose('io');
