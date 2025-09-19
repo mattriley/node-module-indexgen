@@ -8,7 +8,7 @@ const normConfig = config => {
     return { ...config, fullySpecified, applicableExtensions };
 }
 
-module.exports = ({ overrides, config }) => {
+module.exports = ({ overrides, config } = {}) => {
 
     const { configure } = composer(modules, { overrides });
 
