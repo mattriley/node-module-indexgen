@@ -6,13 +6,13 @@ module.exports = ({ self, renderers, config }) => dirDataList => {
         dirData.config = config.overrides[dirData.targetDir] ?? config;
         dirData.sortedChildPaths = self.sortPaths(dirData.childPaths);
 
-        const files = dirData.sortedChildPaths.map(childPath => {
+        dirData.files = dirData.sortedChildPaths.map(childPath => {
             const exportName = self.renderExportName(childPath, dirData.config);
             const importPath = self.renderImportPath(childPath, dirData.config);
             return { exportName, importPath };
         });
 
-        dirData.script = renderScript({ files });
+        dirData.script = renderScript(dirData);
         return dirData;
     });
 

@@ -1,4 +1,4 @@
-module.exports = ({ util }) => ({ files }) => {
+module.exports = ({ util }) => dirData => {
 
     // Valid JS identifier?
     const IDENT_RE = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
@@ -15,7 +15,7 @@ module.exports = ({ util }) => ({ files }) => {
     };
 
     // Preserve the original (possibly dotted) key; derive a safe local import name
-    const items = files.map(f => {
+    const items = dirData.files.map(f => {
         const keyName = f.exportName; // public API key (may be 'baz.qux', start with digit, etc.)
         const localName = IDENT_RE.test(keyName)
             ? util.trimLeadingIllegalJsChars(keyName) // fine to use as-is (after your trim)
