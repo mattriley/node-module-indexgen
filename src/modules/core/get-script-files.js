@@ -4,15 +4,8 @@ module.exports = ({ self, config }) => dirData => {
     const configOverride = config.overrides?.[dirData.targetDir] ?? {};
     const configFinal = { ...config, ...configOverride };
 
-    const childDataList = childPaths.map(childPath => {
-        const isFile = dirData.childFiles.includes(childPath);
-        const exportName = self.getExportName(childPath, configFinal, { isFile });
-        const importPath = self.getImportPath(childPath, configFinal);
-        return { exportName, importPath };
-    });
 
-    const sortFiles = childDataList => {
-        const filesByPath = Object.fromEntries(childDataList.map(f => [f.importPath, f]));
+    const sortFiles = childPaths => {
         const collator = new Intl.Collator([], { numeric: true });
         const DOT_RE = /\./g;
 
@@ -33,7 +26,7 @@ module.exports = ({ self, config }) => dirData => {
         };
 
         const dotCounts = Object.fromEntries(
-            Object.keys(filesByPath).map(p => {
+            childPaths.map(p => {
                 const base = baseForDotCount(p);
                 const matches = base.match(DOT_RE);
                 const count = matches ? matches.length : 0;
@@ -41,7 +34,7 @@ module.exports = ({ self, config }) => dirData => {
             })
         );
 
-        const sortedPaths = Object.keys(filesByPath).sort((a, b) => {
+        const sortedPaths = childPaths.sort((a, b) => {
             const da = dotCounts[a];
             const db = dotCounts[b];
             if (db !== da) {
@@ -51,9 +44,21 @@ module.exports = ({ self, config }) => dirData => {
             return collator.compare(a, b);
         });
 
-        return sortedPaths.map(path => filesByPath[path]);
+        return sortedPaths;
     };
 
-    return sortFiles(childDataList);
+    const sortedChildPaths = sortFiles(childPaths);
+
+
+    const childDataList = sortedChildPaths.map(childPath => {
+        const isFile = dirData.childFiles.includes(childPath);
+        const exportName = self.getExportName(childPath, configFinal, { isFile });
+        const importPath = self.getImportPath(childPath, configFinal);
+        return { exportName, importPath };
+    });
+
+
+
+    return childDataList;
 
 };
