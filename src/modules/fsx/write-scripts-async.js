@@ -1,6 +1,9 @@
 const path = require('path');
 
-module.exports = ({ fsx, config }) => (scriptDataList) => {
+module.exports = ({ io, fsx, config }) => (scriptDataList) => {
+
+    const { console } = io;
+
     const toStr = v => (v == null ? v : String(v));
 
     const writeOne = async ({ dirPath, script }) => {

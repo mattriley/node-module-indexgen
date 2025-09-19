@@ -38,7 +38,9 @@ const doTest = (config, expected) => {
         }
     };
 
-    const overrides = { io: { fs, glob } };
+    const console = { log: () => { }, error: () => { } };
+    const io = { console, fs, glob };
+    const overrides = { io };
     const { commands } = compose({ overrides, config });
     commands.indexgen('modules');
 };
