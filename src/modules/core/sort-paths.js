@@ -1,4 +1,4 @@
-module.exports = () => paths => {
+module.exports = ({ config }) => paths => {
 
     const collator = new Intl.Collator([], { numeric: true });
     const DOT_RE = /\./g;
@@ -13,7 +13,7 @@ module.exports = () => paths => {
         if (dot > slash) {
             const ext = path.slice(dot);
             if (EXT_SET.has(ext)) {
-                return path.slice(0, dot);
+                path = path.slice(0, dot);
             }
         }
         return path;
@@ -22,7 +22,12 @@ module.exports = () => paths => {
     const dotCounts = Object.fromEntries(
         paths.map(p => {
             const base = baseForDotCount(p);
-            const matches = base.match(DOT_RE);
+
+            // Only look at the substring *after* the sortSeparator
+            const idx = base.indexOf(config.sortSeparator);
+            const after = idx >= 0 ? base.slice(idx + config.sortSeparator.length) : base;
+
+            const matches = after.match(DOT_RE);
             const count = matches ? matches.length : 0;
             return [p, count];
         })
