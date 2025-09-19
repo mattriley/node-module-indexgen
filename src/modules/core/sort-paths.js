@@ -2,7 +2,6 @@ module.exports = ({ config }) => {
 
     const applicableExtensions = config.applicableExtensions.map(ext => `.${ext}`);
     const EXT_SET = new Set(applicableExtensions);
-    console.warn(EXT_SET);
 
     return paths => {
 
