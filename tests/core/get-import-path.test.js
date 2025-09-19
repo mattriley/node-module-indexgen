@@ -6,7 +6,7 @@ module.exports = ({ test, assert }) => compose => {
 
     const buildSubject = ({ config }) => {
         // util is unused by the module, but we pass an empty object to match signature
-        const fn = compose({ config }).core.getImportPath
+        const fn = compose({ config }).core.renderImportPath
         // Subject signature: (pathname, config)
         return pathname => fn(pathname, config);
     };
