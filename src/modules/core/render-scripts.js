@@ -4,7 +4,7 @@ module.exports = ({ self, renderers, config }) => dirDataList => {
 
     return dirDataList.map(dirData => {
         dirData.sortedChildPaths = self.sortPaths(dirData.childPaths);
-        const files = self.getScriptFiles(dirData);
+        const files = self.listScriptFiles(dirData);
         const script = renderScript({ files });
         const dirPath = dirData.dirPath;
         return { dirPath, script };
