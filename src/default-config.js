@@ -1,11 +1,11 @@
-const applicableExtensions = ['cjs', 'mjs', 'js', 'json', 'jsx'];
+const applicableExtensions = ['.cjs', '.mjs', '.js', '.json', '.jsx'];
 
 module.exports = {
     applicableExtensions,
     filename: 'index.js',
     fullySpecified: undefined,
     type: 'cjs',
-    only: '*{.cjs,.mjs,.js,.json,.jsx}',
+    only: `*{${applicableExtensions.join(',')}}`,
     ignore: 'node_modules',
     watchDelay: 1000,
     reverseDelimiter: ',',

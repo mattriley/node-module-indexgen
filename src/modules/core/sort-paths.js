@@ -1,7 +1,6 @@
 module.exports = ({ config }) => {
 
-    const applicableExtensions = config.applicableExtensions.map(ext => `.${ext}`);
-    const EXT_SET = new Set(applicableExtensions);
+    const EXT_SET = new Set(config.applicableExtensions);
 
     return paths => {
 
