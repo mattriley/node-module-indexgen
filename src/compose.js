@@ -8,14 +8,7 @@ module.exports = ({ overrides, config } = {}) => {
     const { configure } = composer(modules, { overrides });
 
     const { compose } = configure(defaultConfig, config, config => {
-        config = normConfig(config);
-
-        const overrides = Object.entries(config.overrides ?? {}).map(([dirpath, configOverride]) => {
-            configOverride = normConfig({ ...config, ...configOverride });
-            return [dirpath, configOverride];
-        });
-
-        return { ...config, overrides };
+        return normConfig(config);
     });
 
     const { io } = compose('io');
