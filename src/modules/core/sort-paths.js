@@ -1,20 +1,19 @@
 const path = require('path');
 
 module.exports = ({ config }) => {
-
-    const EXT_SET = new Set(config.applicableExtensions);
+    // config.applicableExtensions is expected to be all lowercase
+    const applicableExtensions = config.applicableExtensions;
 
     return paths => {
-
         const collator = new Intl.Collator([], { numeric: true });
         const DOT_RE = /\./g;
 
         const baseForDotCount = filePath => {
             const { dir, name, ext } = path.parse(filePath);
             // ext includes the dot, e.g. ".js"
-            const cleanExt = ext.slice(1).toLowerCase();
+            const cleanExt = ext ? ext.slice(1).toLowerCase() : '';
 
-            if (EXT_SET.has(cleanExt)) {
+            if (applicableExtensions.includes(cleanExt)) {
                 // reconstruct path without the extension
                 return dir ? path.join(dir, name) : name;
             }
@@ -46,6 +45,5 @@ module.exports = ({ config }) => {
         });
 
         return sortedPaths;
-
     };
 };
