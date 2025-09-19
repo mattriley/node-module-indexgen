@@ -4,7 +4,7 @@ const defaults = require('./defaults.js');
 const normalise = require('./normalise.js');
 
 module.exports = ({ overrides, config } = {}) => {
-    const { configure } = composer(modules, { overrides });
+    const { configure } = composer(modules, { overrides, configAlias: ['defaults'] });
     const { compose } = configure(defaults, config, normalise);
     const { io } = compose('io');
     const { util } = compose('util');

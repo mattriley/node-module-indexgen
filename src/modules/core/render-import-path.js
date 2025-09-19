@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = () => (pathname, config) => {
+module.exports = ({ defaults }) => (pathname, config = defaults) => {
 
     const parsed = path.parse(pathname);
     const cleanExt = parsed.ext ? parsed.ext.slice(1).toLowerCase() : '';
