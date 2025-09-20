@@ -1,56 +1,56 @@
-const test = require('node:test');
-const assert = require('node:assert').strict;
-const compose = require('../src/compose');
+module.exports = ({ describe, test, assert }) => compose => {
 
-const glob = (pattern, options) => {
-    if (pattern === 'modules/**') return ['foo'];
-    if (pattern === '*/' && options.cwd === 'foo') return [];
-    if (pattern !== '*.{cjs,mjs,js,json,jsx}' && options.cwd === 'foo') return [
-        '_legalJsNameStartingWithUnderscoreAndLower.js',
-        '_LegalJsNameStartingWithUnderscoreAndUpper.js',
-        '$legalJsNameStartingWithDollarAndLower.js',
-        '$LegalJsNameStartingWithDollarAndUpper.js',
-        'legalJsNameStartingWithLower.js',
-        'LegalJsNameStartingWithUpper.js',
-        'illegal-js-name-starting-with-lower.js',
-        'Illegal-js-name-starting-with-upper.js',
-        '1-illegal-js-name-with-number',
-        '10--illegal-js-name-with-sort-string-10',
-        '2--illegal-js-name-with-sort-string-2',
-        '1--illegal-js-name-starting-with-lower-with-sort-string-1.js',
-        '1--Illegal-js-name-starting-with-upper-with-sort-string-1.js',
-        'JsonFile.json',
-        'bar,foo',
-        'baz.qux.js'
-    ];
-    return [];
-};
+    describe('integration-tests', () => {
 
-const doTest = (config, expected) => {
-    const fs = {
-        promises: {
-            access: () => Promise.reject(),
-            writeFile: (filename, content) => {
-                if (filename === 'modules/index.js') return;
-                assert.equal(filename, 'foo/index.js');
-                assert.equal(content.trim(), expected.trim());
-            }
-        }
-    };
+        const glob = (pattern, options) => {
+            if (pattern === 'modules/**') return ['foo'];
+            if (pattern === '*/' && options.cwd === 'foo') return [];
+            if (pattern !== '*.{cjs,mjs,js,json,jsx}' && options.cwd === 'foo') return [
+                '_legalJsNameStartingWithUnderscoreAndLower.js',
+                '_LegalJsNameStartingWithUnderscoreAndUpper.js',
+                '$legalJsNameStartingWithDollarAndLower.js',
+                '$LegalJsNameStartingWithDollarAndUpper.js',
+                'legalJsNameStartingWithLower.js',
+                'LegalJsNameStartingWithUpper.js',
+                'illegal-js-name-starting-with-lower.js',
+                'Illegal-js-name-starting-with-upper.js',
+                '1-illegal-js-name-with-number',
+                '10--illegal-js-name-with-sort-string-10',
+                '2--illegal-js-name-with-sort-string-2',
+                '1--illegal-js-name-starting-with-lower-with-sort-string-1.js',
+                '1--Illegal-js-name-starting-with-upper-with-sort-string-1.js',
+                'JsonFile.json',
+                'bar,foo',
+                'baz.qux.js'
+            ];
+            return [];
+        };
 
-    const console = { log: () => { }, error: () => { } };
-    const io = { console, fs, glob };
-    const overrides = { io };
-    const { commands } = compose({ overrides, config });
-    commands.indexgen('modules');
-};
+        const doTest = (config, expected) => {
+            const fs = {
+                promises: {
+                    access: () => Promise.reject(),
+                    writeFile: (filename, content) => {
+                        if (filename === 'modules/index.js') return;
+                        assert.equal(filename, 'foo/index.js');
+                        assert.equal(content.trim(), expected.trim());
+                    }
+                }
+            };
 
-// --------------------
-// Baseline (preserveDots = true default)
-// --------------------
+            const console = { log: () => { }, error: () => { } };
+            const io = { console, fs, glob };
+            const overrides = { io };
+            const { commands } = compose({ overrides, config });
+            commands.indexgen('modules');
+        };
 
-test('cjs', () => {
-    const expected = `
+        // --------------------
+        // Baseline (preserveDots = true default)
+        // --------------------
+
+        test('cjs', () => {
+            const expected = `
 module.exports = {
     'baz.qux': require('./baz.qux'),
     _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
@@ -71,12 +71,12 @@ module.exports = {
 };
 `;
 
-    const config = { type: 'cjs', fullySpecified: false, preserveDots: true };
-    doTest(config, expected);
-});
+            const config = { type: 'cjs', fullySpecified: false, preserveDots: true };
+            doTest(config, expected);
+        });
 
-test('cjs fullySpecified', () => {
-    const expected = `
+        test('cjs fullySpecified', () => {
+            const expected = `
 module.exports = {
     'baz.qux': require('./baz.qux.js'),
     _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower.js'),
@@ -97,12 +97,12 @@ module.exports = {
 };
 `;
 
-    const config = { type: 'cjs', fullySpecified: true, preserveDots: true };
-    doTest(config, expected);
-});
+            const config = { type: 'cjs', fullySpecified: true, preserveDots: true };
+            doTest(config, expected);
+        });
 
-test('esm', () => {
-    const expected = `
+        test('esm', () => {
+            const expected = `
 import { default as baz_qux } from './baz.qux';
 import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower';
 import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper';
@@ -140,12 +140,12 @@ export default {
 };
 `;
 
-    const config = { type: 'esm', fullySpecified: false, preserveDots: true };
-    doTest(config, expected);
-});
+            const config = { type: 'esm', fullySpecified: false, preserveDots: true };
+            doTest(config, expected);
+        });
 
-test('esm fullySpecified', () => {
-    const expected = `
+        test('esm fullySpecified', () => {
+            const expected = `
 import { default as baz_qux } from './baz.qux.js';
 import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower.js';
 import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper.js';
@@ -183,16 +183,16 @@ export default {
 };
 `;
 
-    const config = { type: 'esm', fullySpecified: true, preserveDots: true };
-    doTest(config, expected);
-});
+            const config = { type: 'esm', fullySpecified: true, preserveDots: true };
+            doTest(config, expected);
+        });
 
-// --------------------
-// New behavior: preserveDots = false
-// --------------------
+        // --------------------
+        // New behavior: preserveDots = false
+        // --------------------
 
-test('cjs (preserveDots=false)', () => {
-    const expected = `
+        test('cjs (preserveDots=false)', () => {
+            const expected = `
 module.exports = {
     bazQux: require('./baz.qux'),
     _legalJsNameStartingWithUnderscoreAndLower: require('./_legalJsNameStartingWithUnderscoreAndLower'),
@@ -213,12 +213,12 @@ module.exports = {
 };
 `;
 
-    const config = { type: 'cjs', fullySpecified: false, preserveDots: false, case: 'camel' };
-    doTest(config, expected);
-});
+            const config = { type: 'cjs', fullySpecified: false, preserveDots: false, case: 'camel' };
+            doTest(config, expected);
+        });
 
-test('esm (preserveDots=false)', () => {
-    const expected = `
+        test('esm (preserveDots=false)', () => {
+            const expected = `
 import { default as bazQux } from './baz.qux';
 import { default as _legalJsNameStartingWithUnderscoreAndLower } from './_legalJsNameStartingWithUnderscoreAndLower';
 import { default as _LegalJsNameStartingWithUnderscoreAndUpper } from './_LegalJsNameStartingWithUnderscoreAndUpper';
@@ -256,6 +256,11 @@ export default {
 };
 `;
 
-    const config = { type: 'esm', fullySpecified: false, preserveDots: false, case: 'camel' };
-    doTest(config, expected);
-});
+            const config = { type: 'esm', fullySpecified: false, preserveDots: false, case: 'camel' };
+            doTest(config, expected);
+        });
+
+    });
+
+
+};
