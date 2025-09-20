@@ -22,9 +22,7 @@ module.exports = ({ config, io }) => async targetDir => {
             ignore: [config.filename, 'indexgen.config.json']
         });
 
-        let childPaths = [...childDirPaths, ...childFilePaths];
-        childPaths = Array.from(new Set(childPaths));
-
+        const childPaths = Array.from(new Set([...childDirPaths, ...childFilePaths]));
 
         return { targetDir, dirPath, childPaths };
     };
