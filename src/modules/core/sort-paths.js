@@ -15,9 +15,7 @@ module.exports = ({ config }) => paths => {
         paths.map(filePath => {
             const base = baseForDotCount(filePath);
             const sepIndex = base.indexOf(config.sortSeparator);
-            const after = sepIndex >= 0
-                ? base.slice(sepIndex + config.sortSeparator.length)
-                : base;
+            const after = sepIndex >= 0? base.slice(sepIndex + config.sortSeparator.length): base;
 
             const matches = after.match(dotRe);
             const count = matches ? matches.length : 0;

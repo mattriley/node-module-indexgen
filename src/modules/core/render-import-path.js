@@ -8,9 +8,7 @@ module.exports = ({ defaults }) => (pathname, config) => {
     const cleanExt = parsed.ext ? parsed.ext.slice(1).toLowerCase() : '';
     const hasKnownExt = config.applicableExtensions.includes(cleanExt);
 
-    const basenameWithoutExt = hasKnownExt
-        ? path.format({ ...parsed, base: undefined, ext: '' })
-        : pathname;
+    const basenameWithoutExt = hasKnownExt? path.format({ ...parsed, base: undefined, ext: '' }): pathname;
 
     const isDir = pathname.endsWith('/');
     const fullySpecified = config.fullySpecified || cleanExt === 'json';

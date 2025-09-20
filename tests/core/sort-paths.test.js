@@ -4,8 +4,8 @@ module.exports = ({ test, assert }) => compose => {
 
     const makeSorter = ({ config }) => {
         const { core } = compose({ config });
-        return core.sortPaths
-    }
+        return core.sortPaths;
+    };
 
     describe('sort-by-dots', () => {
         let config;

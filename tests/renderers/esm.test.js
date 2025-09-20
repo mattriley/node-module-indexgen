@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = ({ test, assert }) => compose => {
 
     const { renderers } = compose();
@@ -22,7 +20,7 @@ module.exports = ({ test, assert }) => compose => {
             { exportName: 'kebab-case', importPath: './kebab-case' },
             { exportName: 'has.dot', importPath: './has.dot' },
             { exportName: '123abc', importPath: './n123' },      // leading digits get TRIMMED → "abc"
-            { exportName: 'Foo-Bar.Baz', importPath: './Foo-Bar.Baz' },
+            { exportName: 'Foo-Bar.Baz', importPath: './Foo-Bar.Baz' }
         ];
 
         const expected = `
@@ -78,7 +76,7 @@ export default {
         const files = [
             { exportName: 'a.b', importPath: './a.b' },
             { exportName: 'x-y', importPath: './x-y' },
-            { exportName: '9lives', importPath: './nine' },  // leading digit trimmed → "lives"
+            { exportName: '9lives', importPath: './nine' }  // leading digit trimmed → "lives"
         ];
 
         const expected = `
