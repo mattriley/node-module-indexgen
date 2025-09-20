@@ -1,6 +1,4 @@
-const { describe } = require('node:test');
-
-module.exports = ({ test, assert }) => compose => {
+module.exports = ({ describe, test, assert }) => compose => {
 
     const { renderImportPath } = compose().core;
 

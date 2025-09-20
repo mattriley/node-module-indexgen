@@ -1,11 +1,8 @@
-const { describe } = require('node:test');
-
-module.exports = ({ test, assert }) => compose => {
+module.exports = ({ describe, test, assert }) => compose => {
 
     const { sortPaths } = compose().core;
 
     describe('sort-paths', () => {
-        let config;
 
         test('counts dots ONLY after sortSeparator and strips applicable extension', () => {
 

@@ -1,29 +1,31 @@
-module.exports = ({ test, assert }) => compose => {
+module.exports = ({ describe, test, assert }) => compose => {
 
     const { renderers } = compose();
 
-    test('emits empty module when files is empty', () => {
-        const out = renderers.esm({ files: [] });
-        // renderer prints two newlines before export block when there are no imports
-        assert.equal(out, `\n\nexport default {\n\n};\n`);
-    });
+    describe('esm-renderer', () => {
 
-    test('legal identifiers use shorthand; illegal are quoted and bound to safe locals', () => {
-        const files = [
-            // legal identifiers → shorthand in export object; local binding equals the ident
-            { exportName: 'foo', importPath: './foo' },
-            { exportName: 'barBaz1', importPath: './barBaz1' },
-            { exportName: '$dollar', importPath: './$dollar' },
-            { exportName: '_underscore', importPath: './_underscore' },
+        test('emits empty module when files is empty', () => {
+            const out = renderers.esm({ files: [] });
+            // renderer prints two newlines before export block when there are no imports
+            assert.equal(out, `\n\nexport default {\n\n};\n`);
+        });
 
-            // illegal identifiers → create safe local names and quote keys in object
-            { exportName: 'kebab-case', importPath: './kebab-case' },
-            { exportName: 'has.dot', importPath: './has.dot' },
-            { exportName: '123abc', importPath: './n123' },      // leading digits get TRIMMED → "abc"
-            { exportName: 'Foo-Bar.Baz', importPath: './Foo-Bar.Baz' }
-        ];
+        test('legal identifiers use shorthand; illegal are quoted and bound to safe locals', () => {
+            const files = [
+                // legal identifiers → shorthand in export object; local binding equals the ident
+                { exportName: 'foo', importPath: './foo' },
+                { exportName: 'barBaz1', importPath: './barBaz1' },
+                { exportName: '$dollar', importPath: './$dollar' },
+                { exportName: '_underscore', importPath: './_underscore' },
 
-        const expected = `
+                // illegal identifiers → create safe local names and quote keys in object
+                { exportName: 'kebab-case', importPath: './kebab-case' },
+                { exportName: 'has.dot', importPath: './has.dot' },
+                { exportName: '123abc', importPath: './n123' },      // leading digits get TRIMMED → "abc"
+                { exportName: 'Foo-Bar.Baz', importPath: './Foo-Bar.Baz' }
+            ];
+
+            const expected = `
 import { default as foo } from './foo';
 import { default as barBaz1 } from './barBaz1';
 import { default as $dollar } from './$dollar';
@@ -45,18 +47,18 @@ export default {
 };
 `.trim() + '\n';
 
-        const out = renderers.esm({ files });
-        assert.equal(out, expected);
-    });
+            const out = renderers.esm({ files });
+            assert.equal(out, expected);
+        });
 
-    test('preserves input order (imports and export object lines)', () => {
-        const files = [
-            { exportName: 'z', importPath: './z' },
-            { exportName: 'a', importPath: './a' },
-            { exportName: 'm', importPath: './m' }
-        ];
+        test('preserves input order (imports and export object lines)', () => {
+            const files = [
+                { exportName: 'z', importPath: './z' },
+                { exportName: 'a', importPath: './a' },
+                { exportName: 'm', importPath: './m' }
+            ];
 
-        const expected = `
+            const expected = `
 import { default as z } from './z';
 import { default as a } from './a';
 import { default as m } from './m';
@@ -68,18 +70,18 @@ export default {
 };
 `.trim() + '\n';
 
-        const out = renderers.esm({ files });
-        assert.equal(out, expected);
-    });
+            const out = renderers.esm({ files });
+            assert.equal(out, expected);
+        });
 
-    test('mixed: dotted + kebab + starts-with-digit map to safe local names', () => {
-        const files = [
-            { exportName: 'a.b', importPath: './a.b' },
-            { exportName: 'x-y', importPath: './x-y' },
-            { exportName: '9lives', importPath: './nine' }  // leading digit trimmed → "lives"
-        ];
+        test('mixed: dotted + kebab + starts-with-digit map to safe local names', () => {
+            const files = [
+                { exportName: 'a.b', importPath: './a.b' },
+                { exportName: 'x-y', importPath: './x-y' },
+                { exportName: '9lives', importPath: './nine' }  // leading digit trimmed → "lives"
+            ];
 
-        const expected = `
+            const expected = `
 import { default as a_b } from './a.b';
 import { default as x_y } from './x-y';
 import { default as lives } from './nine';
@@ -91,8 +93,10 @@ export default {
 };
 `.trim() + '\n';
 
-        const out = renderers.esm({ files });
-        assert.equal(out, expected);
+            const out = renderers.esm({ files });
+            assert.equal(out, expected);
+        });
+
     });
 
 };

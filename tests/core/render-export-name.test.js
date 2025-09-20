@@ -1,10 +1,9 @@
-const { describe } = require('node:test');
-
-module.exports = ({ test, assert }) => compose => {
+module.exports = ({ describe, test, assert }) => compose => {
 
     const { renderExportName } = compose().core;
 
     describe('render-export-name', () => {
+
         test('strips extension only when it is in EXT_SET', () => {
             assert.equal(renderExportName('dir/file--alpha.beta.js'), 'alpha.beta');     // ext stripped
             assert.equal(renderExportName('dir/file--alpha.beta.md'), 'alpha.beta.md');  // ext kept
