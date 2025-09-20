@@ -1,14 +1,13 @@
 const path = require('path');
 
 module.exports = ({ commands, io, config }) => targetDir => {
-
-    let timeoutId = null;
+    const state = { timeoutId: null };
 
     const generateFilesDelayed = () => {
-        if (timeoutId) return;
-        timeoutId = setTimeout(() => {
-            clearTimeout(timeoutId);
-            timeoutId = null;
+        if (state.timeoutId) return;
+        state.timeoutId = setTimeout(() => {
+            clearTimeout(state.timeoutId);
+            state.timeoutId = null;
             commands.indexgen(targetDir);
         }, config.watchDelay);
     };
@@ -21,5 +20,4 @@ module.exports = ({ commands, io, config }) => targetDir => {
     } catch (err) {
         console.warn(err.message);
     }
-
 };
